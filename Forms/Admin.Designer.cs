@@ -32,49 +32,49 @@ namespace AAVD.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.eb_name_emp = new System.Windows.Forms.TextBox();
-            this.eb_ap_emp = new System.Windows.Forms.TextBox();
-            this.eb_am_emp = new System.Windows.Forms.TextBox();
-            this.eb_curp_emp = new System.Windows.Forms.TextBox();
-            this.eb_rfc_emp = new System.Windows.Forms.TextBox();
-            this.btn_emp_pass = new System.Windows.Forms.TextBox();
-            this.btn_emp_user = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_alta_empleado = new System.Windows.Forms.Button();
-            this.dtp_nac_emp = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.EmployeesWinDtg = new System.Windows.Forms.DataGridView();
-            this.DATE_OF_BIRTH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClavesUnicas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EMPLOYEE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MOTHER_LAST_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_editar_emp = new System.Windows.Forms.Button();
-            this.btn_borrar_emp = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.id_emp = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.id_emp = new System.Windows.Forms.TextBox();
+            this.btn_emp_user = new System.Windows.Forms.TextBox();
+            this.btn_emp_pass = new System.Windows.Forms.TextBox();
+            this.eb_rfc_emp = new System.Windows.Forms.TextBox();
+            this.eb_curp_emp = new System.Windows.Forms.TextBox();
+            this.eb_am_emp = new System.Windows.Forms.TextBox();
+            this.eb_ap_emp = new System.Windows.Forms.TextBox();
+            this.eb_name_emp = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btn_borrar_emp = new System.Windows.Forms.Button();
+            this.btn_editar_emp = new System.Windows.Forms.Button();
+            this.EmployeesWinDtg = new System.Windows.Forms.DataGridView();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MOTHER_LAST_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EMPLOYEE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClavesUnicas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATE_OF_BIRTH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dtp_nac_emp = new System.Windows.Forms.DateTimePicker();
+            this.btn_alta_empleado = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesWinDtg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,23 +101,14 @@ namespace AAVD.Forms
             this.tabPage3.Text = "Opciones";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // label10
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(308, 126);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 17);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Salir de sesion";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(320, 161);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Salir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(308, 222);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(115, 17);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Reiniciar sistema";
             // 
             // button4
             // 
@@ -128,14 +119,23 @@ namespace AAVD.Forms
             this.button4.Text = "Reiniciar";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // button3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(308, 222);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(115, 17);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Reiniciar sistema";
+            this.button3.Location = new System.Drawing.Point(320, 161);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Salir";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(308, 126);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(101, 17);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Salir de sesion";
             // 
             // tabPage1
             // 
@@ -172,103 +172,30 @@ namespace AAVD.Forms
             this.tabPage1.Text = "Agregar empleados";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // button2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 182);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre";
+            this.button2.Location = new System.Drawing.Point(47, 452);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 43);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "Mostrar empleados";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // label3
+            // id_emp
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(294, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "RFC";
+            this.id_emp.Location = new System.Drawing.Point(148, 301);
+            this.id_emp.Name = "id_emp";
+            this.id_emp.ReadOnly = true;
+            this.id_emp.Size = new System.Drawing.Size(257, 22);
+            this.id_emp.TabIndex = 23;
             // 
-            // label4
+            // btn_emp_user
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Contrasena";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(262, 45);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 17);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Apellido Paterno";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(262, 252);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 17);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Apellido materno";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 254);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 17);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "CURP";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(44, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 17);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Usuario";
-            // 
-            // eb_name_emp
-            // 
-            this.eb_name_emp.Location = new System.Drawing.Point(133, 182);
-            this.eb_name_emp.Name = "eb_name_emp";
-            this.eb_name_emp.Size = new System.Drawing.Size(100, 22);
-            this.eb_name_emp.TabIndex = 7;
-            // 
-            // eb_ap_emp
-            // 
-            this.eb_ap_emp.Location = new System.Drawing.Point(380, 42);
-            this.eb_ap_emp.Name = "eb_ap_emp";
-            this.eb_ap_emp.Size = new System.Drawing.Size(100, 22);
-            this.eb_ap_emp.TabIndex = 8;
-            // 
-            // eb_am_emp
-            // 
-            this.eb_am_emp.Location = new System.Drawing.Point(380, 249);
-            this.eb_am_emp.Name = "eb_am_emp";
-            this.eb_am_emp.Size = new System.Drawing.Size(100, 22);
-            this.eb_am_emp.TabIndex = 9;
-            // 
-            // eb_curp_emp
-            // 
-            this.eb_curp_emp.Location = new System.Drawing.Point(133, 254);
-            this.eb_curp_emp.Name = "eb_curp_emp";
-            this.eb_curp_emp.Size = new System.Drawing.Size(100, 22);
-            this.eb_curp_emp.TabIndex = 10;
-            // 
-            // eb_rfc_emp
-            // 
-            this.eb_rfc_emp.Location = new System.Drawing.Point(380, 113);
-            this.eb_rfc_emp.Name = "eb_rfc_emp";
-            this.eb_rfc_emp.Size = new System.Drawing.Size(100, 22);
-            this.eb_rfc_emp.TabIndex = 11;
+            this.btn_emp_user.Location = new System.Drawing.Point(133, 135);
+            this.btn_emp_user.Name = "btn_emp_user";
+            this.btn_emp_user.Size = new System.Drawing.Size(100, 22);
+            this.btn_emp_user.TabIndex = 13;
             // 
             // btn_emp_pass
             // 
@@ -277,58 +204,69 @@ namespace AAVD.Forms
             this.btn_emp_pass.Size = new System.Drawing.Size(100, 22);
             this.btn_emp_pass.TabIndex = 12;
             // 
-            // btn_emp_user
+            // eb_rfc_emp
             // 
-            this.btn_emp_user.Location = new System.Drawing.Point(133, 45);
-            this.btn_emp_user.Name = "btn_emp_user";
-            this.btn_emp_user.Size = new System.Drawing.Size(100, 22);
-            this.btn_emp_user.TabIndex = 13;
+            this.eb_rfc_emp.Location = new System.Drawing.Point(380, 113);
+            this.eb_rfc_emp.Name = "eb_rfc_emp";
+            this.eb_rfc_emp.Size = new System.Drawing.Size(100, 22);
+            this.eb_rfc_emp.TabIndex = 11;
             // 
-            // pictureBox1
+            // eb_curp_emp
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(180, 423);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(226, 102);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.eb_curp_emp.Location = new System.Drawing.Point(133, 254);
+            this.eb_curp_emp.Name = "eb_curp_emp";
+            this.eb_curp_emp.Size = new System.Drawing.Size(100, 22);
+            this.eb_curp_emp.TabIndex = 10;
             // 
-            // btn_alta_empleado
+            // eb_am_emp
             // 
-            this.btn_alta_empleado.Location = new System.Drawing.Point(111, 347);
-            this.btn_alta_empleado.Name = "btn_alta_empleado";
-            this.btn_alta_empleado.Size = new System.Drawing.Size(91, 36);
-            this.btn_alta_empleado.TabIndex = 15;
-            this.btn_alta_empleado.Text = "Registrar";
-            this.btn_alta_empleado.UseVisualStyleBackColor = true;
-            this.btn_alta_empleado.Click += new System.EventHandler(this.button1_Click);
+            this.eb_am_emp.Location = new System.Drawing.Point(380, 249);
+            this.eb_am_emp.Name = "eb_am_emp";
+            this.eb_am_emp.Size = new System.Drawing.Size(100, 22);
+            this.eb_am_emp.TabIndex = 9;
             // 
-            // dtp_nac_emp
+            // eb_ap_emp
             // 
-            this.dtp_nac_emp.Location = new System.Drawing.Point(380, 182);
-            this.dtp_nac_emp.Name = "dtp_nac_emp";
-            this.dtp_nac_emp.Size = new System.Drawing.Size(100, 22);
-            this.dtp_nac_emp.TabIndex = 16;
+            this.eb_ap_emp.Location = new System.Drawing.Point(380, 42);
+            this.eb_ap_emp.Name = "eb_ap_emp";
+            this.eb_ap_emp.Size = new System.Drawing.Size(100, 22);
+            this.eb_ap_emp.TabIndex = 8;
             // 
-            // label11
+            // eb_name_emp
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(284, 167);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 17);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Fecha de ";
+            this.eb_name_emp.Location = new System.Drawing.Point(133, 182);
+            this.eb_name_emp.Name = "eb_name_emp";
+            this.eb_name_emp.Size = new System.Drawing.Size(100, 22);
+            this.eb_name_emp.TabIndex = 7;
             // 
-            // label12
+            // label15
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(279, 187);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 17);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "nacimiento";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(117, 304);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(25, 17);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "ID:";
+            // 
+            // btn_borrar_emp
+            // 
+            this.btn_borrar_emp.Location = new System.Drawing.Point(369, 347);
+            this.btn_borrar_emp.Name = "btn_borrar_emp";
+            this.btn_borrar_emp.Size = new System.Drawing.Size(91, 36);
+            this.btn_borrar_emp.TabIndex = 21;
+            this.btn_borrar_emp.Text = "Eliminar";
+            this.btn_borrar_emp.UseVisualStyleBackColor = true;
+            this.btn_borrar_emp.Click += new System.EventHandler(this.btn_borrar_emp_Click);
+            // 
+            // btn_editar_emp
+            // 
+            this.btn_editar_emp.Location = new System.Drawing.Point(237, 347);
+            this.btn_editar_emp.Name = "btn_editar_emp";
+            this.btn_editar_emp.Size = new System.Drawing.Size(91, 36);
+            this.btn_editar_emp.TabIndex = 20;
+            this.btn_editar_emp.Text = "Editar";
+            this.btn_editar_emp.UseVisualStyleBackColor = true;
+            this.btn_editar_emp.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // EmployeesWinDtg
             // 
@@ -350,53 +288,13 @@ namespace AAVD.Forms
             this.EmployeesWinDtg.TabIndex = 19;
             this.EmployeesWinDtg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EmployeesWinDtg_CellClick);
             // 
-            // DATE_OF_BIRTH
+            // User
             // 
-            this.DATE_OF_BIRTH.DataPropertyName = "DATE_OF_BIRTH";
-            this.DATE_OF_BIRTH.HeaderText = "Fecha de nacimiento";
-            this.DATE_OF_BIRTH.MinimumWidth = 6;
-            this.DATE_OF_BIRTH.Name = "DATE_OF_BIRTH";
-            this.DATE_OF_BIRTH.Width = 125;
-            // 
-            // ClavesUnicas
-            // 
-            this.ClavesUnicas.DataPropertyName = "CLAVES_UNICAS";
-            this.ClavesUnicas.HeaderText = "Claves unicas";
-            this.ClavesUnicas.MinimumWidth = 6;
-            this.ClavesUnicas.Name = "ClavesUnicas";
-            this.ClavesUnicas.Width = 125;
-            // 
-            // EMPLOYEE_ID
-            // 
-            this.EMPLOYEE_ID.DataPropertyName = "EMPLOYEE_ID";
-            this.EMPLOYEE_ID.HeaderText = "EMPLOYEE_ID";
-            this.EMPLOYEE_ID.MinimumWidth = 6;
-            this.EMPLOYEE_ID.Name = "EMPLOYEE_ID";
-            this.EMPLOYEE_ID.Width = 125;
-            // 
-            // MOTHER_LAST_NAME
-            // 
-            this.MOTHER_LAST_NAME.DataPropertyName = "MOTHER_LAST_NAME";
-            this.MOTHER_LAST_NAME.HeaderText = "MOTHER_LAST_NAME";
-            this.MOTHER_LAST_NAME.MinimumWidth = 6;
-            this.MOTHER_LAST_NAME.Name = "MOTHER_LAST_NAME";
-            this.MOTHER_LAST_NAME.Width = 125;
-            // 
-            // last_name
-            // 
-            this.last_name.DataPropertyName = "LAST_NAME";
-            this.last_name.HeaderText = "last_name";
-            this.last_name.MinimumWidth = 6;
-            this.last_name.Name = "last_name";
-            this.last_name.Width = 125;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "NAME";
-            this.Nombre.HeaderText = "Name";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 125;
+            this.User.DataPropertyName = "USER";
+            this.User.HeaderText = "User";
+            this.User.MinimumWidth = 6;
+            this.User.Name = "User";
+            this.User.Width = 125;
             // 
             // Password
             // 
@@ -406,60 +304,162 @@ namespace AAVD.Forms
             this.Password.Name = "Password";
             this.Password.Width = 125;
             // 
-            // User
+            // Nombre
             // 
-            this.User.DataPropertyName = "USER";
-            this.User.HeaderText = "User";
-            this.User.MinimumWidth = 6;
-            this.User.Name = "User";
-            this.User.Width = 125;
+            this.Nombre.DataPropertyName = "NAME";
+            this.Nombre.HeaderText = "Name";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 125;
             // 
-            // btn_editar_emp
+            // last_name
             // 
-            this.btn_editar_emp.Location = new System.Drawing.Point(237, 347);
-            this.btn_editar_emp.Name = "btn_editar_emp";
-            this.btn_editar_emp.Size = new System.Drawing.Size(91, 36);
-            this.btn_editar_emp.TabIndex = 20;
-            this.btn_editar_emp.Text = "Editar";
-            this.btn_editar_emp.UseVisualStyleBackColor = true;
-            this.btn_editar_emp.Click += new System.EventHandler(this.button1_Click_1);
+            this.last_name.DataPropertyName = "LAST_NAME";
+            this.last_name.HeaderText = "last_name";
+            this.last_name.MinimumWidth = 6;
+            this.last_name.Name = "last_name";
+            this.last_name.Width = 125;
             // 
-            // btn_borrar_emp
+            // MOTHER_LAST_NAME
             // 
-            this.btn_borrar_emp.Location = new System.Drawing.Point(369, 347);
-            this.btn_borrar_emp.Name = "btn_borrar_emp";
-            this.btn_borrar_emp.Size = new System.Drawing.Size(91, 36);
-            this.btn_borrar_emp.TabIndex = 21;
-            this.btn_borrar_emp.Text = "Eliminar";
-            this.btn_borrar_emp.UseVisualStyleBackColor = true;
-            this.btn_borrar_emp.Click += new System.EventHandler(this.btn_borrar_emp_Click);
+            this.MOTHER_LAST_NAME.DataPropertyName = "MOTHER_LAST_NAME";
+            this.MOTHER_LAST_NAME.HeaderText = "MOTHER_LAST_NAME";
+            this.MOTHER_LAST_NAME.MinimumWidth = 6;
+            this.MOTHER_LAST_NAME.Name = "MOTHER_LAST_NAME";
+            this.MOTHER_LAST_NAME.Width = 125;
             // 
-            // label15
+            // EMPLOYEE_ID
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(117, 304);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(25, 17);
-            this.label15.TabIndex = 22;
-            this.label15.Text = "ID:";
+            this.EMPLOYEE_ID.DataPropertyName = "EMPLOYEE_ID";
+            this.EMPLOYEE_ID.HeaderText = "EMPLOYEE_ID";
+            this.EMPLOYEE_ID.MinimumWidth = 6;
+            this.EMPLOYEE_ID.Name = "EMPLOYEE_ID";
+            this.EMPLOYEE_ID.Width = 125;
             // 
-            // id_emp
+            // ClavesUnicas
             // 
-            this.id_emp.Location = new System.Drawing.Point(148, 301);
-            this.id_emp.Name = "id_emp";
-            this.id_emp.ReadOnly = true;
-            this.id_emp.Size = new System.Drawing.Size(257, 22);
-            this.id_emp.TabIndex = 23;
+            this.ClavesUnicas.DataPropertyName = "CLAVES_UNICAS";
+            this.ClavesUnicas.HeaderText = "Claves unicas";
+            this.ClavesUnicas.MinimumWidth = 6;
+            this.ClavesUnicas.Name = "ClavesUnicas";
+            this.ClavesUnicas.Width = 125;
             // 
-            // button2
+            // DATE_OF_BIRTH
             // 
-            this.button2.Location = new System.Drawing.Point(47, 452);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 43);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Mostrar empleados";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.DATE_OF_BIRTH.DataPropertyName = "DATE_OF_BIRTH";
+            this.DATE_OF_BIRTH.HeaderText = "Fecha de nacimiento";
+            this.DATE_OF_BIRTH.MinimumWidth = 6;
+            this.DATE_OF_BIRTH.Name = "DATE_OF_BIRTH";
+            this.DATE_OF_BIRTH.Width = 125;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(279, 187);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 17);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "nacimiento";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(284, 167);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 17);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Fecha de ";
+            // 
+            // dtp_nac_emp
+            // 
+            this.dtp_nac_emp.Location = new System.Drawing.Point(380, 182);
+            this.dtp_nac_emp.Name = "dtp_nac_emp";
+            this.dtp_nac_emp.Size = new System.Drawing.Size(100, 22);
+            this.dtp_nac_emp.TabIndex = 16;
+            // 
+            // btn_alta_empleado
+            // 
+            this.btn_alta_empleado.Location = new System.Drawing.Point(111, 347);
+            this.btn_alta_empleado.Name = "btn_alta_empleado";
+            this.btn_alta_empleado.Size = new System.Drawing.Size(91, 36);
+            this.btn_alta_empleado.TabIndex = 15;
+            this.btn_alta_empleado.Text = "Registrar";
+            this.btn_alta_empleado.UseVisualStyleBackColor = true;
+            this.btn_alta_empleado.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(180, 423);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(226, 102);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(44, 135);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 17);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Usuario";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(44, 254);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "CURP";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(262, 252);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(114, 17);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Apellido materno";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(262, 45);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 17);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Apellido Paterno";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(44, 107);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Contrasena";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(294, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 17);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "RFC";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 182);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nombre";
             // 
             // tabControl1
             // 
@@ -484,8 +484,8 @@ namespace AAVD.Forms
             this.tabPage3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesWinDtg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
