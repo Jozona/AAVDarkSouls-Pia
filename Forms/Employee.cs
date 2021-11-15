@@ -17,7 +17,12 @@ namespace AAVD.Forms
         public Employee()
         {
             InitializeComponent();
+            edc_nacimiento.CustomFormat = "yyyy-MM-dd";
+            edc_nacimiento.Format = DateTimePickerFormat.Custom;
+            c_nacimiento.CustomFormat = "yyyy-MM-dd";
+            c_nacimiento.Format = DateTimePickerFormat.Custom;
             this.CenterToScreen();
+            updateDataGrid();
         }
 
         private void Employee_Load(object sender, EventArgs e)
@@ -45,6 +50,77 @@ namespace AAVD.Forms
                 database.registerClient(c_nombre.Text, c_apellidoP.Text, c_apellidoM.Text, c_email.Text, c_curp.Text, c_genero.Text, c_nacimiento.Value.ToString("yyyy-MM-dd"), c_ciudad.Text, c_calle.Text, c_colonia.Text, c_estado.Text, c_contratoTipo.Text, c_usuario.Text, c_password.Text, new_user_id);
             }
             MessageBox.Show("Cliente registrado con exito.");
+            updateDataGrid();
+        }
+
+
+        public void updateDataGrid()
+        {
+
+            List<Clientes> clientes = new List<Clientes>();
+            clientes = DatabaseManagement.getInstance().GetClients();
+
+            List<ClientesDTG> cntDataGrid = new List<ClientesDTG>();
+            foreach (var cliente in clientes)
+            {
+                ClientesDTG clienteDTG = new ClientesDTG();
+                clienteDTG.name = cliente.name;
+                clienteDTG.last_name = cliente.last_name;
+                clienteDTG.mother_last_name = cliente.mother_last_name;
+                clienteDTG.user = cliente.user;
+                clienteDTG.password = cliente.password;
+                clienteDTG.date_of_birth = cliente.date_of_birth.ToString();
+                clienteDTG.gender = cliente.gender;
+                clienteDTG.contract_type = cliente.contract_type;
+                clienteDTG.street = cliente.street;
+                clienteDTG.colony = cliente.colony;
+                clienteDTG.city = cliente.city;
+                clienteDTG.state = cliente.state;
+                clienteDTG.email = cliente.email;
+                clienteDTG.curp = cliente.curp;
+                cntDataGrid.Add(clienteDTG);
+
+            }
+
+            clientesDTGWN.DataSource = cntDataGrid;
+
+            int i = 0;
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            List<Clientes> clientes = new List<Clientes>();
+            clientes = DatabaseManagement.getInstance().GetClients();
+            updateDataGrid();
+            int i = 0;
+        }
+
+        private void clientesDTGWN_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void clientesDTGWN_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indexRow = e.RowIndex;
+            DataGridViewRow row = clientesDTGWN.Rows[indexRow];
+            if (row == null)
+                return;
+
+            edc_nombre.Text = row.Cells[2].Value.ToString();
+            edc_apellidoP.Text = row.Cells[3].Value.ToString();
+            edc_apellidoM.Text = row.Cells[4].Value.ToString();
+            edc_nacimiento.Text = row.Cells[5].Value.ToString();
+            edc_genero.Text = row.Cells[6].Value.ToString();
+            edc_ciudad.Text = row.Cells[7].Value.ToString();
+            edc_calle.Text = row.Cells[8].Value.ToString();
+            edc_colonia.Text = row.Cells[9].Value.ToString();
+            edc_estado.Text = row.Cells[10].Value.ToString();
+            edc_contrato.Text = row.Cells[11].Value.ToString();
+            edc_usuario.Text = row.Cells[12].Value.ToString();
+            edc_password.Text = row.Cells[13].Value.ToString();
+            edc_email.Text = row.Cells[14].Value.ToString();
+            edc_curp.Text = row.Cells[15].Value.ToString();
         }
     }
 }

@@ -121,6 +121,8 @@
   <ItemGroup>
     <Compile Include="Base de datos\DatabaseManagement.cs" />
     <Compile Include="Entidades\Admins.cs" />
+    <Compile Include="Entidades\Clientes.cs" />
+    <Compile Include="Entidades\ClientesDTG.cs" />
     <Compile Include="Entidades\Employees.cs" />
     <Compile Include="Entidades\EmployeesDTG.cs" />
     <Compile Include="Entidades\Students.cs" />

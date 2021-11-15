@@ -96,9 +96,19 @@ namespace AAVD.Base_de_datos
         //Registrar un usuario
         public void registerClient(string nombre, string apellidoP, string apellidoM, string email, string CURP, string genero, string nacimiento, string ciudad, string calle, string colonia, string estado, string tipoContrato, string usuario, string password, Guid user_id) {
             string today = DateTime.Today.ToString();
-            string query2 = "INSERT INTO CLIENTS (CLIENT_ID, USER_ID, CONTRACT_TYPE, CREATION_DATE, MODIFICATION_TIMES, MONTHLY_PAYMENTS, EMAIL, GENDER, MEASURER, SERVICE_NUMBER, CONTRACTS, ACCESS,CURP, USER, PASSWORD, NAME, LAST_NAME, MOTHER_LAST_NAME)"
-                             + " VALUES(uuid() ," + user_id + ", '"+tipoContrato+ "', now(), { toDate(now()) }, {'" + today + "' : 13.0 } , '"+email+"', '"+genero+"', 0, 0, {"+user_id+" : '"+tipoContrato+ "'}, {street:'"+calle+"', colony: '"+colonia+"', postal_code: 23444, city: '"+ciudad+"', state: '"+estado+"'}, '"+CURP+"', '"+usuario+"', '"+password+"', '"+nombre+"', '"+apellidoP+"', '"+apellidoM+"');";
+            string query2 = "INSERT INTO CLIENTS (CLIENT_ID, USER_ID, CONTRACT_TYPE, CREATION_DATE, MODIFICATION_TIMES, MONTHLY_PAYMENTS, EMAIL, GENDER, MEASURER, SERVICE_NUMBER, CONTRACTS,CURP, USER, PASSWORD, NAME, LAST_NAME, MOTHER_LAST_NAME, AUTHOR, STREET, COLONY, CITY, STATE, DATE_OF_BIRTH)"
+                             + " VALUES(uuid() ," + user_id + ", '"+tipoContrato+ "', now(), { toDate(now()) }, {'" + today + "' : 13.0 } , '"+email+"', '"+genero+"', 0, 0, {"+user_id+" : '"+tipoContrato+ "'}, '"+CURP+"', '"+usuario+"', '"+password+"', '"+nombre+"', '"+apellidoP+"', '"+apellidoM+"', "+Form1.currentUserId+", '"+calle+"', '"+colonia+"', '"+ciudad+"', '"+estado+"', '"+nacimiento+"');";
             session.Execute(query2);
+        }
+
+        //Obtener todos los clientes
+        public List<Clientes> GetClients()
+        {
+            string query = "SELECT * FROM CLIENTS";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Clientes> clientes = mapper.Fetch<Clientes>(query);
+            return clientes.ToList();
         }
     }
 }
