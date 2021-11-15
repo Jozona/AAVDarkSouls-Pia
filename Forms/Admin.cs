@@ -135,5 +135,9 @@ namespace AAVD.Forms
             int i = 0;
         }
 
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

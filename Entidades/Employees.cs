@@ -21,5 +21,6 @@ namespace AAVD.Entidades
         public DateTimeOffset date_of_birth { get; set; }
         public IEnumerable<LocalDate> modification_date { get; set; }
 
+
     }
 }

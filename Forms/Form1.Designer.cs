@@ -61,7 +61,7 @@ namespace AAVD
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(100, 22);
             this.txtUser.TabIndex = 2;
-            this.txtUser.Text = "admin";
+            this.txtUser.Text = "empleado";
             // 
             // btnLogin
             // 
