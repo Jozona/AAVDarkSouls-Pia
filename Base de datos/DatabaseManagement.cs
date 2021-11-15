@@ -84,7 +84,6 @@ namespace AAVD.Base_de_datos
         }
 
         //Borrar un empleado
-
         public void eraseEmployee(string employee_id, string user, string password) {
             string query = "DELETE FROM EMPLOYEES WHERE EMPLOYEE_ID = " + employee_id + ";";
             session.Execute(query);
@@ -110,5 +109,24 @@ namespace AAVD.Base_de_datos
             IEnumerable<Clientes> clientes = mapper.Fetch<Clientes>(query);
             return clientes.ToList();
         }
+
+        //Actualizar un cliente
+        public void updateClient(string nombre, string apellidoP, string apellidoM, string email, string CURP, string genero, string nacimiento, string ciudad, string calle, string colonia, string estado, string tipoContrato, string usuario, string password, string id_cliente)
+        {
+            string query2 = "UPDATE CLIENTS SET USER = '"+usuario+"', PASSWORD = '"+password+"', NAME= '"+nombre+"' ,LAST_NAME = '"+apellidoP+"', MOTHER_LAST_NAME= '"+apellidoM+"', EMAIL = '"+email+"', CURP = '"+CURP+"', GENDER = '"+genero+"', DATE_OF_BIRTH = '"+nacimiento+"', CITY= '"+ciudad+"', STREET = '"+calle+"', COLONY ='"+colonia+"', STATE= '"+estado+"', CONTRACT_TYPE= '"+tipoContrato+"' WHERE CLIENT_ID= "+ id_cliente +" "
+                            + " IF EXISTS;";
+            session.Execute(query2);
+        }
+
+        //Funcion para borrar un cliente
+        public void eraseClient(string client_id, string user, string password)
+        {
+            string query = "DELETE FROM CLIENTS WHERE CLIENT_ID = " + client_id + ";";
+            session.Execute(query);
+
+            query = "DELETE FROM USERS_LOGIN WHERE USER_NAME = '" + user + "' AND PASSWORD = '" + password + "';";
+            session.Execute(query);
+        }
+
     }
 }

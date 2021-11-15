@@ -125,8 +125,8 @@ namespace AAVD.Forms
             this.label25 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
             this.textBox14 = new System.Windows.Forms.TextBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.button8 = new System.Windows.Forms.Button();
+            this.ClientesBorrarDTG = new System.Windows.Forms.DataGridView();
+            this.btn_borrar = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -159,6 +159,7 @@ namespace AAVD.Forms
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_actualizar = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -174,7 +175,7 @@ namespace AAVD.Forms
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDTGWN)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientesBorrarDTG)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -228,7 +229,7 @@ namespace AAVD.Forms
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(219, 307);
+            this.label20.Location = new System.Drawing.Point(312, 396);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(335, 17);
             this.label20.TabIndex = 2;
@@ -237,7 +238,7 @@ namespace AAVD.Forms
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AAVD.Properties.Resources.índice__3_;
-            this.pictureBox1.Location = new System.Drawing.Point(256, 139);
+            this.pictureBox1.Location = new System.Drawing.Point(349, 228);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(258, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -247,7 +248,7 @@ namespace AAVD.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(235, 280);
+            this.label2.Location = new System.Drawing.Point(328, 369);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(309, 17);
             this.label2.TabIndex = 0;
@@ -270,7 +271,7 @@ namespace AAVD.Forms
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(327, 436);
+            this.button6.Location = new System.Drawing.Point(442, 505);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(99, 50);
             this.button6.TabIndex = 15;
@@ -284,7 +285,7 @@ namespace AAVD.Forms
             this.groupBox4.Controls.Add(this.c_usuario);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Location = new System.Drawing.Point(389, 326);
+            this.groupBox4.Location = new System.Drawing.Point(504, 395);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(344, 93);
             this.groupBox4.TabIndex = 14;
@@ -328,7 +329,7 @@ namespace AAVD.Forms
             // 
             this.groupBox3.Controls.Add(this.c_contratoTipo);
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Location = new System.Drawing.Point(389, 246);
+            this.groupBox3.Location = new System.Drawing.Point(504, 315);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(344, 73);
             this.groupBox3.TabIndex = 13;
@@ -365,7 +366,7 @@ namespace AAVD.Forms
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(23, 245);
+            this.groupBox2.Location = new System.Drawing.Point(138, 314);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(359, 174);
             this.groupBox2.TabIndex = 12;
@@ -452,7 +453,7 @@ namespace AAVD.Forms
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Location = new System.Drawing.Point(23, 25);
+            this.groupBox1.Location = new System.Drawing.Point(138, 94);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(710, 214);
             this.groupBox1.TabIndex = 11;
@@ -575,6 +576,7 @@ namespace AAVD.Forms
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_actualizar);
             this.tabPage3.Controls.Add(this.groupBox6);
             this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Controls.Add(this.groupBox8);
@@ -889,7 +891,7 @@ namespace AAVD.Forms
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(353, 586);
+            this.label23.Location = new System.Drawing.Point(78, 586);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(56, 17);
             this.label23.TabIndex = 6;
@@ -898,7 +900,7 @@ namespace AAVD.Forms
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(311, 569);
+            this.label22.Location = new System.Drawing.Point(36, 569);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(78, 17);
             this.label22.TabIndex = 5;
@@ -906,7 +908,7 @@ namespace AAVD.Forms
             // 
             // btn_buscar
             // 
-            this.btn_buscar.Location = new System.Drawing.Point(556, 579);
+            this.btn_buscar.Location = new System.Drawing.Point(281, 579);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(75, 23);
             this.btn_buscar.TabIndex = 4;
@@ -916,7 +918,7 @@ namespace AAVD.Forms
             // 
             // id_servicio
             // 
-            this.id_servicio.Location = new System.Drawing.Point(416, 580);
+            this.id_servicio.Location = new System.Drawing.Point(141, 580);
             this.id_servicio.Name = "id_servicio";
             this.id_servicio.Size = new System.Drawing.Size(100, 22);
             this.id_servicio.TabIndex = 3;
@@ -1075,8 +1077,8 @@ namespace AAVD.Forms
             this.tabPage4.Controls.Add(this.label25);
             this.tabPage4.Controls.Add(this.button11);
             this.tabPage4.Controls.Add(this.textBox14);
-            this.tabPage4.Controls.Add(this.dataGridView4);
-            this.tabPage4.Controls.Add(this.button8);
+            this.tabPage4.Controls.Add(this.ClientesBorrarDTG);
+            this.tabPage4.Controls.Add(this.btn_borrar);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -1119,26 +1121,28 @@ namespace AAVD.Forms
             this.textBox14.Size = new System.Drawing.Size(100, 22);
             this.textBox14.TabIndex = 7;
             // 
-            // dataGridView4
+            // ClientesBorrarDTG
             // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.RowHeadersWidth = 51;
-            this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(756, 425);
-            this.dataGridView4.TabIndex = 1;
+            this.ClientesBorrarDTG.AllowUserToAddRows = false;
+            this.ClientesBorrarDTG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ClientesBorrarDTG.Location = new System.Drawing.Point(6, 6);
+            this.ClientesBorrarDTG.Name = "ClientesBorrarDTG";
+            this.ClientesBorrarDTG.ReadOnly = true;
+            this.ClientesBorrarDTG.RowHeadersWidth = 51;
+            this.ClientesBorrarDTG.RowTemplate.Height = 24;
+            this.ClientesBorrarDTG.Size = new System.Drawing.Size(756, 425);
+            this.ClientesBorrarDTG.TabIndex = 1;
+            this.ClientesBorrarDTG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClientesBorrarDTG_CellClick);
             // 
-            // button8
+            // btn_borrar
             // 
-            this.button8.Location = new System.Drawing.Point(57, 437);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 50);
-            this.button8.TabIndex = 0;
-            this.button8.Text = "Mostrar clientes";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btn_borrar.Location = new System.Drawing.Point(821, 47);
+            this.btn_borrar.Name = "btn_borrar";
+            this.btn_borrar.Size = new System.Drawing.Size(75, 50);
+            this.btn_borrar.TabIndex = 0;
+            this.btn_borrar.Text = "Borrar cliente";
+            this.btn_borrar.UseVisualStyleBackColor = true;
+            this.btn_borrar.Click += new System.EventHandler(this.btn_borrar_Click);
             // 
             // tabPage5
             // 
@@ -1457,6 +1461,16 @@ namespace AAVD.Forms
             this.label3.TabIndex = 0;
             this.label3.Text = "Salir de la sesion ";
             // 
+            // btn_actualizar
+            // 
+            this.btn_actualizar.Location = new System.Drawing.Point(434, 574);
+            this.btn_actualizar.Name = "btn_actualizar";
+            this.btn_actualizar.Size = new System.Drawing.Size(85, 34);
+            this.btn_actualizar.TabIndex = 19;
+            this.btn_actualizar.Text = "Editar";
+            this.btn_actualizar.UseVisualStyleBackColor = true;
+            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1493,7 +1507,7 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.clientesDTGWN)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientesBorrarDTG)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -1573,8 +1587,8 @@ namespace AAVD.Forms
         private System.Windows.Forms.TextBox c_apellidoP;
         private System.Windows.Forms.TextBox c_nombre;
         private System.Windows.Forms.DataGridView clientesDTGWN;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.DataGridView ClientesBorrarDTG;
+        private System.Windows.Forms.Button btn_borrar;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1646,5 +1660,6 @@ namespace AAVD.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn CONTRACT_TYPE;
         private System.Windows.Forms.DataGridViewTextBoxColumn USER;
         private System.Windows.Forms.DataGridViewTextBoxColumn PASSWORD;
+        private System.Windows.Forms.Button btn_actualizar;
     }
 }

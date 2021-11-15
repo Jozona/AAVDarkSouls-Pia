@@ -14,6 +14,7 @@ namespace AAVD.Forms
 {
     public partial class Employee : Form
     {
+        //Init
         public Employee()
         {
             InitializeComponent();
@@ -53,7 +54,7 @@ namespace AAVD.Forms
             updateDataGrid();
         }
 
-
+        //Funcion que envia los datos al datagrid
         public void updateDataGrid()
         {
 
@@ -78,11 +79,14 @@ namespace AAVD.Forms
                 clienteDTG.state = cliente.state;
                 clienteDTG.email = cliente.email;
                 clienteDTG.curp = cliente.curp;
+                clienteDTG.user_id = cliente.user_id;
+                clienteDTG.client_id = cliente.client_id;
                 cntDataGrid.Add(clienteDTG);
 
             }
 
             clientesDTGWN.DataSource = cntDataGrid;
+            ClientesBorrarDTG.DataSource = cntDataGrid;
 
             int i = 0;
         }
@@ -100,6 +104,12 @@ namespace AAVD.Forms
             
         }
 
+        string id_seleccionado;
+        string id_seleccionado_borrar;
+        string user;
+        string password;
+        //Envia los datos del datagrid a la ventana
+        //Los indices de Cells[] son dependiendo del orden en el que fueron declaradas las variables en ClientesDTG.cs
         private void clientesDTGWN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int indexRow = e.RowIndex;
@@ -121,6 +131,46 @@ namespace AAVD.Forms
             edc_password.Text = row.Cells[13].Value.ToString();
             edc_email.Text = row.Cells[14].Value.ToString();
             edc_curp.Text = row.Cells[15].Value.ToString();
+            id_seleccionado = row.Cells[1].Value.ToString();
+        }
+
+        //Click al boton de actualizar empleado
+        private void btn_actualizar_Click(object sender, EventArgs e)
+        {
+            if (id_seleccionado == null)
+            {
+                MessageBox.Show("No has seleccionando ningun cliente.");
+                return;
+            }
+            DatabaseManagement.getInstance().updateClient(edc_nombre.Text, edc_apellidoP.Text, edc_apellidoM.Text, edc_email.Text, edc_curp.Text, edc_genero.Text, edc_nacimiento.Value.ToString("yyyy-MM-dd"), edc_ciudad.Text, edc_calle.Text, edc_colonia.Text, edc_estado.Text, edc_contrato.Text, edc_usuario.Text, edc_password.Text, id_seleccionado);
+            id_seleccionado = null;
+            MessageBox.Show("Cliente actualizado con exito.");
+            updateDataGrid();
+        }
+
+        //Seleccionar un cliente para borrar
+        private void ClientesBorrarDTG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indexRow = e.RowIndex;
+            DataGridViewRow row = clientesDTGWN.Rows[indexRow];
+            if (row == null)
+                return;
+            id_seleccionado_borrar = row.Cells[1].Value.ToString();
+            user = row.Cells[12].Value.ToString();
+            password = row.Cells[14].Value.ToString();
+        }
+
+        private void btn_borrar_Click(object sender, EventArgs e)
+        {
+            if (id_seleccionado_borrar == null)
+            {
+                MessageBox.Show("No has seleccionando ningun cliente.");
+                return;
+            }
+            DatabaseManagement.getInstance().eraseClient(id_seleccionado_borrar, user, password);
+            id_seleccionado_borrar = null;
+            MessageBox.Show("Cliente borrado con exito.");
+            updateDataGrid();
         }
     }
 }
