@@ -171,6 +171,7 @@ namespace AAVD.Forms
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar empleados";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // button2
             // 
@@ -192,7 +193,7 @@ namespace AAVD.Forms
             // 
             // btn_emp_user
             // 
-            this.btn_emp_user.Location = new System.Drawing.Point(133, 135);
+            this.btn_emp_user.Location = new System.Drawing.Point(133, 45);
             this.btn_emp_user.Name = "btn_emp_user";
             this.btn_emp_user.Size = new System.Drawing.Size(100, 22);
             this.btn_emp_user.TabIndex = 13;
@@ -401,7 +402,7 @@ namespace AAVD.Forms
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(44, 135);
+            this.label8.Location = new System.Drawing.Point(44, 45);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 17);
             this.label8.TabIndex = 6;

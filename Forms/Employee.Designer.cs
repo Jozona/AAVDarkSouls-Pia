@@ -38,30 +38,30 @@ namespace AAVD.Forms
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.c_password = new System.Windows.Forms.TextBox();
+            this.c_usuario = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.c_contratoTipo = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.c_estado = new System.Windows.Forms.TextBox();
+            this.c_calle = new System.Windows.Forms.TextBox();
+            this.c_colonia = new System.Windows.Forms.TextBox();
+            this.c_ciudad = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.c_nacimiento = new System.Windows.Forms.DateTimePicker();
+            this.c_genero = new System.Windows.Forms.ComboBox();
+            this.c_curp = new System.Windows.Forms.TextBox();
+            this.c_email = new System.Windows.Forms.TextBox();
+            this.c_apellidoM = new System.Windows.Forms.TextBox();
+            this.c_apellidoP = new System.Windows.Forms.TextBox();
+            this.c_nombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,9 +70,17 @@ namespace AAVD.Forms
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.textBox13 = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.button11 = new System.Windows.Forms.Button();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.button8 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -88,10 +96,18 @@ namespace AAVD.Forms
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
+            this.textBox16 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
+            this.textBox17 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -99,22 +115,6 @@ namespace AAVD.Forms
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
-            this.textBox17 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -228,11 +228,12 @@ namespace AAVD.Forms
             this.button6.TabIndex = 15;
             this.button6.Text = "Dar de alta";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox11);
-            this.groupBox4.Controls.Add(this.textBox10);
+            this.groupBox4.Controls.Add(this.c_password);
+            this.groupBox4.Controls.Add(this.c_usuario);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Location = new System.Drawing.Point(389, 326);
@@ -242,20 +243,20 @@ namespace AAVD.Forms
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Datos de cuenta";
             // 
-            // textBox11
+            // c_password
             // 
-            this.textBox11.Location = new System.Drawing.Point(152, 57);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.PasswordChar = '*';
-            this.textBox11.Size = new System.Drawing.Size(121, 22);
-            this.textBox11.TabIndex = 3;
+            this.c_password.Location = new System.Drawing.Point(152, 57);
+            this.c_password.Name = "c_password";
+            this.c_password.PasswordChar = '*';
+            this.c_password.Size = new System.Drawing.Size(121, 22);
+            this.c_password.TabIndex = 3;
             // 
-            // textBox10
+            // c_usuario
             // 
-            this.textBox10.Location = new System.Drawing.Point(152, 25);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(121, 22);
-            this.textBox10.TabIndex = 2;
+            this.c_usuario.Location = new System.Drawing.Point(152, 25);
+            this.c_usuario.Name = "c_usuario";
+            this.c_usuario.Size = new System.Drawing.Size(121, 22);
+            this.c_usuario.TabIndex = 2;
             // 
             // label17
             // 
@@ -277,7 +278,7 @@ namespace AAVD.Forms
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.c_contratoTipo);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Location = new System.Drawing.Point(389, 246);
             this.groupBox3.Name = "groupBox3";
@@ -286,16 +287,16 @@ namespace AAVD.Forms
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de contrato";
             // 
-            // comboBox2
+            // c_contratoTipo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.c_contratoTipo.FormattingEnabled = true;
+            this.c_contratoTipo.Items.AddRange(new object[] {
             "Domestico",
             "Industrial"});
-            this.comboBox2.Location = new System.Drawing.Point(152, 29);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 1;
+            this.c_contratoTipo.Location = new System.Drawing.Point(152, 29);
+            this.c_contratoTipo.Name = "c_contratoTipo";
+            this.c_contratoTipo.Size = new System.Drawing.Size(121, 24);
+            this.c_contratoTipo.TabIndex = 1;
             // 
             // label15
             // 
@@ -308,10 +309,10 @@ namespace AAVD.Forms
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.c_estado);
+            this.groupBox2.Controls.Add(this.c_calle);
+            this.groupBox2.Controls.Add(this.c_colonia);
+            this.groupBox2.Controls.Add(this.c_ciudad);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label10);
@@ -323,33 +324,33 @@ namespace AAVD.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Direccion";
             // 
-            // textBox9
+            // c_estado
             // 
-            this.textBox9.Location = new System.Drawing.Point(236, 111);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 22);
-            this.textBox9.TabIndex = 14;
+            this.c_estado.Location = new System.Drawing.Point(236, 111);
+            this.c_estado.Name = "c_estado";
+            this.c_estado.Size = new System.Drawing.Size(100, 22);
+            this.c_estado.TabIndex = 14;
             // 
-            // textBox8
+            // c_calle
             // 
-            this.textBox8.Location = new System.Drawing.Point(236, 50);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 22);
-            this.textBox8.TabIndex = 13;
+            this.c_calle.Location = new System.Drawing.Point(236, 50);
+            this.c_calle.Name = "c_calle";
+            this.c_calle.Size = new System.Drawing.Size(100, 22);
+            this.c_calle.TabIndex = 13;
             // 
-            // textBox7
+            // c_colonia
             // 
-            this.textBox7.Location = new System.Drawing.Point(23, 111);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 22);
-            this.textBox7.TabIndex = 12;
+            this.c_colonia.Location = new System.Drawing.Point(23, 111);
+            this.c_colonia.Name = "c_colonia";
+            this.c_colonia.Size = new System.Drawing.Size(100, 22);
+            this.c_colonia.TabIndex = 12;
             // 
-            // textBox6
+            // c_ciudad
             // 
-            this.textBox6.Location = new System.Drawing.Point(23, 52);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 22);
-            this.textBox6.TabIndex = 11;
+            this.c_ciudad.Location = new System.Drawing.Point(23, 52);
+            this.c_ciudad.Name = "c_ciudad";
+            this.c_ciudad.Size = new System.Drawing.Size(100, 22);
+            this.c_ciudad.TabIndex = 11;
             // 
             // label14
             // 
@@ -389,13 +390,13 @@ namespace AAVD.Forms
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.c_nacimiento);
+            this.groupBox1.Controls.Add(this.c_genero);
+            this.groupBox1.Controls.Add(this.c_curp);
+            this.groupBox1.Controls.Add(this.c_email);
+            this.groupBox1.Controls.Add(this.c_apellidoM);
+            this.groupBox1.Controls.Add(this.c_apellidoP);
+            this.groupBox1.Controls.Add(this.c_nombre);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
@@ -410,55 +411,55 @@ namespace AAVD.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
             // 
-            // dateTimePicker1
+            // c_nacimiento
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(23, 170);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(221, 22);
-            this.dateTimePicker1.TabIndex = 15;
+            this.c_nacimiento.Location = new System.Drawing.Point(23, 170);
+            this.c_nacimiento.Name = "c_nacimiento";
+            this.c_nacimiento.Size = new System.Drawing.Size(221, 22);
+            this.c_nacimiento.TabIndex = 15;
             // 
-            // comboBox1
+            // c_genero
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(458, 116);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 24);
-            this.comboBox1.TabIndex = 14;
+            this.c_genero.FormattingEnabled = true;
+            this.c_genero.Location = new System.Drawing.Point(458, 116);
+            this.c_genero.Name = "c_genero";
+            this.c_genero.Size = new System.Drawing.Size(100, 24);
+            this.c_genero.TabIndex = 14;
             // 
-            // textBox5
+            // c_curp
             // 
-            this.textBox5.Location = new System.Drawing.Point(236, 116);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 12;
+            this.c_curp.Location = new System.Drawing.Point(236, 116);
+            this.c_curp.Name = "c_curp";
+            this.c_curp.Size = new System.Drawing.Size(100, 22);
+            this.c_curp.TabIndex = 12;
             // 
-            // textBox4
+            // c_email
             // 
-            this.textBox4.Location = new System.Drawing.Point(23, 116);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 11;
+            this.c_email.Location = new System.Drawing.Point(23, 116);
+            this.c_email.Name = "c_email";
+            this.c_email.Size = new System.Drawing.Size(100, 22);
+            this.c_email.TabIndex = 11;
             // 
-            // textBox3
+            // c_apellidoM
             // 
-            this.textBox3.Location = new System.Drawing.Point(458, 53);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 10;
+            this.c_apellidoM.Location = new System.Drawing.Point(458, 53);
+            this.c_apellidoM.Name = "c_apellidoM";
+            this.c_apellidoM.Size = new System.Drawing.Size(100, 22);
+            this.c_apellidoM.TabIndex = 10;
             // 
-            // textBox2
+            // c_apellidoP
             // 
-            this.textBox2.Location = new System.Drawing.Point(236, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 9;
+            this.c_apellidoP.Location = new System.Drawing.Point(236, 53);
+            this.c_apellidoP.Name = "c_apellidoP";
+            this.c_apellidoP.Size = new System.Drawing.Size(100, 22);
+            this.c_apellidoP.TabIndex = 9;
             // 
-            // textBox1
+            // c_nombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(23, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 8;
+            this.c_nombre.Location = new System.Drawing.Point(23, 53);
+            this.c_nombre.Name = "c_nombre";
+            this.c_nombre.Size = new System.Drawing.Size(100, 22);
+            this.c_nombre.TabIndex = 8;
             // 
             // label4
             // 
@@ -540,6 +541,40 @@ namespace AAVD.Forms
             this.tabPage3.Text = "Edicion de clientes";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(423, 465);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(56, 17);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "servicio";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(412, 448);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(78, 17);
+            this.label22.TabIndex = 5;
+            this.label22.Text = "Numero de";
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(646, 458);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 4;
+            this.button10.Text = "Buscar";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(506, 459);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 22);
+            this.textBox13.TabIndex = 3;
+            // 
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
@@ -576,6 +611,40 @@ namespace AAVD.Forms
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Baja de clientes";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(434, 471);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(56, 17);
+            this.label24.TabIndex = 10;
+            this.label24.Text = "servicio";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(423, 454);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(78, 17);
+            this.label25.TabIndex = 9;
+            this.label25.Text = "Numero de";
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(657, 464);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.TabIndex = 8;
+            this.button11.Text = "Buscar";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(517, 465);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(100, 22);
+            this.textBox14.TabIndex = 7;
             // 
             // dataGridView4
             // 
@@ -733,6 +802,40 @@ namespace AAVD.Forms
             this.tabPage7.Text = "Tarifas";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(436, 410);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(56, 17);
+            this.label26.TabIndex = 10;
+            this.label26.Text = "servicio";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(425, 393);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(78, 17);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "Numero de";
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(659, 403);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 23);
+            this.button12.TabIndex = 8;
+            this.button12.Text = "Buscar";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(519, 404);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(100, 22);
+            this.textBox16.TabIndex = 7;
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(133, 393);
@@ -777,6 +880,40 @@ namespace AAVD.Forms
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Consumos";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(422, 407);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(56, 17);
+            this.label28.TabIndex = 10;
+            this.label28.Text = "servicio";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(411, 390);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(78, 17);
+            this.label29.TabIndex = 9;
+            this.label29.Text = "Numero de";
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(645, 400);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(75, 23);
+            this.button13.TabIndex = 8;
+            this.button13.Text = "Buscar";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(505, 401);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(100, 22);
+            this.textBox17.TabIndex = 7;
             // 
             // button2
             // 
@@ -846,142 +983,6 @@ namespace AAVD.Forms
             this.label3.Size = new System.Drawing.Size(120, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Salir de la sesion ";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(506, 459);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 22);
-            this.textBox13.TabIndex = 3;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(646, 458);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 4;
-            this.button10.Text = "Buscar";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(412, 448);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(78, 17);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "Numero de";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(423, 465);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(56, 17);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "servicio";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(434, 471);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(56, 17);
-            this.label24.TabIndex = 10;
-            this.label24.Text = "servicio";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(423, 454);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(78, 17);
-            this.label25.TabIndex = 9;
-            this.label25.Text = "Numero de";
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(657, 464);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 8;
-            this.button11.Text = "Buscar";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(517, 465);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 22);
-            this.textBox14.TabIndex = 7;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(436, 410);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(56, 17);
-            this.label26.TabIndex = 10;
-            this.label26.Text = "servicio";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(425, 393);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(78, 17);
-            this.label27.TabIndex = 9;
-            this.label27.Text = "Numero de";
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(659, 403);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 8;
-            this.button12.Text = "Buscar";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(519, 404);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 22);
-            this.textBox16.TabIndex = 7;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(422, 407);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(56, 17);
-            this.label28.TabIndex = 10;
-            this.label28.Text = "servicio";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(411, 390);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(78, 17);
-            this.label29.TabIndex = 9;
-            this.label29.Text = "Numero de";
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(645, 400);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 8;
-            this.button13.Text = "Buscar";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(505, 401);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(100, 22);
-            this.textBox17.TabIndex = 7;
             // 
             // Employee
             // 
@@ -1072,24 +1073,24 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox c_password;
+        private System.Windows.Forms.TextBox c_usuario;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox3;
-        protected System.Windows.Forms.ComboBox comboBox2;
+        protected System.Windows.Forms.ComboBox c_contratoTipo;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox c_estado;
+        private System.Windows.Forms.TextBox c_calle;
+        private System.Windows.Forms.TextBox c_colonia;
+        private System.Windows.Forms.TextBox c_ciudad;
+        private System.Windows.Forms.DateTimePicker c_nacimiento;
+        private System.Windows.Forms.ComboBox c_genero;
+        private System.Windows.Forms.TextBox c_curp;
+        private System.Windows.Forms.TextBox c_email;
+        private System.Windows.Forms.TextBox c_apellidoM;
+        private System.Windows.Forms.TextBox c_apellidoP;
+        private System.Windows.Forms.TextBox c_nombre;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView dataGridView4;
