@@ -127,6 +127,8 @@
     <Compile Include="Entidades\EmployeesDTG.cs" />
     <Compile Include="Entidades\Existentes.cs" />
     <Compile Include="Entidades\Students.cs" />
+    <Compile Include="Entidades\Tarifas.cs" />
+    <Compile Include="Entidades\TarifasDTG.cs" />
     <Compile Include="Entidades\Users.cs" />
     <Compile Include="Forms\Admin.cs">
       <SubType>Form</SubType>

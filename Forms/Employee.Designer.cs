@@ -36,6 +36,11 @@ namespace AAVD.Forms
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupbox = new System.Windows.Forms.GroupBox();
+            this.c_respuesta = new System.Windows.Forms.TextBox();
+            this.c_pregunta = new System.Windows.Forms.ComboBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.c_password = new System.Windows.Forms.TextBox();
@@ -160,16 +165,24 @@ namespace AAVD.Forms
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupbox = new System.Windows.Forms.GroupBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.c_pregunta = new System.Windows.Forms.ComboBox();
-            this.c_respuesta = new System.Windows.Forms.TextBox();
+            this.Tarifas = new System.Windows.Forms.TabPage();
+            this.label46 = new System.Windows.Forms.Label();
+            this.eb_TarifaBasica = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.TarifasFTG_WN = new System.Windows.Forms.DataGridView();
+            this.btn_agregar_tarifa = new System.Windows.Forms.Button();
+            this.eb_TarifaIntermedia = new System.Windows.Forms.TextBox();
+            this.eb_TarifaExcedente = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.eb_tipoTarifa = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupbox.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -193,7 +206,8 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.groupbox.SuspendLayout();
+            this.Tarifas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TarifasFTG_WN)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -214,6 +228,7 @@ namespace AAVD.Forms
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Controls.Add(this.Tarifas);
             this.tabControl1.Location = new System.Drawing.Point(12, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -276,6 +291,56 @@ namespace AAVD.Forms
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Alta de clientes";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupbox
+            // 
+            this.groupbox.Controls.Add(this.c_respuesta);
+            this.groupbox.Controls.Add(this.c_pregunta);
+            this.groupbox.Controls.Add(this.label45);
+            this.groupbox.Controls.Add(this.label44);
+            this.groupbox.Location = new System.Drawing.Point(119, 422);
+            this.groupbox.Name = "groupbox";
+            this.groupbox.Size = new System.Drawing.Size(710, 107);
+            this.groupbox.TabIndex = 16;
+            this.groupbox.TabStop = false;
+            this.groupbox.Text = "Pregunta de seguridad";
+            // 
+            // c_respuesta
+            // 
+            this.c_respuesta.Location = new System.Drawing.Point(112, 70);
+            this.c_respuesta.Name = "c_respuesta";
+            this.c_respuesta.Size = new System.Drawing.Size(527, 22);
+            this.c_respuesta.TabIndex = 3;
+            // 
+            // c_pregunta
+            // 
+            this.c_pregunta.FormattingEnabled = true;
+            this.c_pregunta.Items.AddRange(new object[] {
+            "¿En que primaria estudiaste?",
+            "¿Cual es tu pelicula favortia?",
+            "¿Que harias con un millon de pesos?"});
+            this.c_pregunta.Location = new System.Drawing.Point(112, 32);
+            this.c_pregunta.Name = "c_pregunta";
+            this.c_pregunta.Size = new System.Drawing.Size(527, 24);
+            this.c_pregunta.TabIndex = 2;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(23, 70);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(76, 17);
+            this.label45.TabIndex = 1;
+            this.label45.Text = "Respuesta";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(23, 35);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(66, 17);
+            this.label44.TabIndex = 0;
+            this.label44.Text = "Pregunta";
             // 
             // button6
             // 
@@ -1479,55 +1544,123 @@ namespace AAVD.Forms
             this.label3.TabIndex = 0;
             this.label3.Text = "Salir de la sesion ";
             // 
-            // groupbox
+            // Tarifas
             // 
-            this.groupbox.Controls.Add(this.c_respuesta);
-            this.groupbox.Controls.Add(this.c_pregunta);
-            this.groupbox.Controls.Add(this.label45);
-            this.groupbox.Controls.Add(this.label44);
-            this.groupbox.Location = new System.Drawing.Point(119, 422);
-            this.groupbox.Name = "groupbox";
-            this.groupbox.Size = new System.Drawing.Size(710, 107);
-            this.groupbox.TabIndex = 16;
-            this.groupbox.TabStop = false;
-            this.groupbox.Text = "Pregunta de seguridad";
+            this.Tarifas.Controls.Add(this.eb_tipoTarifa);
+            this.Tarifas.Controls.Add(this.label50);
+            this.Tarifas.Controls.Add(this.label49);
+            this.Tarifas.Controls.Add(this.eb_TarifaExcedente);
+            this.Tarifas.Controls.Add(this.eb_TarifaIntermedia);
+            this.Tarifas.Controls.Add(this.btn_agregar_tarifa);
+            this.Tarifas.Controls.Add(this.TarifasFTG_WN);
+            this.Tarifas.Controls.Add(this.label48);
+            this.Tarifas.Controls.Add(this.label47);
+            this.Tarifas.Controls.Add(this.eb_TarifaBasica);
+            this.Tarifas.Controls.Add(this.label46);
+            this.Tarifas.Location = new System.Drawing.Point(4, 25);
+            this.Tarifas.Name = "Tarifas";
+            this.Tarifas.Padding = new System.Windows.Forms.Padding(3);
+            this.Tarifas.Size = new System.Drawing.Size(951, 621);
+            this.Tarifas.TabIndex = 7;
+            this.Tarifas.Text = "Tarifas";
+            this.Tarifas.UseVisualStyleBackColor = true;
             // 
-            // label44
+            // label46
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(23, 35);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(66, 17);
-            this.label44.TabIndex = 0;
-            this.label44.Text = "Pregunta";
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(445, 41);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(95, 17);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "Agregar tarifa";
             // 
-            // label45
+            // eb_TarifaBasica
             // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(23, 70);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(76, 17);
-            this.label45.TabIndex = 1;
-            this.label45.Text = "Respuesta";
+            this.eb_TarifaBasica.Location = new System.Drawing.Point(207, 123);
+            this.eb_TarifaBasica.Name = "eb_TarifaBasica";
+            this.eb_TarifaBasica.Size = new System.Drawing.Size(100, 22);
+            this.eb_TarifaBasica.TabIndex = 2;
             // 
-            // c_pregunta
+            // label47
             // 
-            this.c_pregunta.FormattingEnabled = true;
-            this.c_pregunta.Items.AddRange(new object[] {
-            "¿En que primaria estudiaste?",
-            "¿Cual es tu pelicula favortia?",
-            "¿Que harias con un millon de pesos?"});
-            this.c_pregunta.Location = new System.Drawing.Point(112, 32);
-            this.c_pregunta.Name = "c_pregunta";
-            this.c_pregunta.Size = new System.Drawing.Size(527, 24);
-            this.c_pregunta.TabIndex = 2;
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(352, 72);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(36, 17);
+            this.label47.TabIndex = 3;
+            this.label47.Text = "Tipo";
             // 
-            // c_respuesta
+            // label48
             // 
-            this.c_respuesta.Location = new System.Drawing.Point(112, 70);
-            this.c_respuesta.Name = "c_respuesta";
-            this.c_respuesta.Size = new System.Drawing.Size(527, 22);
-            this.c_respuesta.TabIndex = 3;
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(110, 123);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(50, 17);
+            this.label48.TabIndex = 4;
+            this.label48.Text = "Basica";
+            // 
+            // TarifasFTG_WN
+            // 
+            this.TarifasFTG_WN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TarifasFTG_WN.Location = new System.Drawing.Point(6, 226);
+            this.TarifasFTG_WN.Name = "TarifasFTG_WN";
+            this.TarifasFTG_WN.RowHeadersWidth = 51;
+            this.TarifasFTG_WN.RowTemplate.Height = 24;
+            this.TarifasFTG_WN.Size = new System.Drawing.Size(939, 340);
+            this.TarifasFTG_WN.TabIndex = 5;
+            // 
+            // btn_agregar_tarifa
+            // 
+            this.btn_agregar_tarifa.Location = new System.Drawing.Point(463, 166);
+            this.btn_agregar_tarifa.Name = "btn_agregar_tarifa";
+            this.btn_agregar_tarifa.Size = new System.Drawing.Size(77, 28);
+            this.btn_agregar_tarifa.TabIndex = 6;
+            this.btn_agregar_tarifa.Text = "Agregar";
+            this.btn_agregar_tarifa.UseVisualStyleBackColor = true;
+            this.btn_agregar_tarifa.Click += new System.EventHandler(this.btn_agregar_tarifa_Click);
+            // 
+            // eb_TarifaIntermedia
+            // 
+            this.eb_TarifaIntermedia.Location = new System.Drawing.Point(448, 123);
+            this.eb_TarifaIntermedia.Name = "eb_TarifaIntermedia";
+            this.eb_TarifaIntermedia.Size = new System.Drawing.Size(100, 22);
+            this.eb_TarifaIntermedia.TabIndex = 7;
+            // 
+            // eb_TarifaExcedente
+            // 
+            this.eb_TarifaExcedente.Location = new System.Drawing.Point(698, 124);
+            this.eb_TarifaExcedente.Name = "eb_TarifaExcedente";
+            this.eb_TarifaExcedente.Size = new System.Drawing.Size(100, 22);
+            this.eb_TarifaExcedente.TabIndex = 8;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(352, 127);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(74, 17);
+            this.label49.TabIndex = 9;
+            this.label49.Text = "Intermedia";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(600, 126);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(74, 17);
+            this.label50.TabIndex = 10;
+            this.label50.Text = "Excedente";
+            // 
+            // eb_tipoTarifa
+            // 
+            this.eb_tipoTarifa.FormattingEnabled = true;
+            this.eb_tipoTarifa.Items.AddRange(new object[] {
+            "Industrial",
+            "Domestico"});
+            this.eb_tipoTarifa.Location = new System.Drawing.Point(448, 72);
+            this.eb_tipoTarifa.Name = "eb_tipoTarifa";
+            this.eb_tipoTarifa.Size = new System.Drawing.Size(100, 24);
+            this.eb_tipoTarifa.TabIndex = 11;
             // 
             // Employee
             // 
@@ -1544,6 +1677,8 @@ namespace AAVD.Forms
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.groupbox.ResumeLayout(false);
+            this.groupbox.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1581,8 +1716,9 @@ namespace AAVD.Forms
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.groupbox.ResumeLayout(false);
-            this.groupbox.PerformLayout();
+            this.Tarifas.ResumeLayout(false);
+            this.Tarifas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TarifasFTG_WN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1727,5 +1863,17 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label44;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TabPage Tarifas;
+        private System.Windows.Forms.ComboBox eb_tipoTarifa;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox eb_TarifaExcedente;
+        private System.Windows.Forms.TextBox eb_TarifaIntermedia;
+        private System.Windows.Forms.Button btn_agregar_tarifa;
+        private System.Windows.Forms.DataGridView TarifasFTG_WN;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.TextBox eb_TarifaBasica;
+        private System.Windows.Forms.Label label46;
     }
 }

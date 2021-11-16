@@ -25,6 +25,7 @@ namespace AAVD.Forms
             c_nacimiento.Format = DateTimePickerFormat.Custom;
             this.CenterToScreen();
             updateDataGrid();
+            updateDataGridTarifa();
         }
 
         private void Employee_Load(object sender, EventArgs e)
@@ -175,6 +176,35 @@ namespace AAVD.Forms
             id_seleccionado_borrar = null;
             MessageBox.Show("Cliente borrado con exito.");
             updateDataGrid();
+        }
+
+
+        //Definir las tarifas
+        private void btn_agregar_tarifa_Click(object sender, EventArgs e)
+        {
+            DatabaseManagement.getInstance().crearTarifa(eb_tipoTarifa.Text, eb_TarifaBasica.Text, eb_TarifaIntermedia.Text, eb_TarifaExcedente.Text);
+            MessageBox.Show("Tarifa actualizada");
+            updateDataGridTarifa();
+        }
+
+        //Poner las tarifas en ventana
+        public void updateDataGridTarifa() {
+
+            List<Tarifas> tarifas = new List<Tarifas>();
+            tarifas = DatabaseManagement.getInstance().GetTarifas();
+
+            List<Tarifas> tfDTG = new List<Tarifas>();
+            foreach (var tarifa in tarifas)
+            {
+                Tarifas tarifaDTG = new Tarifas();
+                tarifaDTG.tipo = tarifa.tipo ;
+                tarifaDTG.basico = tarifa.basico;
+                tarifaDTG.intermedio = tarifa.intermedio;
+                tarifaDTG.excedente = tarifa.excedente;
+                tfDTG.Add(tarifaDTG);
+
+            }
+            TarifasFTG_WN.DataSource = tfDTG;
         }
     }
 }

@@ -196,5 +196,24 @@ namespace AAVD.Base_de_datos
             session.Execute(query);
         }
 
+
+        //Definir las tarifas:
+        public void crearTarifa(string tipo, string basica, string intermedia, string excedente) {
+
+            string query2 = "INSERT INTO TARIFAS(TIPO, BASICO, INTERMEDIO, EXCEDENTE)" + " VALUES('" + tipo + "', " + basica + ", " + intermedia + ", " + excedente + ")";
+            session.Execute(query2);
+        }
+
+        //Obetener tarifas
+        public List<Tarifas> GetTarifas()
+        {
+            string query = "SELECT * FROM TARIFAS";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Tarifas> tarifas = mapper.Fetch<Tarifas>(query);
+            return tarifas.ToList();
+        }
+
+
     }
 }
