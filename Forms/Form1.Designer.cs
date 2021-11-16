@@ -29,31 +29,14 @@ namespace AAVD
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnStudents = new System.Windows.Forms.Button();
-            this.btnNewUser = new System.Windows.Forms.Button();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.eb_pregunta = new System.Windows.Forms.TextBox();
+            this.eb_respuesta = new System.Windows.Forms.TextBox();
+            this.btn_recordar = new System.Windows.Forms.Button();
+            this.btn_responder = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnStudents
-            // 
-            this.btnStudents.Location = new System.Drawing.Point(569, 178);
-            this.btnStudents.Name = "btnStudents";
-            this.btnStudents.Size = new System.Drawing.Size(92, 29);
-            this.btnStudents.TabIndex = 0;
-            this.btnStudents.Text = "Estudiantes";
-            this.btnStudents.UseVisualStyleBackColor = true;
-            // 
-            // btnNewUser
-            // 
-            this.btnNewUser.Location = new System.Drawing.Point(569, 127);
-            this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(92, 30);
-            this.btnNewUser.TabIndex = 1;
-            this.btnNewUser.Text = "Registrarse";
-            this.btnNewUser.UseVisualStyleBackColor = true;
-            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
             // txtUser
             // 
@@ -80,6 +63,44 @@ namespace AAVD
             this.txtPassword.Size = new System.Drawing.Size(100, 22);
             this.txtPassword.TabIndex = 4;
             // 
+            // eb_pregunta
+            // 
+            this.eb_pregunta.Location = new System.Drawing.Point(350, 127);
+            this.eb_pregunta.Name = "eb_pregunta";
+            this.eb_pregunta.ReadOnly = true;
+            this.eb_pregunta.Size = new System.Drawing.Size(300, 22);
+            this.eb_pregunta.TabIndex = 5;
+            this.eb_pregunta.Visible = false;
+            // 
+            // eb_respuesta
+            // 
+            this.eb_respuesta.Location = new System.Drawing.Point(350, 178);
+            this.eb_respuesta.Name = "eb_respuesta";
+            this.eb_respuesta.Size = new System.Drawing.Size(300, 22);
+            this.eb_respuesta.TabIndex = 6;
+            this.eb_respuesta.Visible = false;
+            // 
+            // btn_recordar
+            // 
+            this.btn_recordar.Location = new System.Drawing.Point(492, 343);
+            this.btn_recordar.Name = "btn_recordar";
+            this.btn_recordar.Size = new System.Drawing.Size(193, 26);
+            this.btn_recordar.TabIndex = 7;
+            this.btn_recordar.Text = "Recordar contraseña";
+            this.btn_recordar.UseVisualStyleBackColor = true;
+            this.btn_recordar.Click += new System.EventHandler(this.btn_recordar_Click);
+            // 
+            // btn_responder
+            // 
+            this.btn_responder.Location = new System.Drawing.Point(468, 232);
+            this.btn_responder.Name = "btn_responder";
+            this.btn_responder.Size = new System.Drawing.Size(75, 23);
+            this.btn_responder.TabIndex = 8;
+            this.btn_responder.Text = "Ok";
+            this.btn_responder.UseVisualStyleBackColor = true;
+            this.btn_responder.Visible = false;
+            this.btn_responder.Click += new System.EventHandler(this.btn_responder_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -88,11 +109,13 @@ namespace AAVD
             this.BackgroundImage = global::AAVD.Properties.Resources.League_of_Legends_Ashe_League_of_Legends_mountains_sky_1894075_jpg_d;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(721, 403);
+            this.Controls.Add(this.btn_responder);
+            this.Controls.Add(this.btn_recordar);
+            this.Controls.Add(this.eb_respuesta);
+            this.Controls.Add(this.eb_pregunta);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtUser);
-            this.Controls.Add(this.btnNewUser);
-            this.Controls.Add(this.btnStudents);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Login";
@@ -103,12 +126,13 @@ namespace AAVD
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnStudents;
-        private System.Windows.Forms.Button btnNewUser;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox eb_pregunta;
+        private System.Windows.Forms.TextBox eb_respuesta;
+        private System.Windows.Forms.Button btn_recordar;
+        private System.Windows.Forms.Button btn_responder;
     }
 }
 

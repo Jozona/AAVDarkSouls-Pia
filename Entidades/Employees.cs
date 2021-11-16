@@ -20,6 +20,8 @@ namespace AAVD.Entidades
         public TimeUuid creation_date { get; set; }
         public DateTimeOffset date_of_birth { get; set; }
         public IEnumerable<LocalDate> modification_date { get; set; }
+        public string question { get; set; }
+        public string answer { get; set; }
 
 
     }

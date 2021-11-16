@@ -70,6 +70,7 @@ namespace AAVD.Forms
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_actualizar = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.edc_password = new System.Windows.Forms.TextBox();
             this.edc_usuario = new System.Windows.Forms.TextBox();
@@ -159,7 +160,12 @@ namespace AAVD.Forms
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_actualizar = new System.Windows.Forms.Button();
+            this.groupbox = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.c_pregunta = new System.Windows.Forms.ComboBox();
+            this.c_respuesta = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -187,6 +193,7 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -256,6 +263,7 @@ namespace AAVD.Forms
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupbox);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox3);
@@ -271,7 +279,7 @@ namespace AAVD.Forms
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(442, 505);
+            this.button6.Location = new System.Drawing.Point(439, 551);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(99, 50);
             this.button6.TabIndex = 15;
@@ -285,7 +293,7 @@ namespace AAVD.Forms
             this.groupBox4.Controls.Add(this.c_usuario);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Location = new System.Drawing.Point(504, 395);
+            this.groupBox4.Location = new System.Drawing.Point(485, 323);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(344, 93);
             this.groupBox4.TabIndex = 14;
@@ -329,7 +337,7 @@ namespace AAVD.Forms
             // 
             this.groupBox3.Controls.Add(this.c_contratoTipo);
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Location = new System.Drawing.Point(504, 315);
+            this.groupBox3.Location = new System.Drawing.Point(485, 243);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(344, 73);
             this.groupBox3.TabIndex = 13;
@@ -366,7 +374,7 @@ namespace AAVD.Forms
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(138, 314);
+            this.groupBox2.Location = new System.Drawing.Point(119, 242);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(359, 174);
             this.groupBox2.TabIndex = 12;
@@ -453,7 +461,7 @@ namespace AAVD.Forms
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Location = new System.Drawing.Point(138, 94);
+            this.groupBox1.Location = new System.Drawing.Point(119, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(710, 214);
             this.groupBox1.TabIndex = 11;
@@ -593,6 +601,16 @@ namespace AAVD.Forms
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Edicion de clientes";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btn_actualizar
+            // 
+            this.btn_actualizar.Location = new System.Drawing.Point(434, 574);
+            this.btn_actualizar.Name = "btn_actualizar";
+            this.btn_actualizar.Size = new System.Drawing.Size(85, 34);
+            this.btn_actualizar.TabIndex = 19;
+            this.btn_actualizar.Text = "Editar";
+            this.btn_actualizar.UseVisualStyleBackColor = true;
+            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // groupBox6
             // 
@@ -1461,15 +1479,55 @@ namespace AAVD.Forms
             this.label3.TabIndex = 0;
             this.label3.Text = "Salir de la sesion ";
             // 
-            // btn_actualizar
+            // groupbox
             // 
-            this.btn_actualizar.Location = new System.Drawing.Point(434, 574);
-            this.btn_actualizar.Name = "btn_actualizar";
-            this.btn_actualizar.Size = new System.Drawing.Size(85, 34);
-            this.btn_actualizar.TabIndex = 19;
-            this.btn_actualizar.Text = "Editar";
-            this.btn_actualizar.UseVisualStyleBackColor = true;
-            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
+            this.groupbox.Controls.Add(this.c_respuesta);
+            this.groupbox.Controls.Add(this.c_pregunta);
+            this.groupbox.Controls.Add(this.label45);
+            this.groupbox.Controls.Add(this.label44);
+            this.groupbox.Location = new System.Drawing.Point(119, 422);
+            this.groupbox.Name = "groupbox";
+            this.groupbox.Size = new System.Drawing.Size(710, 107);
+            this.groupbox.TabIndex = 16;
+            this.groupbox.TabStop = false;
+            this.groupbox.Text = "Pregunta de seguridad";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(23, 35);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(66, 17);
+            this.label44.TabIndex = 0;
+            this.label44.Text = "Pregunta";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(23, 70);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(76, 17);
+            this.label45.TabIndex = 1;
+            this.label45.Text = "Respuesta";
+            // 
+            // c_pregunta
+            // 
+            this.c_pregunta.FormattingEnabled = true;
+            this.c_pregunta.Items.AddRange(new object[] {
+            "¿En que primaria estudiaste?",
+            "¿Cual es tu pelicula favortia?",
+            "¿Que harias con un millon de pesos?"});
+            this.c_pregunta.Location = new System.Drawing.Point(112, 32);
+            this.c_pregunta.Name = "c_pregunta";
+            this.c_pregunta.Size = new System.Drawing.Size(527, 24);
+            this.c_pregunta.TabIndex = 2;
+            // 
+            // c_respuesta
+            // 
+            this.c_respuesta.Location = new System.Drawing.Point(112, 70);
+            this.c_respuesta.Name = "c_respuesta";
+            this.c_respuesta.Size = new System.Drawing.Size(527, 22);
+            this.c_respuesta.TabIndex = 3;
             // 
             // Employee
             // 
@@ -1523,6 +1581,8 @@ namespace AAVD.Forms
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.groupbox.ResumeLayout(false);
+            this.groupbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1661,5 +1721,11 @@ namespace AAVD.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn USER;
         private System.Windows.Forms.DataGridViewTextBoxColumn PASSWORD;
         private System.Windows.Forms.Button btn_actualizar;
+        private System.Windows.Forms.GroupBox groupbox;
+        private System.Windows.Forms.TextBox c_respuesta;
+        private System.Windows.Forms.ComboBox c_pregunta;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label44;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

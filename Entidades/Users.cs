@@ -13,5 +13,7 @@ namespace AAVD.Entidades
         public string password { get; set; }
         public int user_type { get; set; }
         public bool active { get; set; }
+        public string question { get; set; }
+        public string answer { get; set; }
     }
 }

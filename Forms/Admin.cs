@@ -34,13 +34,16 @@ namespace AAVD.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             DatabaseManagement database = DatabaseManagement.getInstance();
-            database.registerUser(btn_emp_user.Text, btn_emp_pass.Text, 1);
+            if (!(database.registerUser(btn_emp_user.Text, btn_emp_pass.Text, 1, e_pregunta.Text, e_respuesta.Text))) {
+                MessageBox.Show("No se pueden repetir usuarios");
+                return;
+            }
             List<Users> user = new List<Users>();
             user = database.getLogin(btn_emp_user.Text, btn_emp_pass.Text);
             Guid new_user_id;
             foreach (var data in user) {
                 new_user_id = data.user_id;
-                database.registerEmployee(btn_emp_user.Text, btn_emp_pass.Text, eb_name_emp.Text, eb_ap_emp.Text, eb_am_emp.Text, eb_curp_emp.Text, eb_rfc_emp.Text, dtp_nac_emp.Value.ToString("yyyy-MM-dd"), new_user_id);
+                database.registerEmployee(btn_emp_user.Text, btn_emp_pass.Text, eb_name_emp.Text, eb_ap_emp.Text, eb_am_emp.Text, eb_curp_emp.Text, eb_rfc_emp.Text, dtp_nac_emp.Value.ToString("yyyy-MM-dd"), new_user_id, e_pregunta.Text, e_respuesta.Text);
             }
             MessageBox.Show("Empleado registrado con exito.");
             updateDataGrid();
@@ -57,18 +60,28 @@ namespace AAVD.Forms
            
         }
         int indexRow;
+        string id_empleadoSelect;
 
         //Si la click a editar al empleado, lo buscamos por medio de su usuario y hacemos un UPDATE.
         private void button1_Click_1(object sender, EventArgs e)
         {
-            DatabaseManagement.getInstance().updateEmployee(btn_emp_user.Text, btn_emp_pass.Text, eb_name_emp.Text, eb_ap_emp.Text, eb_am_emp.Text, eb_curp_emp.Text, eb_rfc_emp.Text, dtp_nac_emp.Value.ToString("yyyy-MM-dd"), id_emp.Text);
+            if (id_empleadoSelect == null) {
+                MessageBox.Show("Selecciona un empleado");
+                return;
+            }
+            DatabaseManagement.getInstance().updateEmployee(btn_emp_user.Text, btn_emp_pass.Text, eb_name_emp.Text, eb_ap_emp.Text, eb_am_emp.Text, eb_curp_emp.Text, eb_rfc_emp.Text, dtp_nac_emp.Value.ToString("yyyy-MM-dd"), id_empleadoSelect, e_pregunta.Text, e_respuesta.Text);
             MessageBox.Show("Empleado actualizado");
             updateDataGrid();
+            id_empleadoSelect = null;
         }
 
         private void EmployeesWinDtg_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             indexRow = e.RowIndex;
+            if (indexRow < 0) { 
+                MessageBox.Show("Selecciona a un empleado");
+                return;
+            }
             DataGridViewRow row = EmployeesWinDtg.Rows[indexRow];
             if (row == null)
                 return;
@@ -79,7 +92,9 @@ namespace AAVD.Forms
             eb_ap_emp.Text = row.Cells[5].Value.ToString();
             eb_am_emp.Text = row.Cells[6].Value.ToString();
             dtp_nac_emp.Text = row.Cells[8].Value.ToString();
-            id_emp.Text = row.Cells[0].Value.ToString();
+            e_pregunta.Text = row.Cells[9].Value.ToString();
+            e_respuesta.Text = row.Cells[10].Value.ToString();
+            id_empleadoSelect = row.Cells[0].Value.ToString();
 
             //Pasar las claves unicas del map a las editbox
             //Este fix es ridiculo pero funciona
@@ -93,9 +108,15 @@ namespace AAVD.Forms
 
         private void btn_borrar_emp_Click(object sender, EventArgs e)
         {
-            DatabaseManagement.getInstance().eraseEmployee(id_emp.Text, btn_emp_user.Text, btn_emp_pass.Text);
+            if (id_empleadoSelect == null)
+            {
+                MessageBox.Show("Selecciona un empleado");
+                return;
+            }
+            DatabaseManagement.getInstance().eraseEmployee(id_empleadoSelect, btn_emp_user.Text, btn_emp_pass.Text);
             MessageBox.Show("Empleado eliminado");
             updateDataGrid();
+            id_empleadoSelect = null;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -118,6 +139,8 @@ namespace AAVD.Forms
                 empleadoDTG.name = empleado.name;
                 empleadoDTG.last_name = empleado.last_name;
                 empleadoDTG.mother_last_name = empleado.mother_last_name;
+                empleadoDTG.question = empleado.question;
+                empleadoDTG.answer = empleado.answer;
                 foreach (KeyValuePair<string, string> key in empleado.claves_unicas)
                 {
                     empleadoDTG.claves_unicas += key.Key.ToString();
@@ -138,6 +161,13 @@ namespace AAVD.Forms
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //Activar un usuario
+        private void btn_activar_Click(object sender, EventArgs e)
+        {
+            DatabaseManagement.getInstance().userUnban(eb_reactivar.Text);
+            MessageBox.Show("Usuario reactivado");
         }
     }
 }

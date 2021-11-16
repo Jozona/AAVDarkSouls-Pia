@@ -18,5 +18,7 @@ namespace AAVD.Entidades
         public string mother_last_name { get; set; }
         public string claves_unicas { get; set; }
         public string date_of_birth { get; set; }
+        public string question { get; set; }
+        public string answer { get; set; }
     }
 }

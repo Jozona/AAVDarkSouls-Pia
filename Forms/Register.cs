@@ -33,7 +33,7 @@ namespace AAVD.Forms
         private void btnRegister_Click(object sender, EventArgs e)
         {
             DatabaseManagement database = DatabaseManagement.getInstance();
-            database.registerUser(txtUser.Text, txtPassword.Text, 1);
+            database.registerUser(txtUser.Text, txtPassword.Text, 1, "yes", "yes");
             int i = 0;
         }
     }

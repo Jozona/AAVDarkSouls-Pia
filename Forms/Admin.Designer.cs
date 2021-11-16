@@ -37,8 +37,10 @@ namespace AAVD.Forms
             this.button3 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.id_emp = new System.Windows.Forms.TextBox();
+            this.e_respuesta = new System.Windows.Forms.TextBox();
+            this.e_pregunta = new System.Windows.Forms.ComboBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.btn_emp_user = new System.Windows.Forms.TextBox();
             this.btn_emp_pass = new System.Windows.Forms.TextBox();
             this.eb_rfc_emp = new System.Windows.Forms.TextBox();
@@ -46,7 +48,6 @@ namespace AAVD.Forms
             this.eb_am_emp = new System.Windows.Forms.TextBox();
             this.eb_ap_emp = new System.Windows.Forms.TextBox();
             this.eb_name_emp = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.btn_borrar_emp = new System.Windows.Forms.Button();
             this.btn_editar_emp = new System.Windows.Forms.Button();
             this.EmployeesWinDtg = new System.Windows.Forms.DataGridView();
@@ -58,6 +59,8 @@ namespace AAVD.Forms
             this.EMPLOYEE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClavesUnicas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DATE_OF_BIRTH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUESTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ANSWER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dtp_nac_emp = new System.Windows.Forms.DateTimePicker();
@@ -71,6 +74,9 @@ namespace AAVD.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label13 = new System.Windows.Forms.Label();
+            this.eb_reactivar = new System.Windows.Forms.TextBox();
+            this.btn_activar = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesWinDtg)).BeginInit();
@@ -89,6 +95,9 @@ namespace AAVD.Forms
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_activar);
+            this.tabPage3.Controls.Add(this.eb_reactivar);
+            this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Controls.Add(this.button3);
@@ -96,7 +105,7 @@ namespace AAVD.Forms
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1192, 545);
+            this.tabPage3.Size = new System.Drawing.Size(1192, 593);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Opciones";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -104,7 +113,7 @@ namespace AAVD.Forms
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(308, 222);
+            this.label10.Location = new System.Drawing.Point(529, 336);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(115, 17);
             this.label10.TabIndex = 3;
@@ -112,7 +121,7 @@ namespace AAVD.Forms
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(320, 266);
+            this.button4.Location = new System.Drawing.Point(545, 386);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 2;
@@ -121,7 +130,7 @@ namespace AAVD.Forms
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(320, 161);
+            this.button3.Location = new System.Drawing.Point(545, 276);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 1;
@@ -131,7 +140,7 @@ namespace AAVD.Forms
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(308, 126);
+            this.label9.Location = new System.Drawing.Point(533, 241);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 17);
             this.label9.TabIndex = 0;
@@ -139,8 +148,10 @@ namespace AAVD.Forms
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.id_emp);
+            this.tabPage1.Controls.Add(this.e_respuesta);
+            this.tabPage1.Controls.Add(this.e_pregunta);
+            this.tabPage1.Controls.Add(this.label45);
+            this.tabPage1.Controls.Add(this.label44);
             this.tabPage1.Controls.Add(this.btn_emp_user);
             this.tabPage1.Controls.Add(this.btn_emp_pass);
             this.tabPage1.Controls.Add(this.eb_rfc_emp);
@@ -148,7 +159,6 @@ namespace AAVD.Forms
             this.tabPage1.Controls.Add(this.eb_am_emp);
             this.tabPage1.Controls.Add(this.eb_ap_emp);
             this.tabPage1.Controls.Add(this.eb_name_emp);
-            this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.btn_borrar_emp);
             this.tabPage1.Controls.Add(this.btn_editar_emp);
             this.tabPage1.Controls.Add(this.EmployeesWinDtg);
@@ -167,29 +177,48 @@ namespace AAVD.Forms
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1192, 545);
+            this.tabPage1.Size = new System.Drawing.Size(1192, 593);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar empleados";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // button2
+            // e_respuesta
             // 
-            this.button2.Location = new System.Drawing.Point(47, 452);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 43);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Mostrar empleados";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.e_respuesta.Location = new System.Drawing.Point(133, 361);
+            this.e_respuesta.Name = "e_respuesta";
+            this.e_respuesta.Size = new System.Drawing.Size(347, 22);
+            this.e_respuesta.TabIndex = 25;
             // 
-            // id_emp
+            // e_pregunta
             // 
-            this.id_emp.Location = new System.Drawing.Point(148, 301);
-            this.id_emp.Name = "id_emp";
-            this.id_emp.ReadOnly = true;
-            this.id_emp.Size = new System.Drawing.Size(257, 22);
-            this.id_emp.TabIndex = 23;
+            this.e_pregunta.FormattingEnabled = true;
+            this.e_pregunta.Items.AddRange(new object[] {
+            "¿En que primaria estudiaste?",
+            "¿Cual es tu pelicula favortia?",
+            "¿Que harias con un millon de pesos?"});
+            this.e_pregunta.Location = new System.Drawing.Point(133, 306);
+            this.e_pregunta.Name = "e_pregunta";
+            this.e_pregunta.Size = new System.Drawing.Size(347, 24);
+            this.e_pregunta.TabIndex = 24;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(44, 361);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(76, 17);
+            this.label45.TabIndex = 23;
+            this.label45.Text = "Respuesta";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(44, 309);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(66, 17);
+            this.label44.TabIndex = 22;
+            this.label44.Text = "Pregunta";
             // 
             // btn_emp_user
             // 
@@ -240,18 +269,9 @@ namespace AAVD.Forms
             this.eb_name_emp.Size = new System.Drawing.Size(100, 22);
             this.eb_name_emp.TabIndex = 7;
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(117, 304);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(25, 17);
-            this.label15.TabIndex = 22;
-            this.label15.Text = "ID:";
-            // 
             // btn_borrar_emp
             // 
-            this.btn_borrar_emp.Location = new System.Drawing.Point(369, 347);
+            this.btn_borrar_emp.Location = new System.Drawing.Point(371, 412);
             this.btn_borrar_emp.Name = "btn_borrar_emp";
             this.btn_borrar_emp.Size = new System.Drawing.Size(91, 36);
             this.btn_borrar_emp.TabIndex = 21;
@@ -261,7 +281,7 @@ namespace AAVD.Forms
             // 
             // btn_editar_emp
             // 
-            this.btn_editar_emp.Location = new System.Drawing.Point(237, 347);
+            this.btn_editar_emp.Location = new System.Drawing.Point(239, 412);
             this.btn_editar_emp.Name = "btn_editar_emp";
             this.btn_editar_emp.Size = new System.Drawing.Size(91, 36);
             this.btn_editar_emp.TabIndex = 20;
@@ -271,6 +291,8 @@ namespace AAVD.Forms
             // 
             // EmployeesWinDtg
             // 
+            this.EmployeesWinDtg.AllowUserToAddRows = false;
+            this.EmployeesWinDtg.AllowUserToDeleteRows = false;
             this.EmployeesWinDtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.EmployeesWinDtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.User,
@@ -280,9 +302,12 @@ namespace AAVD.Forms
             this.MOTHER_LAST_NAME,
             this.EMPLOYEE_ID,
             this.ClavesUnicas,
-            this.DATE_OF_BIRTH});
+            this.DATE_OF_BIRTH,
+            this.QUESTION,
+            this.ANSWER});
             this.EmployeesWinDtg.Location = new System.Drawing.Point(520, 22);
             this.EmployeesWinDtg.Name = "EmployeesWinDtg";
+            this.EmployeesWinDtg.ReadOnly = true;
             this.EmployeesWinDtg.RowHeadersWidth = 51;
             this.EmployeesWinDtg.RowTemplate.Height = 24;
             this.EmployeesWinDtg.Size = new System.Drawing.Size(643, 517);
@@ -295,6 +320,7 @@ namespace AAVD.Forms
             this.User.HeaderText = "User";
             this.User.MinimumWidth = 6;
             this.User.Name = "User";
+            this.User.ReadOnly = true;
             this.User.Width = 125;
             // 
             // Password
@@ -303,6 +329,7 @@ namespace AAVD.Forms
             this.Password.HeaderText = "Password";
             this.Password.MinimumWidth = 6;
             this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
             this.Password.Width = 125;
             // 
             // Nombre
@@ -311,6 +338,7 @@ namespace AAVD.Forms
             this.Nombre.HeaderText = "Name";
             this.Nombre.MinimumWidth = 6;
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             this.Nombre.Width = 125;
             // 
             // last_name
@@ -319,6 +347,7 @@ namespace AAVD.Forms
             this.last_name.HeaderText = "last_name";
             this.last_name.MinimumWidth = 6;
             this.last_name.Name = "last_name";
+            this.last_name.ReadOnly = true;
             this.last_name.Width = 125;
             // 
             // MOTHER_LAST_NAME
@@ -327,6 +356,7 @@ namespace AAVD.Forms
             this.MOTHER_LAST_NAME.HeaderText = "MOTHER_LAST_NAME";
             this.MOTHER_LAST_NAME.MinimumWidth = 6;
             this.MOTHER_LAST_NAME.Name = "MOTHER_LAST_NAME";
+            this.MOTHER_LAST_NAME.ReadOnly = true;
             this.MOTHER_LAST_NAME.Width = 125;
             // 
             // EMPLOYEE_ID
@@ -335,6 +365,7 @@ namespace AAVD.Forms
             this.EMPLOYEE_ID.HeaderText = "EMPLOYEE_ID";
             this.EMPLOYEE_ID.MinimumWidth = 6;
             this.EMPLOYEE_ID.Name = "EMPLOYEE_ID";
+            this.EMPLOYEE_ID.ReadOnly = true;
             this.EMPLOYEE_ID.Width = 125;
             // 
             // ClavesUnicas
@@ -343,6 +374,7 @@ namespace AAVD.Forms
             this.ClavesUnicas.HeaderText = "Claves unicas";
             this.ClavesUnicas.MinimumWidth = 6;
             this.ClavesUnicas.Name = "ClavesUnicas";
+            this.ClavesUnicas.ReadOnly = true;
             this.ClavesUnicas.Width = 125;
             // 
             // DATE_OF_BIRTH
@@ -351,7 +383,26 @@ namespace AAVD.Forms
             this.DATE_OF_BIRTH.HeaderText = "Fecha de nacimiento";
             this.DATE_OF_BIRTH.MinimumWidth = 6;
             this.DATE_OF_BIRTH.Name = "DATE_OF_BIRTH";
+            this.DATE_OF_BIRTH.ReadOnly = true;
             this.DATE_OF_BIRTH.Width = 125;
+            // 
+            // QUESTION
+            // 
+            this.QUESTION.DataPropertyName = "QUESTION";
+            this.QUESTION.HeaderText = "Pregunta";
+            this.QUESTION.MinimumWidth = 6;
+            this.QUESTION.Name = "QUESTION";
+            this.QUESTION.ReadOnly = true;
+            this.QUESTION.Width = 125;
+            // 
+            // ANSWER
+            // 
+            this.ANSWER.DataPropertyName = "ANSWER";
+            this.ANSWER.HeaderText = "Respuesta";
+            this.ANSWER.MinimumWidth = 6;
+            this.ANSWER.Name = "ANSWER";
+            this.ANSWER.ReadOnly = true;
+            this.ANSWER.Width = 125;
             // 
             // label12
             // 
@@ -380,7 +431,7 @@ namespace AAVD.Forms
             // 
             // btn_alta_empleado
             // 
-            this.btn_alta_empleado.Location = new System.Drawing.Point(111, 347);
+            this.btn_alta_empleado.Location = new System.Drawing.Point(113, 412);
             this.btn_alta_empleado.Name = "btn_alta_empleado";
             this.btn_alta_empleado.Size = new System.Drawing.Size(91, 36);
             this.btn_alta_empleado.TabIndex = 15;
@@ -391,7 +442,7 @@ namespace AAVD.Forms
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(180, 423);
+            this.pictureBox1.Location = new System.Drawing.Point(169, 479);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(226, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -469,14 +520,40 @@ namespace AAVD.Forms
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1200, 574);
+            this.tabControl1.Size = new System.Drawing.Size(1200, 622);
             this.tabControl1.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(529, 100);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(119, 17);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Reactivar usuario";
+            // 
+            // eb_reactivar
+            // 
+            this.eb_reactivar.Location = new System.Drawing.Point(469, 137);
+            this.eb_reactivar.Name = "eb_reactivar";
+            this.eb_reactivar.Size = new System.Drawing.Size(224, 22);
+            this.eb_reactivar.TabIndex = 5;
+            // 
+            // btn_activar
+            // 
+            this.btn_activar.Location = new System.Drawing.Point(545, 183);
+            this.btn_activar.Name = "btn_activar";
+            this.btn_activar.Size = new System.Drawing.Size(75, 23);
+            this.btn_activar.TabIndex = 6;
+            this.btn_activar.Text = "Ok";
+            this.btn_activar.UseVisualStyleBackColor = true;
+            this.btn_activar.Click += new System.EventHandler(this.btn_activar_Click);
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 598);
+            this.ClientSize = new System.Drawing.Size(1250, 630);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Name = "Admin";
@@ -502,8 +579,6 @@ namespace AAVD.Forms
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox id_emp;
         private System.Windows.Forms.TextBox btn_emp_user;
         private System.Windows.Forms.TextBox btn_emp_pass;
         private System.Windows.Forms.TextBox eb_rfc_emp;
@@ -511,18 +586,9 @@ namespace AAVD.Forms
         private System.Windows.Forms.TextBox eb_am_emp;
         private System.Windows.Forms.TextBox eb_ap_emp;
         private System.Windows.Forms.TextBox eb_name_emp;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btn_borrar_emp;
         private System.Windows.Forms.Button btn_editar_emp;
         private System.Windows.Forms.DataGridView EmployeesWinDtg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn User;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MOTHER_LAST_NAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EMPLOYEE_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClavesUnicas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DATE_OF_BIRTH;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dtp_nac_emp;
@@ -536,5 +602,22 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TextBox e_respuesta;
+        private System.Windows.Forms.ComboBox e_pregunta;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MOTHER_LAST_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EMPLOYEE_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClavesUnicas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DATE_OF_BIRTH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QUESTION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ANSWER;
+        private System.Windows.Forms.Button btn_activar;
+        private System.Windows.Forms.TextBox eb_reactivar;
+        private System.Windows.Forms.Label label13;
     }
 }
