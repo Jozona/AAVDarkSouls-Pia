@@ -95,21 +95,29 @@ DROP TABLE EMPLOYEES;
 ----Tabla de clientes------
 CREATE TABLE IF NOT EXISTS CLIENTS(
 	CLIENT_ID uuid,
-	USER_ID varchar,
+	USER_ID uuid,
 	USER varchar,
 	PASSWORD varchar,
+	NAME varchar,
+	LAST_NAME varchar,
+	MOTHER_LAST_NAME varchar,
 	CONTRACT_TYPE varchar,
 	CREATION_DATE timeuuid,
 	MODIFICATION_TIMES set<date>,
-	MONTHLY_PAYMENTS list<double>,
+	MONTHLY_PAYMENTS map<VARCHAR, double>,
 	CURP varchar,
 	EMAIL varchar,
 	GENDER varchar,
-	ACCESS FROZEN <ADDRESS>,
 	MEASURER int,
 	SERVICE_NUMBER int,
 	CONTRACTS MAP<uuid, varchar>,
-	PRIMARY KEY(USER)
+	AUTHOR uuid,
+	STREET varchar,
+	COLONY varchar,
+	CITY varchar,
+	STATE varchar,
+	DATE_OF_BIRTH timestamp,
+	PRIMARY KEY(CLIENT_ID)
 );
 
 CREATE TYPE IF NOT EXISTS AAVD_FCFM.ADDRESS(
