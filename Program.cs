@@ -14,6 +14,9 @@ namespace AAVD
         [STAThread]
         static void Main()
         {
+
+            //HOLA COMO ESTAS?
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
