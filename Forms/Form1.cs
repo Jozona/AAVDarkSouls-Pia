@@ -41,11 +41,34 @@ namespace AAVD
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        int limite = 0;
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //Falta:
             //Poder recuperar contrase;a. Si se ingresa un usuario 3 veces con la contrase;a incorrecta, bloquearlo.
             //Comentar hasta que acabe el foreach si cassandra no esta onectado. Para poder abrir las ventanas asi mero.
+            
+            List<Users> datosUsuario = new List<Users>();
+            datosUsuario = DatabaseManagement.getInstance().getRemember(txtUser.Text);
+            foreach (var datos in datosUsuario) {
+                if (!datos.active) {
+                    MessageBox.Show("Este usuario esta desactivado.");
+                    return;
+                }
+
+                if (datos.user_name == txtUser.Text && datos.password != txtPassword.Text) {
+                    MessageBox.Show("Contraseña incorrecta.");
+                    limite++;
+                    if (limite == 3) {
+                        DatabaseManagement.getInstance().userBan(txtUser.Text);
+                        MessageBox.Show("Llegaste al limite de intentos, este usuario ha sido bloqueado.");
+                    }
+                    return;
+                }
+            }
+
+
+
             List<Users> users = new List<Users>();
             users = DatabaseManagement.getInstance().getLogin(txtUser.Text, txtPassword.Text);
             foreach (var data in users) {
@@ -109,6 +132,44 @@ namespace AAVD
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        //Recordar contrase;a
+        private void btn_recordar_Click(object sender, EventArgs e)
+        {
+            List<Users> users = new List<Users>();
+            users = DatabaseManagement.getInstance().getRemember(txtUser.Text);
+            foreach (var usuario in users) {
+                eb_respuesta.Visible = true;
+                eb_pregunta.Visible = true;
+                btn_responder.Visible = true;
+                eb_pregunta.Text = usuario.question;
+            }
+        }
+
+        int errores = 0;
+        //Responder la pregunta
+        private void btn_responder_Click(object sender, EventArgs e)
+        {
+            List<Users> users = new List<Users>();
+            users = DatabaseManagement.getInstance().getRemember(txtUser.Text);
+            foreach (var usuario in users)
+            {
+                if (errores == 3) {
+                    MessageBox.Show("Alcanzaste tu limite de intentos. Contacta a un administrador.");
+                    return;
+                }
+
+                if (eb_respuesta.Text == usuario.answer)
+                {
+                    string pass = "Tu contraseña es: " + usuario.password;
+                    MessageBox.Show(pass);
+                }
+                else {
+                    MessageBox.Show("Respuesta incorrecta");
+                    errores++;
+                }
+            }
         }
     }
 }

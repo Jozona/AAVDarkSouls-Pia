@@ -18,6 +18,7 @@ namespace AAVD.Forms
         public Employee()
         {
             InitializeComponent();
+
             edc_nacimiento.CustomFormat = "yyyy-MM-dd";
             edc_nacimiento.Format = DateTimePickerFormat.Custom;
             c_nacimiento.CustomFormat = "yyyy-MM-dd";
@@ -41,7 +42,10 @@ namespace AAVD.Forms
         {
             //Registramos al cliente en la tbala de usuarios
             DatabaseManagement database = DatabaseManagement.getInstance();
-            database.registerUser(c_usuario.Text, c_password.Text, 2);
+            if (!(database.registerUser(c_usuario.Text, c_password.Text, 2, c_pregunta.Text, c_respuesta.Text))) {
+                MessageBox.Show("No se pueden repetir usuarios");
+                return;
+            }
             List<Users> user = new List<Users>();
             user = database.getLogin(c_usuario.Text, c_password.Text);
             Guid new_user_id;

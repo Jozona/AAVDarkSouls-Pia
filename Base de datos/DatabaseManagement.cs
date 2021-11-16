@@ -48,23 +48,91 @@ namespace AAVD.Base_de_datos
 
         }
 
-        //Registra el usuario.
-        //Hace falta registrarlo en la tabla general de USERS.
-        public void registerUser(string username, string password, int type) {
-            string query = String.Format("INSERT INTO USERS_LOGIN(USER_NAME, PASSWORD, USER_TYPE, ACTIVE, USER_ID)" +
-                            " VALUES('{0}','{1}', {2}, true, uuid())", username, password, type);
+        //Conseguir la pregunta para recordar
+        public List<Users> getRemember(string user_name)
+        {
+            string query = String.Format("SELECT * FROM USERS_REMEMBER WHERE USER_NAME='{0}';", user_name);
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Users> users = mapper.Fetch<Users>(query);
+            return users.ToList();
+
+        }
+
+        //Desactivar un usuario
+        public void userBan(string user_name)
+        {
+            string query = String.Format("UPDATE USERS_REMEMBER SET ACTIVE = false WHERE USER_NAME = '{0}' IF EXISTS;", user_name);
             session.Execute(query);
 
+            query = String.Format("SELECT * FROM USERS_REMEMBER WHERE USER_NAME='{0}';", user_name);
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Users> users = mapper.Fetch<Users>(query);
+            string password = "";
+            foreach (var usuario in users) {
+                password = usuario.password;
+            }
+
+            query = String.Format("UPDATE USERS_LOGIN SET ACTIVE = false WHERE USER_NAME = '{0}' AND PASSWORD = '{1}' IF EXISTS;", user_name, password);
+            session.Execute(query);
+        }
+
+        //Volver a activar un usuario
+        public void userUnban(string user_name)
+        {
+            string query = String.Format("UPDATE USERS_REMEMBER SET ACTIVE = true WHERE USER_NAME = '{0}' IF EXISTS;", user_name);
+            session.Execute(query);
+
+            query = String.Format("SELECT * FROM USERS_REMEMBER WHERE USER_NAME='{0}';", user_name);
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Users> users = mapper.Fetch<Users>(query);
+            string password = "";
+            foreach (var usuario in users)
+            {
+                password = usuario.password;
+            }
+
+            query = String.Format("UPDATE USERS_LOGIN SET ACTIVE = true WHERE USER_NAME = '{0}' AND PASSWORD = '{1}' IF EXISTS;", user_name, password);
+            session.Execute(query);
+        }
+
+        //Registra el usuario.
+        //Hace falta registrarlo en la tabla general de USERS.
+        public bool registerUser(string username, string password, int type, string pregunta, string respuesta) {
+            string queryValidar = "SELECT COUNT(*) FROM USERS_REMEMBER WHERE USER_NAME ='"+username+"';";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Existentes> existe = mapper.Fetch<Existentes>(queryValidar);
+            foreach (var count in existe) {
+                if (count.count == 1) {
+
+                    return false;
+                }
+            }
+
+            string query = String.Format("INSERT INTO USERS_LOGIN(USER_NAME, PASSWORD, USER_TYPE, ACTIVE, USER_ID, QUESTION, ANSWER)" +
+                            " VALUES('{0}','{1}', {2}, true, uuid(),'" + pregunta + "','" + respuesta + "')", username, password, type);
+            session.Execute(query);
+            query = String.Format("INSERT INTO USERS_REMEMBER(USER_NAME, PASSWORD, USER_TYPE, ACTIVE, USER_ID, QUESTION, ANSWER)" +
+                            " VALUES('{0}','{1}', {2}, true, uuid(), '"+pregunta+"','"+respuesta+"')", username, password, type);
+            session.Execute(query);
+            return true;
         }
 
         //Registra a los empleados
-        public void registerEmployee(string username, string password, string nombre, string apellidoPaterno, string apellidoMaterno, string CURP, string RFC, string nacimiento, Guid user_id)
+        public void registerEmployee(string username, string password, string nombre, string apellidoPaterno, string apellidoMaterno, string CURP, string RFC, string nacimiento, Guid user_id, string pregunta, string respuesta)
         {
 
-            string query2 = "INSERT INTO EMPLOYEES (USER_ID,USER, PASSWORD, NAME, LAST_NAME, MOTHER_LAST_NAME, CLAVES_UNICAS, CREATION_DATE, DATE_OF_BIRTH, MODIFICATION_DATE, EMPLOYEE_ID)"
-                                        + " VALUES(" + user_id + ",'" + username + "', '" + password + "', '" + nombre + "', '" + apellidoPaterno + "', '" + apellidoMaterno + "', {'CURP' : '" + CURP + "', 'RFC' : '" + RFC + "' }, now(), '" + nacimiento + "', [toDate(now())], uuid());";
+            string query2 = "INSERT INTO EMPLOYEES (USER_ID,USER, PASSWORD, NAME, LAST_NAME, MOTHER_LAST_NAME, CLAVES_UNICAS, CREATION_DATE, DATE_OF_BIRTH, MODIFICATION_DATE, EMPLOYEE_ID, QUESTION, ANSWER)"
+                                        + " VALUES(" + user_id + ",'" + username + "', '" + password + "', '" + nombre + "', '" + apellidoPaterno + "', '" + apellidoMaterno + "', {'CURP' : '" + CURP + "', 'RFC' : '" + RFC + "' }, now(), '" + nacimiento + "', [toDate(now())], uuid(), '"+pregunta+"', '"+respuesta+"');";
             session.Execute(query2);
+
+
         }
+
+        //Recordar empleados
 
         //Enviar lista con todos los empleados
         public List<Employees> GetEmployees() {
@@ -76,9 +144,9 @@ namespace AAVD.Base_de_datos
         }
 
         //Actualizar un empleado
-        public void updateEmployee(string username, string password, string nombre, string apellidoPaterno, string apellidoMaterno, string CURP, string RFC, string nacimiento, string employee_id)
+        public void updateEmployee(string username, string password, string nombre, string apellidoPaterno, string apellidoMaterno, string CURP, string RFC, string nacimiento, string employee_id, string pregunta, string respuesta)
         {
-            string query2 = "UPDATE EMPLOYEES SET USER = '" + username + "', PASSWORD = '" + password + "', NAME = '" + nombre  + "', LAST_NAME = '" + apellidoPaterno + "', MOTHER_LAST_NAME = '" + apellidoMaterno + "', CLAVES_UNICAS = {'CURP' : '" + CURP + "', 'RFC' : '" + RFC + "'},  DATE_OF_BIRTH = '" + nacimiento + "', MODIFICATION_DATE = MODIFICATION_DATE + [todate(now())] WHERE EMPLOYEE_ID= " + employee_id + " "
+            string query2 = "UPDATE EMPLOYEES SET USER = '" + username + "', PASSWORD = '" + password + "', NAME = '" + nombre  + "', LAST_NAME = '" + apellidoPaterno + "', MOTHER_LAST_NAME = '" + apellidoMaterno + "', CLAVES_UNICAS = {'CURP' : '" + CURP + "', 'RFC' : '" + RFC + "'},  DATE_OF_BIRTH = '" + nacimiento + "', QUESTION = '"+pregunta+"', ANSWER = '"+respuesta+"' ,MODIFICATION_DATE = MODIFICATION_DATE + [todate(now())] WHERE EMPLOYEE_ID= " + employee_id + " "
                             + " IF EXISTS;";
             session.Execute(query2);
         }
