@@ -158,6 +158,9 @@ namespace AAVD.Base_de_datos
 
             query = "DELETE FROM USERS_LOGIN WHERE USER_NAME = '" + user + "' AND PASSWORD = '" + password + "';";
             session.Execute(query);
+
+            query = "DELETE FROM USERS_REMEMBER WHERE USER_NAME = '" + user + "';";
+            session.Execute(query);
         }
 
         //Registrar un usuario
@@ -165,6 +168,9 @@ namespace AAVD.Base_de_datos
             string today = DateTime.Today.ToString();
             string query2 = "INSERT INTO CLIENTS (CLIENT_ID, USER_ID, CONTRACT_TYPE, CREATION_DATE, MODIFICATION_TIMES, MONTHLY_PAYMENTS, EMAIL, GENDER, MEASURER, SERVICE_NUMBER, CONTRACTS,CURP, USER, PASSWORD, NAME, LAST_NAME, MOTHER_LAST_NAME, AUTHOR, STREET, COLONY, CITY, STATE, DATE_OF_BIRTH)"
                              + " VALUES(uuid() ," + user_id + ", '"+tipoContrato+ "', now(), { toDate(now()) }, {'" + today + "' : 13.0 } , '"+email+"', '"+genero+"', 0, 0, {"+user_id+" : '"+tipoContrato+ "'}, '"+CURP+"', '"+usuario+"', '"+password+"', '"+nombre+"', '"+apellidoP+"', '"+apellidoM+"', "+Form1.currentUserId+", '"+calle+"', '"+colonia+"', '"+ciudad+"', '"+estado+"', '"+nacimiento+"');";
+            session.Execute(query2);
+            query2 = "INSERT INTO CLIENTS_BUSCAR (CLIENT_ID, USER_ID, CONTRACT_TYPE, CREATION_DATE, MODIFICATION_TIMES, MONTHLY_PAYMENTS, EMAIL, GENDER, MEASURER, SERVICE_NUMBER, CONTRACTS,CURP, USER, PASSWORD, NAME, LAST_NAME, MOTHER_LAST_NAME, AUTHOR, STREET, COLONY, CITY, STATE, DATE_OF_BIRTH)"
+                             + " VALUES(uuid() ," + user_id + ", '" + tipoContrato + "', now(), { toDate(now()) }, {'" + today + "' : 13.0 } , '" + email + "', '" + genero + "', 0, 0, {" + user_id + " : '" + tipoContrato + "'}, '" + CURP + "', '" + usuario + "', '" + password + "', '" + nombre + "', '" + apellidoP + "', '" + apellidoM + "', " + Form1.currentUserId + ", '" + calle + "', '" + colonia + "', '" + ciudad + "', '" + estado + "', '" + nacimiento + "');";
             session.Execute(query2);
         }
 
@@ -184,6 +190,20 @@ namespace AAVD.Base_de_datos
             string query2 = "UPDATE CLIENTS SET USER = '"+usuario+"', PASSWORD = '"+password+"', NAME= '"+nombre+"' ,LAST_NAME = '"+apellidoP+"', MOTHER_LAST_NAME= '"+apellidoM+"', EMAIL = '"+email+"', CURP = '"+CURP+"', GENDER = '"+genero+"', DATE_OF_BIRTH = '"+nacimiento+"', CITY= '"+ciudad+"', STREET = '"+calle+"', COLONY ='"+colonia+"', STATE= '"+estado+"', CONTRACT_TYPE= '"+tipoContrato+"' WHERE CLIENT_ID= "+ id_cliente +" "
                             + " IF EXISTS;";
             session.Execute(query2);
+
+            //Obtener el id de cliente
+            string query = "SELECT * FROM CLIENTS_BUSCAR WHERE CLIENT_ID = "+id_cliente+"";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Clientes> clientes = mapper.Fetch<Clientes>(query);
+            foreach (var cliente in clientes) {
+                query2 = "UPDATE CLIENTS SET USER = '" + usuario + "', PASSWORD = '" + password + "', NAME= '" + nombre + "' ,LAST_NAME = '" + apellidoP + "', MOTHER_LAST_NAME= '" + apellidoM + "', EMAIL = '" + email + "', CURP = '" + CURP + "', GENDER = '" + genero + "', DATE_OF_BIRTH = '" + nacimiento + "', CITY= '" + ciudad + "', STREET = '" + calle + "', COLONY ='" + colonia + "', STATE= '" + estado + "', CONTRACT_TYPE= '" + tipoContrato + "' WHERE USER_ID = " + cliente.user_id + " "
+                            + " IF EXISTS;";
+
+            }
+
+            
+            session.Execute(query2);
         }
 
         //Funcion para borrar un cliente
@@ -193,6 +213,16 @@ namespace AAVD.Base_de_datos
             session.Execute(query);
 
             query = "DELETE FROM USERS_LOGIN WHERE USER_NAME = '" + user + "' AND PASSWORD = '" + password + "';";
+            session.Execute(query);
+
+            query = "SELECT * FROM CLIENTS_BUSCAR WHERE CLIENT_ID = " + client_id + "";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Clientes> clientes = mapper.Fetch<Clientes>(query);
+            foreach (var cliente in clientes)
+            {
+                query = "DELETE FROM CLIENTS_BUSCAR WHERE USER_ID = '" + cliente.user_id + "';";
+            }
             session.Execute(query);
         }
 
@@ -221,9 +251,15 @@ namespace AAVD.Base_de_datos
             return tarifas.ToList();
         }
 
-        //Cargar tarifas CSV
-        public void cargarTarifas() { 
-            
+        //Obetener al cliente con el user_id
+        public List<Clientes> getClientWithUserId(string user_id)
+        {
+            string query = String.Format("SELECT * FROM CLIENTS_BUSCAR WHERE USER_ID={0} ;", user_id );
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Clientes> cliente = mapper.Fetch<Clientes>(query);
+            return cliente.ToList();
+
         }
 
     }

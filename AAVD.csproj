@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.PDF, Version=21.11.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>packages\Aspose.PDF.21.11.0\lib\net4.0\Aspose.PDF.dll</HintPath>
+    </Reference>
     <Reference Include="Cassandra, Version=3.99.0.0, Culture=neutral, PublicKeyToken=10b231fbfc8c4b4d, processorArchitecture=MSIL">
       <HintPath>packages\CassandraCSharpDriver.3.16.3\lib\net452\Cassandra.dll</HintPath>
     </Reference>

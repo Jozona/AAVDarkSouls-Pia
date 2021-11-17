@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,7 @@ namespace AAVD.Forms
         //Dar de alta un empleado
         private void button1_Click(object sender, EventArgs e)
         {
+
             DatabaseManagement database = DatabaseManagement.getInstance();
             if (!(database.registerUser(btn_emp_user.Text, btn_emp_pass.Text, 1, e_pregunta.Text, e_respuesta.Text))) {
                 MessageBox.Show("No se pueden repetir usuarios");

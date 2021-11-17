@@ -1,5 +1,7 @@
 ﻿using AAVD.Base_de_datos;
 using AAVD.Entidades;
+using Aspose.Pdf;
+using Aspose.Pdf.Text;
 using CsvHelper;
 using System;
 using System.Collections.Generic;
@@ -142,7 +144,7 @@ namespace AAVD.Forms
             id_seleccionado = row.Cells[1].Value.ToString();
         }
 
-        //Click al boton de actualizar empleado
+        //Click al boton de actualizar cliente
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
             if (id_seleccionado == null)
@@ -212,7 +214,25 @@ namespace AAVD.Forms
 
         private void csv_tarifas_Click(object sender, EventArgs e)
         {
-            var reader = File.OpenText("../../tarifas.csv");
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            string csvPath = "";
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "Archivos de informacion excel (*.csv)|*.csv";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                csvPath = openFileDialog1.FileName;
+            }
+            var result = csvPath.Substring(csvPath.Length - 3);
+            if (result != "csv") {
+                MessageBox.Show("Escoge un direccion valida");
+                return;
+            }
+
+            var reader = File.OpenText(csvPath);
             var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
             var tarifasCSV = csvReader.GetRecords<TarifasCSV>();
             foreach (var tarifa in tarifasCSV)
@@ -220,6 +240,50 @@ namespace AAVD.Forms
                 DatabaseManagement.getInstance().crearTarifa(tarifa.tipo, tarifa.basico.ToString(),tarifa.intermedio.ToString(),tarifa.excedente.ToString());
             }
             MessageBox.Show("Listo, tarifas cargadas...");
+        }
+
+
+        //Generar el pdf del recibo
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string id_usuario = "";
+            List<Users> users = new List<Users>();
+            users = DatabaseManagement.getInstance().getRemember(eb_user_recibo.Text);
+            foreach (var usuarioSimple in users)
+            {
+                List<Users> usersFull = new List<Users>();
+                usersFull = DatabaseManagement.getInstance().getLogin(usuarioSimple.user_name, usuarioSimple.password);
+                foreach (var fullUser in usersFull)
+                {
+                    id_usuario = fullUser.user_id.ToString();
+                }
+            }
+
+            List<Clientes> cliente = new List<Clientes>();
+            cliente = DatabaseManagement.getInstance().getClientWithUserId(id_usuario);
+            foreach (var dato in cliente)
+            {
+                //Prepara todas las variables para el pdf
+                Document pdfDocument = new Document();
+                Page page1 = pdfDocument.Pages.Add();
+
+                BackgroundArtifact bg = new BackgroundArtifact();
+                bg.BackgroundImage = File.OpenRead("CFE.png");
+
+                page1.Artifacts.Add(bg);
+
+                TextFragment txtName = new TextFragment(dato.name);
+                txtName.Position = new Position(117, 715);
+                txtName.TextState.FontSize = 12;
+                txtName.TextState.Font = FontRepository.FindFont("Arial");
+                txtName.TextState.ForegroundColor = Aspose.Pdf.Color.FromRgb(System.Drawing.Color.Black);
+
+                TextBuilder txtBuild = new TextBuilder(page1);
+                txtBuild.AppendText(txtName);
+
+                String pdfName = "LmadEstadoDeCuenta_.pdf";
+                pdfDocument.Save(pdfName);
+            }
         }
     }
 }
