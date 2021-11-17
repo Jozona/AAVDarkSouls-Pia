@@ -202,6 +202,13 @@ namespace AAVD.Base_de_datos
 
             string query2 = "INSERT INTO TARIFAS(TIPO, BASICO, INTERMEDIO, EXCEDENTE)" + " VALUES('" + tipo + "', " + basica + ", " + intermedia + ", " + excedente + ")";
             session.Execute(query2);
+            DateTime today = DateTime.Today;
+            string year = today.Year.ToString();
+            string month = today.Month.ToString();
+            query2 = "INSERT INTO TARIFAS_LOG(TIPO, BASICO, INTERMEDIO, EXCEDENTE, ID_TARIFA, YEAR, MONTH)" + " VALUES('" + tipo + "', " + basica + ", " + intermedia + ", " + excedente + ", uuid(), '"+year+"', '"+month+"')";
+            session.Execute(query2);
+
+
         }
 
         //Obetener tarifas
@@ -214,6 +221,10 @@ namespace AAVD.Base_de_datos
             return tarifas.ToList();
         }
 
+        //Cargar tarifas CSV
+        public void cargarTarifas() { 
+            
+        }
 
     }
 }

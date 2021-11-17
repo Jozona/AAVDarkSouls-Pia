@@ -1,10 +1,13 @@
 ﻿using AAVD.Base_de_datos;
 using AAVD.Entidades;
+using CsvHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -205,6 +208,18 @@ namespace AAVD.Forms
 
             }
             TarifasFTG_WN.DataSource = tfDTG;
+        }
+
+        private void csv_tarifas_Click(object sender, EventArgs e)
+        {
+            var reader = File.OpenText("../../tarifas.csv");
+            var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
+            var tarifasCSV = csvReader.GetRecords<TarifasCSV>();
+            foreach (var tarifa in tarifasCSV)
+            {
+                DatabaseManagement.getInstance().crearTarifa(tarifa.tipo, tarifa.basico.ToString(),tarifa.intermedio.ToString(),tarifa.excedente.ToString());
+            }
+            MessageBox.Show("Listo, tarifas cargadas...");
         }
     }
 }

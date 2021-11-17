@@ -178,6 +178,9 @@ namespace AAVD.Forms
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.eb_tipoTarifa = new System.Windows.Forms.ComboBox();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.csv_tarifas = new System.Windows.Forms.Button();
+            this.label51 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -208,6 +211,7 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.Tarifas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TarifasFTG_WN)).BeginInit();
+            this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -229,6 +233,7 @@ namespace AAVD.Forms
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Controls.Add(this.Tarifas);
+            this.tabControl1.Controls.Add(this.tabPage10);
             this.tabControl1.Location = new System.Drawing.Point(12, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1662,6 +1667,37 @@ namespace AAVD.Forms
             this.eb_tipoTarifa.Size = new System.Drawing.Size(100, 24);
             this.eb_tipoTarifa.TabIndex = 11;
             // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.label51);
+            this.tabPage10.Controls.Add(this.csv_tarifas);
+            this.tabPage10.Location = new System.Drawing.Point(4, 25);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(951, 621);
+            this.tabPage10.TabIndex = 8;
+            this.tabPage10.Text = "Carga masiva";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // csv_tarifas
+            // 
+            this.csv_tarifas.Location = new System.Drawing.Point(106, 98);
+            this.csv_tarifas.Name = "csv_tarifas";
+            this.csv_tarifas.Size = new System.Drawing.Size(97, 37);
+            this.csv_tarifas.TabIndex = 0;
+            this.csv_tarifas.Text = "Cargar CSV";
+            this.csv_tarifas.UseVisualStyleBackColor = true;
+            this.csv_tarifas.Click += new System.EventHandler(this.csv_tarifas_Click);
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(76, 57);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(157, 17);
+            this.label51.TabIndex = 1;
+            this.label51.Text = "Carga masiva de tarifas";
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1719,6 +1755,8 @@ namespace AAVD.Forms
             this.Tarifas.ResumeLayout(false);
             this.Tarifas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TarifasFTG_WN)).EndInit();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1875,5 +1913,8 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox eb_TarifaBasica;
         private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Button csv_tarifas;
     }
 }
