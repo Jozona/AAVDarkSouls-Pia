@@ -175,6 +175,7 @@ namespace AAVD.Forms
             MessageBox.Show("Usuario reactivado");
         }
 
+        //Probando subida
         private void Validar_Click(object sender, EventArgs e)
         {
             bool validaruser = true;
