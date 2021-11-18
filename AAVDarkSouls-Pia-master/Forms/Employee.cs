@@ -217,6 +217,8 @@ namespace AAVD.Forms
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
+
+            
             string csvPath = "";
             openFileDialog1.InitialDirectory = "c:\\";
             openFileDialog1.Filter = "Archivos de informacion excel (*.csv)|*.csv";
