@@ -42,6 +42,9 @@
     <Reference Include="CsvHelper, Version=27.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>packages\CsvHelper.27.2.0\lib\net47\CsvHelper.dll</HintPath>
     </Reference>
+    <Reference Include="Humanizer, Version=2.13.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
+      <HintPath>packages\Humanizer.Core.2.13.14\lib\netstandard2.0\Humanizer.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -142,9 +145,11 @@
     <Compile Include="Entidades\ConsumosCSV.cs" />
     <Compile Include="Entidades\ConsumosDTG.cs" />
     <Compile Include="Entidades\Contratos.cs" />
+    <Compile Include="Entidades\Conversiones.cs" />
     <Compile Include="Entidades\Employees.cs" />
     <Compile Include="Entidades\EmployeesDTG.cs" />
     <Compile Include="Entidades\Existentes.cs" />
+    <Compile Include="Entidades\Recibos.cs" />
     <Compile Include="Entidades\Students.cs" />
     <Compile Include="Entidades\Tarifas.cs" />
     <Compile Include="Entidades\TarifasCSV.cs" />
@@ -180,6 +185,7 @@
     <Compile Include="Forms\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="NumerosLetras.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Admin.resx">

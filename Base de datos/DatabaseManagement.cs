@@ -211,7 +211,7 @@ namespace AAVD.Base_de_datos
         //Obtengo el medidor y el tipo de los contratos
         public List<Contratos> GetContratosMedidorTipo()
         {
-            string query = "SELECT NUM_MEDIDOR, TIPO FROM CONTRACTS";
+            string query = "SELECT NUM_MEDIDOR, TIPO, ID_CLIENTE FROM CONTRACTS";
             session = cluster.Connect(keyspace);
             IMapper mapper = new Mapper(session);
             IEnumerable<Contratos> contratos = mapper.Fetch<Contratos>(query);
@@ -345,6 +345,91 @@ namespace AAVD.Base_de_datos
             string query2 = "INSERT INTO CONSUMOS (NUM_MEDIDOR, YEAR, MONTH, CONSUMO)"
                                         + " VALUES(" + medidor + ", '" + year + "', '" + month + "', " + consumo + ");";
             session.Execute(query2);
+            //Se traen las tarifas
+            List<Tarifas> tarifas = new List<Tarifas>();
+            tarifas = DatabaseManagement.getInstance().GetTarifas();
+            double iBasica, iIntermedia, iExcedente;
+            double dBasica, dIntermedia, dExcedente;
+            iBasica = iIntermedia = iExcedente = 0;
+            dBasica = dIntermedia = dExcedente = 0;
+            foreach (var tarifa in tarifas) {
+                if (tarifa.tipo == "Industrial")
+                {
+                    iBasica = tarifa.basico;
+                    iIntermedia = tarifa.intermedio;
+                    iExcedente = tarifa.excedente;
+                }
+
+                if (tarifa.tipo == "Domestico") {
+                    dBasica = tarifa.basico;
+                    dIntermedia = tarifa.intermedio;
+                    dExcedente = tarifa.excedente;
+                }
+            
+            }
+
+            //Generamos un recibo 
+            double iTotalBasica, iTotalIntermedia, iTotalExcedente;
+            double dTotalBasica, dTotalIntermedia, dTotalExcedente;
+            double kwBasico, kwIntermedio, kwExcedente;
+            iTotalBasica = iTotalIntermedia = iTotalExcedente = 0;
+            dTotalBasica = dTotalIntermedia = dTotalExcedente = 0;
+            kwBasico = kwIntermedio = kwExcedente = 0;
+            //Se trae los consumos
+            List<Consumos> consumos = new List<Consumos>();
+            consumos = DatabaseManagement.getInstance().getConsumoEspecifico(medidor, year, month);
+            foreach (var row in consumos) {
+                double consumoTotal = row.consumo;
+
+                if (consumoTotal > 100 ) {
+                    double consumoIntermedio, consumoExcedente;
+                    if (consumoTotal > 150)
+                    {
+                        consumoExcedente = consumoTotal - 150;
+                        kwExcedente = consumoExcedente;
+                        iTotalExcedente = consumoExcedente * iExcedente;
+                        dTotalExcedente = consumoExcedente * dExcedente;
+                        consumoIntermedio = consumoExcedente - 100;
+                        kwIntermedio = consumoIntermedio;
+                        iTotalIntermedia = consumoIntermedio * iIntermedia;
+                        dTotalIntermedia = consumoIntermedio * dIntermedia;
+                    }
+                    else {
+                        consumoExcedente = consumoTotal - 150;
+                        consumoIntermedio = consumoExcedente - 100;
+                        kwIntermedio = consumoIntermedio;   
+                        iTotalIntermedia = consumoIntermedio * iIntermedia;
+                        dTotalIntermedia = consumoIntermedio * dIntermedia;
+                    }
+                    kwBasico = 100;
+                    iTotalBasica = iBasica * 100;
+                    dTotalBasica = dBasica * 100;
+                }
+
+                if (consumoTotal <= 100) {
+                    kwBasico = consumoTotal;
+                    iTotalBasica = consumoTotal * iBasica;
+                    dTotalBasica = consumoTotal * dBasica;
+                }
+
+                double medidorRow = row.num_medidor;
+                List<Contratos> contratos = new List<Contratos>();
+                contratos = DatabaseManagement.getInstance().GetContratosMedidorTipo();
+                foreach (var contrato in contratos) {
+                    if (contrato.num_medidor == row.num_medidor) {
+                        if ((contrato.tipo.ToString()).Equals("Industrial")){
+                            double sinIVA = iTotalBasica + iTotalIntermedia + iTotalExcedente;
+                            double conIVA = sinIVA * 1.16;
+                            DatabaseManagement.getInstance().insertRecibo(medidor.ToString(), year.ToString(), month.ToString(), iTotalBasica, iTotalIntermedia, iTotalExcedente, sinIVA, conIVA, kwBasico.ToString(), kwIntermedio.ToString(), kwExcedente.ToString(),"SIN PAGAR", "PENDIENTE");
+                        }
+                        if ((contrato.tipo.ToString()).Equals("Domestico")){
+                            double sinIVA = dTotalBasica + dTotalIntermedia + dTotalExcedente;
+                            double conIVA = sinIVA * 1.16;
+                            DatabaseManagement.getInstance().insertRecibo(medidor.ToString(), year.ToString(), month.ToString(), dTotalBasica, dTotalIntermedia, dTotalExcedente, sinIVA, conIVA, kwBasico.ToString(), kwIntermedio.ToString(), kwExcedente.ToString(), "SIN PAGAR", "PENDIENTE");
+                        }
+                    }
+                }  
+            }
         }
 
         //conseguir los consumos
@@ -369,10 +454,40 @@ namespace AAVD.Base_de_datos
         }
 
         //Crear un recibo
-        public void insertRecibo(string num_medidor, string year, string month, double basico, double intermedio, double excedente, double total, double totalIVA) {
-            string query = "INSERT INTO RECIBOS(NUM_MEDIDOR, YEAR, MONTH, PAGAR_BASICO, PAGAR_INTERMEDIO, PAGAR_EXCEDENTE, PAGAR_TOTAL, PAGAR_TOTAL_IVA)"
-                            + "VALUES("+num_medidor+",'"+year+"', '"+month+"', "+basico+", "+intermedio+", "+excedente+","+total+","+totalIVA+");";
+        public void insertRecibo(string num_medidor, string year, string month, double basico, double intermedio, double excedente, double total, double totalIVA, string kw_basico, string kw_intermedio, string kw_excedente, string pagado, string tipoDePago) {
+            string query = "INSERT INTO RECIBOS(NUM_MEDIDOR, YEAR, MONTH, PAGAR_BASICO, PAGAR_INTERMEDIO, PAGAR_EXCEDENTE, PAGAR_TOTAL, PAGAR_TOTAL_IVA, KW_BASICO, KW_INTERMEDIO, KW_EXCEDENTE, PAGADO, TIPO_DE_PAGO)"
+                            + "VALUES("+num_medidor+",'"+year+"', '"+month+"', "+basico+", "+intermedio+", "+excedente+","+total+","+totalIVA+", "+kw_basico+", "+kw_intermedio+", "+kw_excedente+", '"+pagado+"', '"+tipoDePago+"');";
             session.Execute(query);
+        }
+
+        //Obtener un recibo
+        public List<Recibos> getReciboEspecifico(string numero_medidor, string year, string month)
+        {
+            string query = "SELECT * FROM RECIBOS WHERE NUM_MEDIDOR = " + numero_medidor + " AND YEAR = '" + year + "' AND MONTH = '" + month + "';";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Recibos> recibo = mapper.Fetch<Recibos>(query);
+            return recibo.ToList();
+        }
+
+        //Obtener tabla de contratos con columnas necesarias
+        public List<Contratos> getContratosServicioMedidor()
+        {
+            string query = "SELECT NUM_SERVICIO, NUM_MEDIDOR, ID_CLIENTE FROM CONTRACTS;";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Contratos> contratos = mapper.Fetch<Contratos>(query);
+            return contratos.ToList();
+        }
+
+        //Obtener el cliente en especifico 
+        public List<Clientes> getContratoConClientID(string id_client) {
+            string query = "SELECT * FROM CLIENTS WHERE CLIENT_ID = "+id_client+ ";";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Clientes> cliente = mapper.Fetch<Clientes>(query);
+            return cliente.ToList();
+
         }
 
     }
