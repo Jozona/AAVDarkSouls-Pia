@@ -23,7 +23,14 @@ namespace AAVD.Forms
         public Employee()
         {
             InitializeComponent();
-
+            consumo_year.CustomFormat = "yyyy";
+            consumo_year.Format = DateTimePickerFormat.Custom;
+            consumo_month.CustomFormat = "MM";
+            consumo_month.Format = DateTimePickerFormat.Custom;
+            recibo_year.CustomFormat = "yyyy";
+            recibo_year.Format = DateTimePickerFormat.Custom;
+            recibo_mes.CustomFormat = "MM";
+            recibo_mes.Format = DateTimePickerFormat.Custom;
             edc_nacimiento.CustomFormat = "yyyy-MM-dd";
             edc_nacimiento.Format = DateTimePickerFormat.Custom;
             c_nacimiento.CustomFormat = "yyyy-MM-dd";
@@ -31,6 +38,7 @@ namespace AAVD.Forms
             this.CenterToScreen();
             updateDataGrid();
             updateDataGridTarifa();
+            updateDataGridConsumos();
         }
 
         private void Employee_Load(object sender, EventArgs e)
@@ -58,7 +66,7 @@ namespace AAVD.Forms
             foreach (var data in user)
             {
                 new_user_id = data.user_id;
-                database.registerClient(c_nombre.Text, c_apellidoP.Text, c_apellidoM.Text, c_email.Text, c_curp.Text, c_genero.Text, c_nacimiento.Value.ToString("yyyy-MM-dd"), c_ciudad.Text, c_calle.Text, c_colonia.Text, c_estado.Text, c_contratoTipo.Text, c_usuario.Text, c_password.Text, new_user_id);
+                database.registerClient(c_nombre.Text, c_apellidoP.Text, c_apellidoM.Text, c_email.Text, c_curp.Text, c_genero.Text, c_nacimiento.Value.ToString("yyyy-MM-dd"), c_ciudad.Text, c_calle.Text, c_colonia.Text, c_estado.Text, c_contratoTipo.Text, c_usuario.Text, c_password.Text, new_user_id, c_noMedidor.Text, c_noServicio.Text, c_numCliente.Text);
             }
             MessageBox.Show("Cliente registrado con exito.");
             updateDataGrid();
@@ -90,6 +98,7 @@ namespace AAVD.Forms
                 clienteDTG.email = cliente.email;
                 clienteDTG.curp = cliente.curp;
                 clienteDTG.user_id = cliente.user_id;
+                clienteDTG.num_cliente = cliente.num_cliente.ToString();
                 clienteDTG.client_id = cliente.client_id;
                 cntDataGrid.Add(clienteDTG);
 
@@ -123,6 +132,11 @@ namespace AAVD.Forms
         private void clientesDTGWN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int indexRow = e.RowIndex;
+            if (indexRow < 0)
+            {
+                MessageBox.Show("Selecciona a un empleado");
+                return;
+            }
             DataGridViewRow row = clientesDTGWN.Rows[indexRow];
             if (row == null)
                 return;
@@ -141,6 +155,7 @@ namespace AAVD.Forms
             edc_password.Text = row.Cells[13].Value.ToString();
             edc_email.Text = row.Cells[14].Value.ToString();
             edc_curp.Text = row.Cells[15].Value.ToString();
+            edc_numCliente.Text = row.Cells[16].Value.ToString();
             id_seleccionado = row.Cells[1].Value.ToString();
         }
 
@@ -152,7 +167,7 @@ namespace AAVD.Forms
                 MessageBox.Show("No has seleccionando ningun cliente.");
                 return;
             }
-            DatabaseManagement.getInstance().updateClient(edc_nombre.Text, edc_apellidoP.Text, edc_apellidoM.Text, edc_email.Text, edc_curp.Text, edc_genero.Text, edc_nacimiento.Value.ToString("yyyy-MM-dd"), edc_ciudad.Text, edc_calle.Text, edc_colonia.Text, edc_estado.Text, edc_contrato.Text, edc_usuario.Text, edc_password.Text, id_seleccionado);
+            DatabaseManagement.getInstance().updateClient(edc_nombre.Text, edc_apellidoP.Text, edc_apellidoM.Text, edc_email.Text, edc_curp.Text, edc_genero.Text, edc_nacimiento.Value.ToString("yyyy-MM-dd"), edc_ciudad.Text, edc_calle.Text, edc_colonia.Text, edc_estado.Text, edc_contrato.Text, edc_usuario.Text, edc_password.Text, id_seleccionado, edc_numCliente.Text);
             id_seleccionado = null;
             MessageBox.Show("Cliente actualizado con exito.");
             updateDataGrid();
@@ -284,6 +299,204 @@ namespace AAVD.Forms
                 String pdfName = "LmadEstadoDeCuenta_.pdf";
                 pdfDocument.Save(pdfName);
             }
+        }
+
+        //Cargar un consumo
+        private void btn_consumo_Click(object sender, EventArgs e)
+        {
+            DatabaseManagement.getInstance().insertConsumo(consumo_medidor.Text, consumo_kw.Text, consumo_year.Text, consumo_month.Text);
+            MessageBox.Show("Consumo registrado");
+            updateDataGridConsumos();
+        }
+
+        //Poner los consumos en el data grid
+        public void updateDataGridConsumos()
+        {
+
+            List<Consumos> consumos = new List<Consumos>();
+            consumos = DatabaseManagement.getInstance().getConsumos();
+
+            List<Consumos> csmDTG = new List<Consumos>();
+            foreach (var consumo in consumos)
+            {
+                Consumos consumoDTG = new Consumos();
+                consumoDTG.num_medidor = consumo.num_medidor;
+                consumoDTG.consumo = consumo.consumo;
+                consumoDTG.month = consumo.month;
+                consumoDTG.year = consumo.year;
+                csmDTG.Add(consumo);
+
+            }
+            ConsumosDTG_WN.DataSource = csmDTG;
+        }
+        //Carga masiva de consumos
+        private void carga_consumos_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            string csvPath = "";
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "Archivos de informacion excel (*.csv)|*.csv";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                csvPath = openFileDialog1.FileName;
+            }
+            var result = csvPath.Substring(csvPath.Length - 3);
+            if (result != "csv")
+            {
+                MessageBox.Show("Escoge un direccion valida");
+                return;
+            }
+
+            var reader = File.OpenText(csvPath);
+            var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
+            var consumosCSV = csvReader.GetRecords<ConsumosCSV>();
+            foreach (var consumo in consumosCSV)
+            {
+                DatabaseManagement.getInstance().insertConsumo(consumo.numMedidor.ToString(), consumo.consumo.ToString(), consumo.year, consumo.month);
+            }
+            MessageBox.Show("Listo, consumos cargados...");
+            updateDataGridConsumos();
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            //Se traen las tarifas
+            List<Tarifas> tarifas = new List<Tarifas>();
+            tarifas = DatabaseManagement.getInstance().GetTarifas();
+            double iBasica, iIntermedia, iExcedente;
+            double dBasica, dIntermedia, dExcedente;
+            iBasica = iIntermedia = iExcedente = 0;
+            dBasica = dIntermedia = dExcedente = 0;
+            foreach (var tarifa in tarifas) {
+                if (tarifa.tipo == "Industrial")
+                {
+                    iBasica = tarifa.basico;
+                    iIntermedia = tarifa.intermedio;
+                    iExcedente = tarifa.excedente;
+                }
+
+                if (tarifa.tipo == "Domestico") {
+                    dBasica = tarifa.basico;
+                    dIntermedia = tarifa.intermedio;
+                    dExcedente = tarifa.excedente;
+                }
+            
+            }
+
+            double iTotalBasica, iTotalIntermedia, iTotalExcedente;
+            double dTotalBasica, dTotalIntermedia, dTotalExcedente;
+            iTotalBasica = iTotalIntermedia = iTotalExcedente = 0;
+            dTotalBasica = dTotalIntermedia = dTotalExcedente = 0;
+            //Se trae los consumos
+            List<Consumos> consumo = new List<Consumos>();
+            consumo = DatabaseManagement.getInstance().getConsumoEspecifico(tb_medidor.Text, recibo_year.Text, recibo_mes.Text);
+            foreach (var row in consumo) {
+                double consumoTotal = row.consumo;
+
+                if (consumoTotal > 100 ) {
+                    double consumoIntermedio, consumoExcedente;
+                    if (consumoTotal > 150)
+                    {
+                        consumoExcedente = consumoTotal - 150;
+                        iTotalExcedente = consumoExcedente * iExcedente;
+                        dTotalExcedente = consumoExcedente * dExcedente;
+                        consumoIntermedio = consumoExcedente - 100;
+                        iTotalIntermedia = consumoIntermedio * iIntermedia;
+                        dTotalIntermedia = consumoIntermedio * dIntermedia;
+                    }
+                    else {
+                        consumoExcedente = consumoTotal - 150;
+                        consumoIntermedio = consumoExcedente - 100;
+                        iTotalIntermedia = consumoIntermedio * iIntermedia;
+                        dTotalIntermedia = consumoIntermedio * dIntermedia;
+                    }
+                    iTotalBasica = iBasica * 100;
+                    dTotalBasica = dBasica * 100;
+                }
+
+                if (consumoTotal <= 100) {
+                    iTotalBasica = consumoTotal * iBasica;
+                    dTotalBasica = consumoTotal * dBasica;
+                }
+
+                double medidor = row.num_medidor;
+                List<Contratos> contratos = new List<Contratos>();
+                contratos = DatabaseManagement.getInstance().GetContratosMedidorTipo();
+                foreach (var contrato in contratos) {
+                    if (contrato.num_medidor == row.num_medidor) {
+                        if ((contrato.tipo.ToString()).Equals("Industrial")){
+                            tx_totalBasico.Text = iTotalBasica.ToString();
+                            tx_totalIntermedio.Text = iTotalIntermedia.ToString();
+                            tx_totalExcedente.Text = iTotalExcedente.ToString();
+                            tx_totalFinal.Text = ((iTotalBasica + iTotalIntermedia + iTotalExcedente) * 1.16).ToString();
+                            double sinIVA = iTotalBasica + iTotalIntermedia + iTotalExcedente;
+                            double conIVA = sinIVA * 1.16;
+                            DatabaseManagement.getInstance().insertRecibo(tb_medidor.Text, recibo_year.Text, recibo_mes.Text, iTotalBasica, iTotalIntermedia, iTotalExcedente, sinIVA, conIVA);
+                        }
+                        if ((contrato.tipo.ToString()).Equals("Domestico")){
+                            tx_totalBasico.Text = dTotalBasica.ToString();
+                            tx_totalIntermedio.Text = dTotalIntermedia.ToString();
+                            tx_totalExcedente.Text = dTotalExcedente.ToString();
+                            tx_totalFinal.Text = ((dTotalBasica + dTotalIntermedia + dTotalExcedente) * 1.16).ToString();
+                            double sinIVA = dTotalBasica + dTotalIntermedia + dTotalExcedente;
+                            double conIVA = sinIVA * 1.16;
+                            DatabaseManagement.getInstance().insertRecibo(tb_medidor.Text, recibo_year.Text, recibo_mes.Text, dTotalBasica, dTotalIntermedia, dTotalExcedente, sinIVA, conIVA);
+                        }
+                    }
+                }
+               
+            }
+            //string reciboBasicoIn = "Industrial basico: $ " + iTotalBasica;
+            //string reciboBasicoDo = "Domestico basico: $ " + dTotalBasica;
+            //MessageBox.Show(reciboBasicoDo);
+            //MessageBox.Show(reciboBasicoIn);
+
+            //string reciboIntermedioIn = "Industrial intermedio: $ " + iTotalIntermedia;
+            //string reciboIntermedioDo = "Domestico intermedio: $ " + dTotalIntermedia;
+            //MessageBox.Show(reciboIntermedioIn);
+            //MessageBox.Show(reciboIntermedioDo);
+            //string reciboExcedenteIn = "Industrial excedente: $ " + iTotalExcedente;
+            //string reciboExcedenteDo = "Domestico excedente: $ " + dTotalExcedente;
+            //MessageBox.Show(reciboExcedenteIn);
+            //MessageBox.Show(reciboExcedenteDo);
+            //string totalSinIVAIn = "Total sin IVA = " + (iTotalBasica + iTotalIntermedia + iTotalExcedente);
+            //string totalConIVAIn = "Total sin IVA = " + ((iTotalBasica + iTotalIntermedia + iTotalExcedente) * 1.16);
+            //MessageBox.Show(totalSinIVAIn);
+            //MessageBox.Show(totalConIVAIn);
+            //string totalSinIVADo = "Total sin IVA = " + (dTotalBasica + dTotalIntermedia + dTotalExcedente);
+            //string totalConIVADo = "Total sin IVA = " + ((dTotalBasica + dTotalIntermedia + dTotalExcedente) * 1.16);
+            //MessageBox.Show(totalSinIVADo);
+            //MessageBox.Show(totalConIVADo);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //Asignar un contrato
+        private void button9_Click(object sender, EventArgs e)
+        {
+            List<Contratos> contratos = new List<Contratos>();
+            contratos = DatabaseManagement.getInstance().GetContratos();
+            foreach (var contrato in contratos) {
+                if ((contrato.num_medidor.ToString()).Equals(contrato_numMedidor.Text)) {
+                    MessageBox.Show("Ese numero de medidor ya esta en uso");
+                    return;
+                }
+                if ((contrato.num_servicio.ToString()).Equals(contrato_numServicio.Text))
+                {
+                    MessageBox.Show("Ese numero de servicio ya esta en uso");
+                    return;
+                }
+            }
+            DatabaseManagement.getInstance().updateContratos(contrato_numCLiente.Text, contrato_Tipo.Text, contrato_numMedidor.Text, contrato_numServicio.Text);
+            MessageBox.Show("Nuevo contrato asociado a el cliente.");
         }
     }
 }

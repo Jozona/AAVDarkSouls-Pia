@@ -25,13 +25,14 @@ namespace AAVD.Entidades
         public string gender { get; set; }
         public int measurer { get; set; }
         public int service_number { get; set; }
-        public IDictionary<Guid, string> contracts { get; set; }
+        public IEnumerable<double> contracts { get; set; }
         public string street { get; set; }
         public string colony { get; set; }
         public string city { get; set; }
         public string state { get; set; }
         public Guid author { get; set; }
         public DateTimeOffset date_of_birth { get; set; }
+        public double num_cliente { get; set; }
 
     }
 }

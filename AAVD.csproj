@@ -138,6 +138,10 @@
     <Compile Include="Entidades\Admins.cs" />
     <Compile Include="Entidades\Clientes.cs" />
     <Compile Include="Entidades\ClientesDTG.cs" />
+    <Compile Include="Entidades\Consumos.cs" />
+    <Compile Include="Entidades\ConsumosCSV.cs" />
+    <Compile Include="Entidades\ConsumosDTG.cs" />
+    <Compile Include="Entidades\Contratos.cs" />
     <Compile Include="Entidades\Employees.cs" />
     <Compile Include="Entidades\EmployeesDTG.cs" />
     <Compile Include="Entidades\Existentes.cs" />

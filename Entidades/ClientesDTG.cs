@@ -24,6 +24,7 @@ namespace AAVD.Entidades
         public string password { get; set; }
         public string email { get; set; }
         public string curp { get; set; }
+        public string num_cliente { get; set; }
 
     }
 }
