@@ -287,12 +287,14 @@ namespace AAVD.Forms
 
             string id_cliente = "";
             string tipo = "";
+            string no_servicio = "";
             List<Contratos> contratos = new List<Contratos>();
             contratos = DatabaseManagement.getInstance().GetContratosMedidorTipo();
             foreach (var contrato in contratos) {
                 if ((contrato.num_medidor.ToString()).Equals(eb_user_recibo.Text)) {
                     id_cliente = contrato.id_cliente.ToString();
                     tipo = contrato.tipo;
+                    no_servicio = contrato.num_servicio.ToString();
                 }
             }
 
@@ -324,7 +326,25 @@ namespace AAVD.Forms
                 agregarTexto(117, 715, dato.name.ToString(), page1);
                 string direccion = dato.street + " " + dato.colony + " " + dato.city + " " + dato.state + " ";
                 agregarTexto(105, 680, direccion, page1);
-
+                //Numero de servicio
+                agregarTexto(115, 600, no_servicio, page1);
+                //RMU
+                agregarTexto(50, 578, id_cliente, page1);
+                //Limite de pago 
+                DateTime limiteDePago = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 3);
+                limiteDePago = limiteDePago.AddMonths(1);
+                agregarTexto(110, 530, limiteDePago.ToString("dd/MM/yyyy",CultureInfo.InvariantCulture), page1);
+                //Corte a partir de 
+                DateTime corteLimite = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 4);
+                corteLimite = corteLimite.AddMonths(1);
+                agregarTexto(10, 480, corteLimite.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                //Tiempo de facturacion:
+                DateTime fechaFacturacion = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 3);
+                fechaFacturacion = fechaFacturacion.AddMonths(-1);
+                agregarTexto(135, 380, fechaFacturacion.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                agregarTexto(200, 380, "-", page1);
+                fechaFacturacion = fechaFacturacion.AddMonths(1);
+                agregarTexto(208, 380, fechaFacturacion.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
                 //Encontrar el recibo especifico
                 List<Recibos> recibos = new List<Recibos>();
                 recibos = DatabaseManagement.getInstance().getReciboEspecifico(eb_user_recibo.Text, year_reciboPDF.Text, month_reciboPDF.Text);

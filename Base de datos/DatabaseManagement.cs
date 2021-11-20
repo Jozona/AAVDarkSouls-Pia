@@ -211,7 +211,7 @@ namespace AAVD.Base_de_datos
         //Obtengo el medidor y el tipo de los contratos
         public List<Contratos> GetContratosMedidorTipo()
         {
-            string query = "SELECT NUM_MEDIDOR, TIPO, ID_CLIENTE FROM CONTRACTS";
+            string query = "SELECT NUM_MEDIDOR, TIPO, ID_CLIENTE, NUM_SERVICIO FROM CONTRACTS";
             session = cluster.Connect(keyspace);
             IMapper mapper = new Mapper(session);
             IEnumerable<Contratos> contratos = mapper.Fetch<Contratos>(query);
