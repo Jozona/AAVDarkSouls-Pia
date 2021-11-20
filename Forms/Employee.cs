@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Humanizer;
+using System.Text.RegularExpressions;
 
 namespace AAVD.Forms
 {
@@ -65,6 +66,213 @@ namespace AAVD.Forms
         //Boton para dar de alta un cliente
         private void button6_Click(object sender, EventArgs e)
         {
+
+            bool validaruser = true;
+            bool validarpassword = true;
+            bool validarnombre = true;
+            bool validarAP = true;
+            bool validarAM = true;
+            bool validarCURP = true;
+
+            bool validarCiudad = true;
+            bool validarCalle = true;
+            bool validarColonia = true;
+            bool validarEstado = true;
+
+            bool estabien = true;
+
+            String username = this.c_usuario.Text;
+            String password = this.c_password.Text;
+            String vnombre = this.c_nombre.Text;
+            String vAP = this.c_apellidoP.Text;
+            String vAM = this.c_apellidoM.Text;
+            //Domicilio
+            String vCiudad = this.c_ciudad.Text;
+            String vCalle = this.c_calle.Text;
+            String vColonia = this.c_colonia.Text;
+            String vEstado = this.c_estado.Text;
+
+            //String vRFC = this.eb_rfc_emp.Text;
+            //String vFecha = this.dtp_nac_emp.Text;
+            String vCurp = this.c_curp.Text;
+
+
+            string regexString = /*@"/^[A-Za-z]$/"*/ "[A-Za-z]"; //Permite letras y numeros
+            string regexStringPass = "[0-9]";
+            string regexStringRFC = "^[0-9]*$";
+            string regexStringnombre = "^[A-Za-z]*$";
+            string regexStringCurp = "[A-Za-z]";
+
+
+            //Validacion username
+            if (Regex.IsMatch(username, regexString))
+            {
+                MessageBox.Show("Muito bien");
+                //validaruser = true;
+
+            }
+
+            else
+            {
+                validaruser = false;
+                MessageBox.Show("Solo se permiten letras y numeros. Ej: Luis123");
+            }
+
+            //Validacion password
+            if (Regex.IsMatch(password, regexStringPass))
+            {
+
+                MessageBox.Show("Muito bien");
+            }
+
+            else
+            {
+                MessageBox.Show("Solo se permiten numeros y letras. Ej: 123Pass");
+                validarpassword = false;
+            }
+
+            //Validacion nombre
+            if (Regex.IsMatch(vnombre, regexStringnombre))
+            {
+
+                MessageBox.Show("Muito bien");
+            }
+
+            else
+            {
+                validarnombre = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+            //Validacion AP
+            if (Regex.IsMatch(vAP, regexStringnombre))
+            {
+
+                MessageBox.Show("Muito bien");
+            }
+
+            else
+            {
+                validarAP = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+            //Validacion AM
+            if (Regex.IsMatch(vAM, regexStringnombre))
+            {
+
+                MessageBox.Show("Muito bien");
+            }
+
+            else
+            {
+                validarAM = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+            
+
+            //Validacion CURP
+            if (Regex.IsMatch(vCurp, regexStringCurp))
+            {
+
+                MessageBox.Show("Muito bien");
+            }
+
+            else
+            {
+                validarCURP = false;
+                MessageBox.Show("Solo se permiten letras y numeros. Ej: IBP505");
+
+            }
+
+            //validacion Colonia
+
+            if (Regex.IsMatch(vColonia, regexStringnombre))
+            {
+
+                MessageBox.Show("Muito bien");
+            }
+
+            else
+            {
+                validarColonia = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+            //Validar Ciudad
+
+            if (Regex.IsMatch(vCiudad, regexStringnombre))
+            {
+
+                MessageBox.Show("Muito bien");
+            }
+
+            else
+            {
+                validarCiudad = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+            //Validar Calle
+
+            if (Regex.IsMatch(vCalle, regexStringnombre))
+            {
+
+                MessageBox.Show("Muito bien");
+            }
+
+            else
+            {
+                validarCalle = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+            //Validar Estado
+
+            if (Regex.IsMatch(vEstado, regexStringnombre))
+            {
+
+                MessageBox.Show("Muito bien");
+            }
+
+            else
+            {
+                validarEstado = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+
+
+
+
+
+            //Validacion de todos los campos
+            if (validaruser == false || validarpassword == false || validarnombre == false || validarAP == false
+                || validarAM == false || validarCURP == false || validarCalle == false || validarCiudad == false
+                || validarEstado == false || validarColonia == false)
+            {
+                estabien = false;
+                //Da error
+                MessageBox.Show("Error en el llenado de los campos");
+            }
+            else
+            {
+                //Aqui podemos asignar un booleano global para permitir o no agregar un empleado
+                estabien = true;
+            }
+
+
+
+            if (estabien == true) { 
+            //Quehacer
             //Registramos al cliente en la tbala de usuarios
             DatabaseManagement database = DatabaseManagement.getInstance();
             if (!(database.registerUser(c_usuario.Text, c_password.Text, 2, c_pregunta.Text, c_respuesta.Text))) {
@@ -81,6 +289,14 @@ namespace AAVD.Forms
             }
             MessageBox.Show("Cliente registrado con exito.");
             updateDataGrid();
+                //Quehacerfin
+            }
+            else
+            {
+                MessageBox.Show("Rellene de forma correcta los campos.");
+            }
+
+
         }
 
         //Funcion que envia los datos al datagrid
@@ -216,6 +432,7 @@ namespace AAVD.Forms
             DatabaseManagement.getInstance().crearTarifa(eb_tipoTarifa.Text, eb_TarifaBasica.Text, eb_TarifaIntermedia.Text, eb_TarifaExcedente.Text);
             MessageBox.Show("Tarifa actualizada");
             updateDataGridTarifa();
+            updateDataGridReporteTarifa();
         }
 
         //Poner las tarifas en ventana
@@ -237,6 +454,29 @@ namespace AAVD.Forms
             }
             TarifasFTG_WN.DataSource = tfDTG;
         }
+
+        public void updateDataGridReporteTarifa()
+        {
+
+            List<Tarifas> tarifas = new List<Tarifas>();
+            tarifas = DatabaseManagement.getInstance().GetTarifas();
+
+            List<Tarifas> tfDTG = new List<Tarifas>();
+            foreach (var tarifa in tarifas)
+            {
+                Tarifas tarifaDTG = new Tarifas();
+                tarifaDTG.tipo = tarifa.tipo;
+                tarifaDTG.basico = tarifa.basico;
+                tarifaDTG.intermedio = tarifa.intermedio;
+                tarifaDTG.excedente = tarifa.excedente;
+                tfDTG.Add(tarifaDTG);
+
+            }
+            dataGridView2.DataSource = tfDTG;
+        }
+
+
+
 
         private void csv_tarifas_Click(object sender, EventArgs e)
         {
@@ -444,6 +684,27 @@ namespace AAVD.Forms
             }
             ConsumosDTG_WN.DataSource = csmDTG;
         }
+
+        public void updateDataGridReportesConsumos()
+        {
+
+            List<Consumos> consumos = new List<Consumos>();
+            consumos = DatabaseManagement.getInstance().getConsumos();
+
+            List<Consumos> csmDTG = new List<Consumos>();
+            foreach (var consumo in consumos)
+            {
+                Consumos consumoDTG = new Consumos();
+                consumoDTG.num_medidor = consumo.num_medidor;
+                consumoDTG.consumo = consumo.consumo;
+                consumoDTG.month = consumo.month;
+                consumoDTG.year = consumo.year;
+                csmDTG.Add(consumo);
+
+            }
+            dataGridView1.DataSource = csmDTG;
+        }
+
         //Carga masiva de consumos
         private void carga_consumos_Click(object sender, EventArgs e)
         {
@@ -523,6 +784,29 @@ namespace AAVD.Forms
         private void tabPage11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TarifasFTG_WN_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //AQUI
+           
+
+            updateDataGridReporteTarifa();
+        }
+
+        private void ConsumosDTG_WN_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            updateDataGridReportesConsumos();
         }
     }
 }
