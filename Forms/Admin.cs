@@ -8,15 +8,18 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 
 namespace AAVD.Forms
 {
    
     public partial class Admin : Form
     {
-        
+        bool estabien = true;
         public Admin()
         {
             InitializeComponent(); 
@@ -34,21 +37,173 @@ namespace AAVD.Forms
         //Dar de alta un empleado
         private void button1_Click(object sender, EventArgs e)
         {
+            bool validaruser = true;
+            bool validarpassword = true;
+            bool validarnombre = true;
+            bool validarAP = true;
+            bool validarAM = true;
+            bool validarRFC = true;
+            //bool validarfecha = false;
+            bool validarCURP = true;
 
-            DatabaseManagement database = DatabaseManagement.getInstance();
-            if (!(database.registerUser(btn_emp_user.Text, btn_emp_pass.Text, 1, e_pregunta.Text, e_respuesta.Text))) {
-                MessageBox.Show("No se pueden repetir usuarios");
-                return;
+            String username = this.btn_emp_user.Text;
+            String password = this.btn_emp_pass.Text;
+            String vnombre = this.eb_name_emp.Text;
+            String vAP = this.eb_ap_emp.Text;
+            String vAM = this.eb_am_emp.Text;
+            String vRFC = this.eb_rfc_emp.Text;
+            String vFecha = this.dtp_nac_emp.Text;
+            String vCurp = this.eb_curp_emp.Text;
+
+
+            string regexString = /*@"/^[A-Za-z]$/"*/ "[A-Za-z]"; //Permite letras y numeros
+            string regexStringPass = "[0-9]";
+            string regexStringRFC = "^[0-9]*$";
+            string regexStringnombre = "^[A-Za-z]*$";
+            string regexStringCurp = "[A-Za-z]";
+
+
+            //Validacion username
+            if (Regex.IsMatch(username, regexString))
+            {
+               
+                //validaruser = true;
+
             }
-            List<Users> user = new List<Users>();
-            user = database.getLogin(btn_emp_user.Text, btn_emp_pass.Text);
-            Guid new_user_id;
-            foreach (var data in user) {
-                new_user_id = data.user_id;
-                database.registerEmployee(btn_emp_user.Text, btn_emp_pass.Text, eb_name_emp.Text, eb_ap_emp.Text, eb_am_emp.Text, eb_curp_emp.Text, eb_rfc_emp.Text, dtp_nac_emp.Value.ToString("yyyy-MM-dd"), new_user_id, e_pregunta.Text, e_respuesta.Text);
+
+            else
+            {
+                validaruser = false;
+                MessageBox.Show("Solo se permiten letras y numeros. Ej: Luis123");
             }
-            MessageBox.Show("Empleado registrado con exito.");
-            updateDataGrid();
+
+            //Validacion password
+            if (Regex.IsMatch(password, regexStringPass))
+            {
+
+                
+            }
+
+            else
+            {
+                MessageBox.Show("Solo se permiten numeros y letras. Ej: 123Pass");
+                validarpassword = false;
+            }
+
+            //Validacion nombre
+            if (Regex.IsMatch(vnombre, regexStringnombre))
+            {
+
+                
+            }
+
+            else
+            {
+                validarnombre = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+            //Validacion AP
+            if (Regex.IsMatch(vAP, regexStringnombre))
+            {
+
+               
+            }
+
+            else
+            {
+                validarAP = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+            //Validacion AM
+            if (Regex.IsMatch(vAM, regexStringnombre))
+            {
+
+               
+            }
+
+            else
+            {
+                validarAM = false;
+                MessageBox.Show("Solo se permiten letras");
+
+            }
+
+            //Validacion RFC
+            if (Regex.IsMatch(vRFC, regexStringRFC))
+            {
+
+                
+            }
+
+            else
+            {
+                validarRFC = false;
+                MessageBox.Show("Solo se permiten numeros");
+
+            }
+
+            //Validacion CURP
+            if (Regex.IsMatch(vCurp, regexStringCurp))
+            {
+
+               
+            }
+
+            else
+            {
+                validarCURP = false;
+                MessageBox.Show("Solo se permiten letras y numeros. Ej: IBP505");
+
+            }
+
+            if (validaruser == false || validarpassword == false || validarnombre == false || validarAP == false || validarAM == false || validarRFC == false || validarCURP == false)
+            {
+                //Da error
+                estabien = false;
+                MessageBox.Show("Falla en el rellenado del campo");
+            }
+            else
+            {
+                //Aqui podemos asignar un booleano global para permitir o no agregar un empleado
+                estabien = true;
+                
+            }
+
+
+
+
+            if (estabien == true)
+            {
+
+                // El sandwich
+                DatabaseManagement database = DatabaseManagement.getInstance();
+                if (!(database.registerUser(btn_emp_user.Text, btn_emp_pass.Text, 1, e_pregunta.Text, e_respuesta.Text)))
+                {
+                    MessageBox.Show("No se pueden repetir usuarios");
+                    return;
+                }
+                List<Users> user = new List<Users>();
+                user = database.getLogin(btn_emp_user.Text, btn_emp_pass.Text);
+                Guid new_user_id;
+                foreach (var data in user)
+                {
+                    new_user_id = data.user_id;
+                    database.registerEmployee(btn_emp_user.Text, btn_emp_pass.Text, eb_name_emp.Text, eb_ap_emp.Text, eb_am_emp.Text, eb_curp_emp.Text, eb_rfc_emp.Text, dtp_nac_emp.Value.ToString("yyyy-MM-dd"), new_user_id, e_pregunta.Text, e_respuesta.Text);
+                }
+                MessageBox.Show("Empleado registrado con exito.");
+                updateDataGrid();
+                //Fin del sandwich
+
+            }
+            else
+            {
+                MessageBox.Show("Esta muy mal");
+            }
+            
 
         }
 
@@ -171,5 +326,153 @@ namespace AAVD.Forms
             DatabaseManagement.getInstance().userUnban(eb_reactivar.Text);
             MessageBox.Show("Usuario reactivado");
         }
+
+        private void Validar_Click(object sender, EventArgs e)
+        {
+            
+                bool validaruser = true;
+                bool validarpassword = true;
+                bool validarnombre = true;
+                bool validarAP = true;
+                bool validarAM = true;
+                bool validarRFC = true;
+                //bool validarfecha = false;
+                bool validarCURP = true;
+
+                String username = this.btn_emp_user.Text;
+                String password = this.btn_emp_pass.Text;
+                String vnombre = this.eb_name_emp.Text;
+                String vAP = this.eb_ap_emp.Text;
+                String vAM = this.eb_am_emp.Text;
+                String vRFC = this.eb_rfc_emp.Text;
+                String vFecha = this.dtp_nac_emp.Text;
+                String vCurp = this.eb_curp_emp.Text;
+
+
+                string regexString = /*@"/^[A-Za-z]$/"*/ "^[A-Za-z0-9]*$"; //Permite letras y numeros
+                string regexStringPass = "^[0-9A-Za-z]*$";
+                string regexStringRFC = "^[0-9]*$";
+                string regexStringnombre = "^[A-Za-z]*$";  //Codigo a poner !/^\s
+                // string regexStringnombre = "^[A-Za-z]*$";
+                string regexStringCurp = "[A-Za-z0-9]";
+
+
+                //Validacion username
+                if (Regex.IsMatch(username, regexString))
+                {
+                    MessageBox.Show("Muito bien");
+                    //validaruser = true;
+
+                }
+
+                else
+                {
+                    validaruser = false;
+                    MessageBox.Show("Solo se permiten letras y numeros. Ej: Luis123");
+                }
+
+                //Validacion password
+                if (Regex.IsMatch(password, regexStringPass))
+                {
+
+                    MessageBox.Show("Muito bien");
+                }
+
+                else
+                {
+                    MessageBox.Show("Solo se permiten numeros y letras. Ej: 123Pass");
+                    validarpassword = false;
+                }
+
+                //Validacion nombre
+                if (Regex.IsMatch(vnombre, regexStringnombre))
+                {
+
+                    MessageBox.Show("Muito bien");
+                }
+
+                else
+                {
+                    validarnombre = false;
+                    MessageBox.Show("Solo se permiten letras");
+
+                }
+
+                //Validacion AP
+                if (Regex.IsMatch(vAP, regexStringnombre))
+                {
+
+                    MessageBox.Show("Muito bien");
+                }
+
+                else
+                {
+                    validarAP = false;
+                    MessageBox.Show("Solo se permiten letras");
+
+                }
+
+                //Validacion AM
+                if (Regex.IsMatch(vAM, regexStringnombre))
+                {
+
+                    MessageBox.Show("Muito bien");
+                }
+
+                else
+                {
+                    validarAM = false;
+                    MessageBox.Show("Solo se permiten letras");
+
+                }
+
+                //Validacion RFC
+                if (Regex.IsMatch(vRFC, regexStringRFC))
+                {
+
+                    MessageBox.Show("Muito bien");
+                }
+
+                else
+                {
+                    validarRFC = false;
+                    MessageBox.Show("Solo se permiten numeros");
+
+                }
+
+                //Validacion CURP
+                if (Regex.IsMatch(vCurp, regexStringCurp))
+                {
+
+                    MessageBox.Show("Muito bien");
+                }
+
+                else
+                {
+                    validarCURP = false;
+                    MessageBox.Show("Solo se permiten letras y numeros. Ej: IBP505");
+
+                }
+
+                if (validaruser == false || validarpassword == false || validarnombre == false || validarAP == false || validarAM == false || validarRFC == false || validarCURP == false)
+                {
+                //Da error
+                estabien = false;
+                    MessageBox.Show("ESTO DA ERROR");
+                }
+                else
+                {
+                //Aqui podemos asignar un booleano global para permitir o no agregar un empleado
+                estabien = true;
+                    MessageBox.Show("Esto no da error");
+                }
+
+
+
+
+
+
+            }
+        
     }
 }
