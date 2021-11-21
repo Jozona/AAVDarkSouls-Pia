@@ -62,6 +62,24 @@ namespace AAVD.Forms
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tarjeta_ccv = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tarjeta_fecha = new System.Windows.Forms.DateTimePicker();
+            this.pagar_mes = new System.Windows.Forms.DateTimePicker();
+            this.pagar_year = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tarjeta_numero = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pagar_medidor = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -72,6 +90,8 @@ namespace AAVD.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage5
@@ -218,6 +238,7 @@ namespace AAVD.Forms
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
@@ -507,6 +528,190 @@ namespace AAVD.Forms
             this.tabPage4.Text = "Generar recibos";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.label17);
+            this.tabPage6.Controls.Add(this.label16);
+            this.tabPage6.Controls.Add(this.tarjeta_ccv);
+            this.tabPage6.Controls.Add(this.label15);
+            this.tabPage6.Controls.Add(this.tarjeta_fecha);
+            this.tabPage6.Controls.Add(this.pagar_mes);
+            this.tabPage6.Controls.Add(this.pagar_year);
+            this.tabPage6.Controls.Add(this.pictureBox3);
+            this.tabPage6.Controls.Add(this.button1);
+            this.tabPage6.Controls.Add(this.tarjeta_numero);
+            this.tabPage6.Controls.Add(this.label14);
+            this.tabPage6.Controls.Add(this.comboBox3);
+            this.tabPage6.Controls.Add(this.label13);
+            this.tabPage6.Controls.Add(this.label12);
+            this.tabPage6.Controls.Add(this.label11);
+            this.tabPage6.Controls.Add(this.pagar_medidor);
+            this.tabPage6.Controls.Add(this.label10);
+            this.tabPage6.Location = new System.Drawing.Point(4, 25);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(937, 499);
+            this.tabPage6.TabIndex = 10;
+            this.tabPage6.Text = "Pagar recibo";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(530, 275);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(35, 17);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "CCV";
+            this.label16.Visible = false;
+            // 
+            // tarjeta_ccv
+            // 
+            this.tarjeta_ccv.Location = new System.Drawing.Point(593, 272);
+            this.tarjeta_ccv.Name = "tarjeta_ccv";
+            this.tarjeta_ccv.Size = new System.Drawing.Size(100, 22);
+            this.tarjeta_ccv.TabIndex = 17;
+            this.tarjeta_ccv.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(231, 275);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(135, 17);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Fecha de expiracion";
+            this.label15.Visible = false;
+            // 
+            // tarjeta_fecha
+            // 
+            this.tarjeta_fecha.Location = new System.Drawing.Point(372, 272);
+            this.tarjeta_fecha.Name = "tarjeta_fecha";
+            this.tarjeta_fecha.Size = new System.Drawing.Size(90, 22);
+            this.tarjeta_fecha.TabIndex = 15;
+            this.tarjeta_fecha.Visible = false;
+            // 
+            // pagar_mes
+            // 
+            this.pagar_mes.Location = new System.Drawing.Point(593, 93);
+            this.pagar_mes.Name = "pagar_mes";
+            this.pagar_mes.Size = new System.Drawing.Size(100, 22);
+            this.pagar_mes.TabIndex = 14;
+            // 
+            // pagar_year
+            // 
+            this.pagar_year.Location = new System.Drawing.Point(422, 93);
+            this.pagar_year.Name = "pagar_year";
+            this.pagar_year.Size = new System.Drawing.Size(100, 22);
+            this.pagar_year.TabIndex = 13;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::AAVD.Properties.Resources.USPaymentMethodsKlarna;
+            this.pictureBox3.Location = new System.Drawing.Point(50, 365);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(859, 113);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(474, 326);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 32);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Pagar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // tarjeta_numero
+            // 
+            this.tarjeta_numero.Location = new System.Drawing.Point(372, 227);
+            this.tarjeta_numero.Name = "tarjeta_numero";
+            this.tarjeta_numero.Size = new System.Drawing.Size(321, 22);
+            this.tarjeta_numero.TabIndex = 10;
+            this.tarjeta_numero.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(273, 233);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 17);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Numero";
+            this.label14.Visible = false;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Visa",
+            "Mastercard",
+            "Paypal",
+            "GPay",
+            "Efectivo"});
+            this.comboBox3.Location = new System.Drawing.Point(372, 173);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(321, 24);
+            this.comboBox3.TabIndex = 8;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(247, 176);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(111, 17);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Metodo de pago";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(616, 61);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 17);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Mes";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(453, 61);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(33, 17);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Año";
+            // 
+            // pagar_medidor
+            // 
+            this.pagar_medidor.Location = new System.Drawing.Point(250, 93);
+            this.pagar_medidor.Name = "pagar_medidor";
+            this.pagar_medidor.Size = new System.Drawing.Size(100, 22);
+            this.pagar_medidor.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(236, 61);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(133, 17);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Numero de medidor";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(453, 252);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(103, 17);
+            this.label17.TabIndex = 19;
+            this.label17.Text = "Sesion iniciada";
+            this.label17.Visible = false;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -532,6 +737,9 @@ namespace AAVD.Forms
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -571,5 +779,23 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tarjeta_numero;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox pagar_medidor;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox tarjeta_ccv;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DateTimePicker tarjeta_fecha;
+        private System.Windows.Forms.DateTimePicker pagar_mes;
+        private System.Windows.Forms.DateTimePicker pagar_year;
+        private System.Windows.Forms.Label label17;
     }
 }

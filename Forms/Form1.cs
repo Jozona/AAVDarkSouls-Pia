@@ -74,6 +74,12 @@ namespace AAVD
             foreach (var data in users) {
                 if (data.user_type == 0)
                 {
+                    if (cb_recuerdame.Checked)
+                    {
+                        Properties.Settings.Default.usuarioLogin = txtUser.Text;
+                        Properties.Settings.Default.passLogin = txtPassword.Text;
+                        Properties.Settings.Default.Save();
+                    }
                     currentUser = data.user_name;
                     currentUserId = data.user_id;
                     this.Hide();
@@ -84,6 +90,12 @@ namespace AAVD
                 }
                 else if (data.user_type == 1)
                 {
+                    if (cb_recuerdame.Checked)
+                    {
+                        Properties.Settings.Default.usuarioLogin = txtUser.Text;
+                        Properties.Settings.Default.passLogin = txtPassword.Text;
+                        Properties.Settings.Default.Save();
+                    }
                     currentUser = data.user_name;
                     currentUserId = data.user_id;
                     this.Hide();
@@ -93,6 +105,12 @@ namespace AAVD
                     break;
                 }
                 else if (data.user_type == 2) {
+                    if (cb_recuerdame.Checked)
+                    {
+                        Properties.Settings.Default.usuarioLogin = txtUser.Text;
+                        Properties.Settings.Default.passLogin = txtPassword.Text;
+                        Properties.Settings.Default.Save();
+                    }
                     currentUser = data.user_name;
                     currentUserId = data.user_id;
                     this.Hide();
@@ -131,7 +149,11 @@ namespace AAVD
         //Por el nombre asumo que es lo que se ejecuta al abrir la ventana.
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (Properties.Settings.Default.usuarioLogin != string.Empty)
+            {
+                txtUser.Text = Properties.Settings.Default.usuarioLogin;
+                txtPassword.Text = Properties.Settings.Default.passLogin;
+            }
         }
 
         //Recordar contrase;a

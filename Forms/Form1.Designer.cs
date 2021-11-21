@@ -36,6 +36,7 @@ namespace AAVD
             this.eb_respuesta = new System.Windows.Forms.TextBox();
             this.btn_recordar = new System.Windows.Forms.Button();
             this.btn_responder = new System.Windows.Forms.Button();
+            this.cb_recuerdame = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtUser
@@ -101,6 +102,17 @@ namespace AAVD
             this.btn_responder.Visible = false;
             this.btn_responder.Click += new System.EventHandler(this.btn_responder_Click);
             // 
+            // cb_recuerdame
+            // 
+            this.cb_recuerdame.AutoSize = true;
+            this.cb_recuerdame.ForeColor = System.Drawing.Color.Coral;
+            this.cb_recuerdame.Location = new System.Drawing.Point(78, 205);
+            this.cb_recuerdame.Name = "cb_recuerdame";
+            this.cb_recuerdame.Size = new System.Drawing.Size(111, 21);
+            this.cb_recuerdame.TabIndex = 9;
+            this.cb_recuerdame.Text = "Recuerdame";
+            this.cb_recuerdame.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -109,6 +121,7 @@ namespace AAVD
             this.BackgroundImage = global::AAVD.Properties.Resources.League_of_Legends_Ashe_League_of_Legends_mountains_sky_1894075_jpg_d;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(721, 403);
+            this.Controls.Add(this.cb_recuerdame);
             this.Controls.Add(this.btn_responder);
             this.Controls.Add(this.btn_recordar);
             this.Controls.Add(this.eb_respuesta);
@@ -133,6 +146,7 @@ namespace AAVD
         private System.Windows.Forms.TextBox eb_respuesta;
         private System.Windows.Forms.Button btn_recordar;
         private System.Windows.Forms.Button btn_responder;
+        private System.Windows.Forms.CheckBox cb_recuerdame;
     }
 }
 

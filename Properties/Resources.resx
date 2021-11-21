@@ -121,10 +121,13 @@
   <data name="League_of_Legends_Ashe_League_of_Legends_mountains_sky-1894075.jpg!d" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\League_of_Legends_Ashe_League_of_Legends_mountains_sky-1894075.jpg!d.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Pepsi_'Hot'_Chocolate_Flavor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pepsi_'Hot'_Chocolate_Flavor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="índice (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\índice (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pepsi_'Hot'_Chocolate_Flavor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pepsi_'Hot'_Chocolate_Flavor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="USPaymentMethodsKlarna" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\USPaymentMethodsKlarna.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

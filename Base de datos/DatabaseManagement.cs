@@ -193,8 +193,12 @@ namespace AAVD.Base_de_datos
             session.Execute(query2);
 
             //Se le asigna su primer contrato
-            string queryIC = "INSERT INTO CONTRACTS(NUM_SERVICIO, ID_CLIENTE, TIPO, NUM_MEDIDOR, CALLE, COLONIA, CIUDAD, ESTADO, NUM_CLIENTE)"
-                             + "VALUES("+no_servicio+", "+client_id+", '"+tipoContrato+"', "+no_medidor+", '"+calle+"', '"+colonia+"', '"+ciudad+"', '"+estado+"', "+no_cliente+");";
+            DateTime today2 = DateTime.Today;
+            string year = today2.Year.ToString();
+            string month = today2.Month.ToString();
+            string day = today2.Day.ToString();
+            string queryIC = "INSERT INTO CONTRACTS(NUM_SERVICIO, ID_CLIENTE, TIPO, NUM_MEDIDOR, CALLE, COLONIA, CIUDAD, ESTADO, NUM_CLIENTE, CREATION_YEAR, CREATION_MONTH, CREATION_DAY)"
+                            + "VALUES(" + no_servicio + ", " + client_id + ", '" + tipoContrato + "', " + no_medidor + ", '" + calle + "', '" + colonia + "', '" + ciudad + "', '" + estado + "', " + no_cliente + ", '" + year + "', '" + month + "', '" + day + "');";
             session.Execute(queryIC);
         }
 
@@ -211,7 +215,7 @@ namespace AAVD.Base_de_datos
         //Obtengo el medidor y el tipo de los contratos
         public List<Contratos> GetContratosMedidorTipo()
         {
-            string query = "SELECT NUM_MEDIDOR, TIPO, ID_CLIENTE, NUM_SERVICIO FROM CONTRACTS";
+            string query = "SELECT NUM_MEDIDOR, TIPO, ID_CLIENTE, NUM_SERVICIO, CREATION_YEAR, CREATION_MONTH, CREATION_DAY FROM CONTRACTS";
             session = cluster.Connect(keyspace);
             IMapper mapper = new Mapper(session);
             IEnumerable<Contratos> contratos = mapper.Fetch<Contratos>(query);
@@ -241,9 +245,12 @@ namespace AAVD.Base_de_datos
                 string query3 = "UPDATE CLIENTS SET CONTRACTS = CONTRACTS + ["+numServicio+"], MEASURERS = MEASURERS + ["+numMedidor+"] WHERE CLIENT_ID = "+cliente.client_id+"; ";
                 session.Execute(query3);
             }
-
-            string queryIC = "INSERT INTO CONTRACTS(NUM_SERVICIO, ID_CLIENTE, TIPO, NUM_MEDIDOR, CALLE, COLONIA, CIUDAD, ESTADO, NUM_CLIENTE)"
-                            + "VALUES(" + numServicio + ", " + client_id + ", '" + tipo + "', " + numMedidor + ", '" + calle + "', '" + colonia + "', '" + ciudad + "', '" + estado + "', "+numCLiente+");";
+            DateTime today = DateTime.Today;
+            string year = today.Year.ToString();
+            string month = today.Month.ToString();
+            string day = today.Day.ToString();
+            string queryIC = "INSERT INTO CONTRACTS(NUM_SERVICIO, ID_CLIENTE, TIPO, NUM_MEDIDOR, CALLE, COLONIA, CIUDAD, ESTADO, NUM_CLIENTE, CREATION_YEAR, CREATION_MONTH, CREATION_DAY)"
+                            + "VALUES(" + numServicio + ", " + client_id + ", '" + tipo + "', " + numMedidor + ", '" + calle + "', '" + colonia + "', '" + ciudad + "', '" + estado + "', "+numCLiente+", '"+year+"', '"+month+"', '"+day+"');";
             session.Execute(queryIC);
         }
 
@@ -389,14 +396,13 @@ namespace AAVD.Base_de_datos
                         kwExcedente = consumoExcedente;
                         iTotalExcedente = consumoExcedente * iExcedente;
                         dTotalExcedente = consumoExcedente * dExcedente;
-                        consumoIntermedio = consumoExcedente - 100;
+                        consumoIntermedio = 50;
                         kwIntermedio = consumoIntermedio;
                         iTotalIntermedia = consumoIntermedio * iIntermedia;
                         dTotalIntermedia = consumoIntermedio * dIntermedia;
                     }
                     else {
-                        consumoExcedente = consumoTotal - 150;
-                        consumoIntermedio = consumoExcedente - 100;
+                        consumoIntermedio = consumoTotal - 100;
                         kwIntermedio = consumoIntermedio;   
                         iTotalIntermedia = consumoIntermedio * iIntermedia;
                         dTotalIntermedia = consumoIntermedio * dIntermedia;
@@ -442,11 +448,31 @@ namespace AAVD.Base_de_datos
             return consumos.ToList();
         }
 
+        //Solo el numero de los medidores
+        public List<Contratos> numerosMedidores() {
+            string query = "SELECT NUM_MEDIDOR FROM CONTRACTS;";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Contratos> consumos = mapper.Fetch<Contratos>(query);
+            return consumos.ToList();
+
+        }
+
+
         //Se regresa el consumo buscado
         //Poner validacion si no existe
         public List<Consumos> getConsumoEspecifico(string numero_medidor, string year, string month)
         {
             string query = "SELECT * FROM CONSUMOS WHERE NUM_MEDIDOR = "+numero_medidor+" AND YEAR = '"+year+"' AND MONTH = '"+month+"';";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Consumos> consumos = mapper.Fetch<Consumos>(query);
+            return consumos.ToList();
+        }
+
+        public List<Consumos> getConsumoMeses(string numero_medidor)
+        {
+            string query = "SELECT MONTH FROM CONSUMOS WHERE NUM_MEDIDOR = " + numero_medidor + ";";
             session = cluster.Connect(keyspace);
             IMapper mapper = new Mapper(session);
             IEnumerable<Consumos> consumos = mapper.Fetch<Consumos>(query);
@@ -464,6 +490,16 @@ namespace AAVD.Base_de_datos
         public List<Recibos> getReciboEspecifico(string numero_medidor, string year, string month)
         {
             string query = "SELECT * FROM RECIBOS WHERE NUM_MEDIDOR = " + numero_medidor + " AND YEAR = '" + year + "' AND MONTH = '" + month + "';";
+            session = cluster.Connect(keyspace);
+            IMapper mapper = new Mapper(session);
+            IEnumerable<Recibos> recibo = mapper.Fetch<Recibos>(query);
+            return recibo.ToList();
+        }
+
+        //Obtiene los recibos
+        public List<Recibos> getRecibos()
+        {
+            string query = "SELECT NUM_MEDIDOR, YEAR, MONTH, PAGAR_TOTAL_IVA, PAGADO FROM RECIBOS;";
             session = cluster.Connect(keyspace);
             IMapper mapper = new Mapper(session);
             IEnumerable<Recibos> recibo = mapper.Fetch<Recibos>(query);
@@ -488,6 +524,11 @@ namespace AAVD.Base_de_datos
             IEnumerable<Clientes> cliente = mapper.Fetch<Clientes>(query);
             return cliente.ToList();
 
+        }
+
+        public void pagarRecibo(string num_medidor, string year, string mes, string tipoPago) { 
+            string query = "UPDATE RECIBOS SET PAGADO = 'PAGADO', TIPO_DE_PAGO = '"+tipoPago+"' WHERE NUM_MEDIDOR = "+ num_medidor+" AND YEAR = '"+year+"' AND MONTH = '"+mes+"';";
+            session.Execute(query);
         }
 
     }

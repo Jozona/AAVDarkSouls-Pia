@@ -167,6 +167,7 @@
     <Compile Include="Forms\Client.Designer.cs">
       <DependentUpon>Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CommonOpenFileDialog.cs" />
     <Compile Include="Forms\Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,7 +216,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
@@ -236,6 +237,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Pepsi_%27Hot%27_Chocolate_Flavor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\USPaymentMethodsKlarna.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

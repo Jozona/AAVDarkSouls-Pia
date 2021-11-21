@@ -45,8 +45,11 @@ namespace AAVD.Forms
             c_nacimiento.CustomFormat = "yyyy-MM-dd";
             c_nacimiento.Format = DateTimePickerFormat.Custom;
 
-            
 
+            this.contrato_Tipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.eb_tipoTarifa.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.edc_contrato.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.c_contratoTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             this.CenterToScreen();
             updateDataGrid();
             updateDataGridTarifa();
@@ -107,7 +110,6 @@ namespace AAVD.Forms
             //Validacion username
             if (Regex.IsMatch(username, regexString))
             {
-                MessageBox.Show("Muito bien");
                 //validaruser = true;
 
             }
@@ -115,19 +117,16 @@ namespace AAVD.Forms
             else
             {
                 validaruser = false;
-                MessageBox.Show("Solo se permiten letras y numeros. Ej: Luis123");
             }
 
             //Validacion password
             if (Regex.IsMatch(password, regexStringPass))
             {
 
-                MessageBox.Show("Muito bien");
             }
 
             else
             {
-                MessageBox.Show("Solo se permiten numeros y letras. Ej: 123Pass");
                 validarpassword = false;
             }
 
@@ -135,13 +134,11 @@ namespace AAVD.Forms
             if (Regex.IsMatch(vnombre, regexStringnombre))
             {
 
-                MessageBox.Show("Muito bien");
             }
 
             else
             {
                 validarnombre = false;
-                MessageBox.Show("Solo se permiten letras");
 
             }
 
@@ -149,13 +146,11 @@ namespace AAVD.Forms
             if (Regex.IsMatch(vAP, regexStringnombre))
             {
 
-                MessageBox.Show("Muito bien");
             }
 
             else
             {
                 validarAP = false;
-                MessageBox.Show("Solo se permiten letras");
 
             }
 
@@ -163,29 +158,25 @@ namespace AAVD.Forms
             if (Regex.IsMatch(vAM, regexStringnombre))
             {
 
-                MessageBox.Show("Muito bien");
             }
 
             else
             {
                 validarAM = false;
-                MessageBox.Show("Solo se permiten letras");
 
             }
 
-            
+
 
             //Validacion CURP
             if (Regex.IsMatch(vCurp, regexStringCurp))
             {
 
-                MessageBox.Show("Muito bien");
             }
 
             else
             {
                 validarCURP = false;
-                MessageBox.Show("Solo se permiten letras y numeros. Ej: IBP505");
 
             }
 
@@ -194,13 +185,11 @@ namespace AAVD.Forms
             if (Regex.IsMatch(vColonia, regexStringnombre))
             {
 
-                MessageBox.Show("Muito bien");
             }
 
             else
             {
                 validarColonia = false;
-                MessageBox.Show("Solo se permiten letras");
 
             }
 
@@ -209,13 +198,11 @@ namespace AAVD.Forms
             if (Regex.IsMatch(vCiudad, regexStringnombre))
             {
 
-                MessageBox.Show("Muito bien");
             }
 
             else
             {
                 validarCiudad = false;
-                MessageBox.Show("Solo se permiten letras");
 
             }
 
@@ -224,13 +211,11 @@ namespace AAVD.Forms
             if (Regex.IsMatch(vCalle, regexStringnombre))
             {
 
-                MessageBox.Show("Muito bien");
             }
 
             else
             {
                 validarCalle = false;
-                MessageBox.Show("Solo se permiten letras");
 
             }
 
@@ -239,13 +224,11 @@ namespace AAVD.Forms
             if (Regex.IsMatch(vEstado, regexStringnombre))
             {
 
-                MessageBox.Show("Muito bien");
             }
 
             else
             {
                 validarEstado = false;
-                MessageBox.Show("Solo se permiten letras");
 
             }
 
@@ -271,24 +254,24 @@ namespace AAVD.Forms
 
 
 
-            if (estabien == true) { 
-            //Quehacer
-            //Registramos al cliente en la tbala de usuarios
-            DatabaseManagement database = DatabaseManagement.getInstance();
-            if (!(database.registerUser(c_usuario.Text, c_password.Text, 2, c_pregunta.Text, c_respuesta.Text))) {
-                MessageBox.Show("No se pueden repetir usuarios");
-                return;
-            }
-            List<Users> user = new List<Users>();
-            user = database.getLogin(c_usuario.Text, c_password.Text);
-            Guid new_user_id;
-            foreach (var data in user)
-            {
-                new_user_id = data.user_id;
-                database.registerClient(c_nombre.Text, c_apellidoP.Text, c_apellidoM.Text, c_email.Text, c_curp.Text, c_genero.Text, c_nacimiento.Value.ToString("yyyy-MM-dd"), c_ciudad.Text, c_calle.Text, c_colonia.Text, c_estado.Text, c_contratoTipo.Text, c_usuario.Text, c_password.Text, new_user_id, c_noMedidor.Text, c_noServicio.Text, c_numCliente.Text);
-            }
-            MessageBox.Show("Cliente registrado con exito.");
-            updateDataGrid();
+            if (estabien == true) {
+                //Quehacer
+                //Registramos al cliente en la tbala de usuarios
+                DatabaseManagement database = DatabaseManagement.getInstance();
+                if (!(database.registerUser(c_usuario.Text, c_password.Text, 2, c_pregunta.Text, c_respuesta.Text))) {
+                    MessageBox.Show("No se pueden repetir usuarios");
+                    return;
+                }
+                List<Users> user = new List<Users>();
+                user = database.getLogin(c_usuario.Text, c_password.Text);
+                Guid new_user_id;
+                foreach (var data in user)
+                {
+                    new_user_id = data.user_id;
+                    database.registerClient(c_nombre.Text, c_apellidoP.Text, c_apellidoM.Text, c_email.Text, c_curp.Text, c_genero.Text, c_nacimiento.Value.ToString("yyyy-MM-dd"), c_ciudad.Text, c_calle.Text, c_colonia.Text, c_estado.Text, c_contratoTipo.Text, c_usuario.Text, c_password.Text, new_user_id, c_noMedidor.Text, c_noServicio.Text, c_numCliente.Text);
+                }
+                MessageBox.Show("Cliente registrado con exito.");
+                updateDataGrid();
                 //Quehacerfin
             }
             else
@@ -347,7 +330,7 @@ namespace AAVD.Forms
 
         private void clientesDTGWN_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         string id_seleccionado;
@@ -445,7 +428,7 @@ namespace AAVD.Forms
             foreach (var tarifa in tarifas)
             {
                 Tarifas tarifaDTG = new Tarifas();
-                tarifaDTG.tipo = tarifa.tipo ;
+                tarifaDTG.tipo = tarifa.tipo;
                 tarifaDTG.basico = tarifa.basico;
                 tarifaDTG.intermedio = tarifa.intermedio;
                 tarifaDTG.excedente = tarifa.excedente;
@@ -498,20 +481,29 @@ namespace AAVD.Forms
                 return;
             }
 
+            if (csvPath.Equals("")) {
+                return;
+            }
+
             var reader = File.OpenText(csvPath);
             var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
             var tarifasCSV = csvReader.GetRecords<TarifasCSV>();
             foreach (var tarifa in tarifasCSV)
             {
-                DatabaseManagement.getInstance().crearTarifa(tarifa.tipo, tarifa.basico.ToString(),tarifa.intermedio.ToString(),tarifa.excedente.ToString());
+                DatabaseManagement.getInstance().crearTarifa(tarifa.tipo, tarifa.basico.ToString(), tarifa.intermedio.ToString(), tarifa.excedente.ToString());
             }
             MessageBox.Show("Listo, tarifas cargadas...");
         }
 
 
         //Generar el pdf del recibo
+        //Este codigo parece confeti, ayuuudaaaaaa
         private void button7_Click(object sender, EventArgs e)
         {
+
+
+
+
             string id_usuario = "";
             List<Users> users = new List<Users>();
             users = DatabaseManagement.getInstance().getRemember(eb_user_recibo.Text);
@@ -528,6 +520,8 @@ namespace AAVD.Forms
             string id_cliente = "";
             string tipo = "";
             string no_servicio = "";
+            int creacionYear = 0;
+            int creacionMonth = 0;
             List<Contratos> contratos = new List<Contratos>();
             contratos = DatabaseManagement.getInstance().GetContratosMedidorTipo();
             foreach (var contrato in contratos) {
@@ -535,67 +529,126 @@ namespace AAVD.Forms
                     id_cliente = contrato.id_cliente.ToString();
                     tipo = contrato.tipo;
                     no_servicio = contrato.num_servicio.ToString();
+                    creacionYear = int.Parse(contrato.creation_year);
+                    creacionMonth = int.Parse(contrato.creation_month);
                 }
             }
 
-            //Encontramos la tarifa que usamos
-            List<Tarifas> tarifas = new List<Tarifas>();
-            tarifas = DatabaseManagement.getInstance().GetTarifas();
-            double tarifaBasica, tarifaIntermedia, tarifaExcedente;
-            tarifaExcedente = tarifaIntermedia = tarifaBasica = 0;
-            foreach (var tarifa in tarifas) {
-                if (tarifa.tipo.Equals(tipo)){
-                    tarifaExcedente = tarifa.excedente;
-                    tarifaIntermedia = tarifa.intermedio;
-                    tarifaBasica = tarifa.basico;
-                }
+            if (no_servicio.Equals("")) {
+                MessageBox.Show("Ese medidor no existe en la base de datos");
+                return;
             }
 
-            List<Clientes> cliente = new List<Clientes>();
-            cliente = DatabaseManagement.getInstance().getContratoConClientID(id_cliente);
-            foreach (var dato in cliente)
+
+            //Checa si el medidor tiene consumos
+            bool hayConsumos = false;
+            double cuentaTotal = 0;
+            List<Consumos> consumosMedidor = new List<Consumos>();
+            consumosMedidor = DatabaseManagement.getInstance().getConsumos();
+            foreach (var consumos in consumosMedidor)
             {
-                //Prepara todas las variables para el pdf
-                Document pdfDocument = new Document();
-                Page page1 = pdfDocument.Pages.Add();
+                if (consumos.num_medidor.ToString().Equals(no_servicio))
+                {
+                    hayConsumos = true;
+                    DateTime inicioFactura = new DateTime(creacionYear, creacionMonth, 4);
+                    DateTime facturaActual = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 4);
+                    DateTime iteradorFactura = new DateTime(int.Parse(consumos.year), int.Parse(consumos.month), 4);
+                    int cuando = DateTime.Compare(iteradorFactura, facturaActual);
+                    if (cuando < 0) {
+                        cuentaTotal = consumos.consumo + cuentaTotal;
+                    }
+                }
+            }
 
-                BackgroundArtifact bg = new BackgroundArtifact();
-                bg.BackgroundImage = File.OpenRead("CFE.png");
+                if (!hayConsumos) {
+                    MessageBox.Show("Ese medidor no tiene consumos");
+                    return;
+                }
 
-                page1.Artifacts.Add(bg);
-                agregarTexto(117, 715, dato.name.ToString(), page1);
-                string direccion = dato.street + " " + dato.colony + " " + dato.city + " " + dato.state + " ";
-                agregarTexto(105, 680, direccion, page1);
-                //Numero de servicio
-                agregarTexto(115, 600, no_servicio, page1);
-                //RMU
-                agregarTexto(50, 578, id_cliente, page1);
-                //Limite de pago 
-                DateTime limiteDePago = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 3);
-                limiteDePago = limiteDePago.AddMonths(1);
-                agregarTexto(110, 530, limiteDePago.ToString("dd/MM/yyyy",CultureInfo.InvariantCulture), page1);
-                //Corte a partir de 
-                DateTime corteLimite = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 4);
-                corteLimite = corteLimite.AddMonths(1);
-                agregarTexto(10, 480, corteLimite.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
-                //Tiempo de facturacion:
-                DateTime fechaFacturacion = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 3);
-                fechaFacturacion = fechaFacturacion.AddMonths(-1);
-                agregarTexto(135, 380, fechaFacturacion.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
-                agregarTexto(200, 380, "-", page1);
-                fechaFacturacion = fechaFacturacion.AddMonths(1);
-                agregarTexto(208, 380, fechaFacturacion.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
-                //Encontrar el recibo especifico
-                List<Recibos> recibos = new List<Recibos>();
-                recibos = DatabaseManagement.getInstance().getReciboEspecifico(eb_user_recibo.Text, year_reciboPDF.Text, month_reciboPDF.Text);
+                //Encontramos la tarifa que usamos
+                List<Tarifas> tarifas = new List<Tarifas>();
+                tarifas = DatabaseManagement.getInstance().GetTarifas();
+                double tarifaBasica, tarifaIntermedia, tarifaExcedente;
+                tarifaExcedente = tarifaIntermedia = tarifaBasica = 0;
+                foreach (var tarifa in tarifas) {
+                    if (tarifa.tipo.Equals(tipo)) {
+                        tarifaExcedente = tarifa.excedente;
+                        tarifaIntermedia = tarifa.intermedio;
+                        tarifaBasica = tarifa.basico;
+                    }
+                }
+
+                List<Clientes> cliente = new List<Clientes>();
+                cliente = DatabaseManagement.getInstance().getContratoConClientID(id_cliente);
+                foreach (var dato in cliente)
+                {
+                    //Prepara todas las variables para el pdf
+                    Document pdfDocument = new Document();
+                    Page page1 = pdfDocument.Pages.Add();
+
+                    BackgroundArtifact bg = new BackgroundArtifact();
+                    bg.BackgroundImage = File.OpenRead("CFE.png");
+
+                    page1.Artifacts.Add(bg);
+                    string nombreFull = dato.name + " " + dato.last_name + " " + dato.mother_last_name;
+                    agregarTexto(117, 715, nombreFull, page1);
+                    string direccion = dato.street + " " + dato.colony + " " + dato.city + " " + dato.state + " ";
+                    agregarTexto(105, 680, direccion, page1);
+                    //Numero de servicio
+                    agregarTexto(115, 600, no_servicio, page1);
+                    //RMU
+                    agregarTexto(50, 578, id_cliente, page1);
+
+                    if (tipo.Equals("Industrial")) {
+                        //Limite de pago 
+                        DateTime limiteDePago = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 3);
+                        limiteDePago = limiteDePago.AddDays(20);
+                        agregarTexto(110, 530, limiteDePago.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                        //Corte a partir de 
+                        DateTime corteLimite = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 4);
+                        corteLimite = corteLimite.AddDays(21);
+                        agregarTexto(10, 480, corteLimite.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                        //Tiempo de facturacion:
+                        DateTime fechaFacturacion = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 3);
+                        fechaFacturacion = fechaFacturacion.AddMonths(-1);
+                        agregarTexto(135, 380, fechaFacturacion.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                        agregarTexto(200, 380, "-", page1);
+                        fechaFacturacion = fechaFacturacion.AddMonths(1);
+                        agregarTexto(208, 380, fechaFacturacion.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                    }
+                    else if (tipo.Equals("Domestico")) {
+                        //Limite de pago 
+                        DateTime limiteDePago = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 3);
+                        limiteDePago = limiteDePago.AddDays(20);
+                        limiteDePago = limiteDePago.AddMonths(1);
+                        agregarTexto(110, 530, limiteDePago.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                        //Corte a partir de 
+                        DateTime corteLimite = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 4);
+                        corteLimite = corteLimite.AddDays(21);
+                        corteLimite = corteLimite.AddMonths(1);
+                        agregarTexto(10, 480, corteLimite.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                        //Tiempo de facturacion:
+                        DateTime fechaFacturacion = new DateTime(int.Parse(year_reciboPDF.Text), int.Parse(month_reciboPDF.Text), 3);
+                        fechaFacturacion = fechaFacturacion.AddMonths(-1);
+                        agregarTexto(135, 380, fechaFacturacion.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                        agregarTexto(200, 380, "-", page1);
+                        fechaFacturacion = fechaFacturacion.AddMonths(2);
+                        agregarTexto(208, 380, fechaFacturacion.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), page1);
+                    }
+                    //Encontrar el recibo especifico
+                    List<Recibos> recibos = new List<Recibos>();
+                    recibos = DatabaseManagement.getInstance().getReciboEspecifico(eb_user_recibo.Text, year_reciboPDF.Text, month_reciboPDF.Text);
                 foreach (var recibo in recibos)
                 {
                     double totalAPagar = Math.Round(recibo.pagar_total_iva, 3);
                     agregarTexto(400, 705, totalAPagar.ToString(), page1);
                     //Imprimir el total en letras
-                    decimal totalTransformarEnteros = Math.Round((decimal)totalAPagar);
+                    decimal totalTransformarEnteros = (decimal)totalAPagar;
+                    string enteros = totalAPagar.ToString();
+                    string[] numEnteros = enteros.Split('.');
+                    decimal letrasTransformarEnteros = decimal.Parse(numEnteros[0]);
 
-                    string totalLetras = Conversiones.NumeroALetras(totalTransformarEnteros);
+                    string totalLetras = Conversiones.NumeroALetras(letrasTransformarEnteros);
                     //agregarTexto(400, 690, totalLetras, page1);
                     TextFragment totalImprimir = new TextFragment(totalLetras);
                     totalImprimir.Position = new Position(400, 685);
@@ -605,18 +658,23 @@ namespace AAVD.Forms
                     TextBuilder txtBuild = new TextBuilder(page1);
                     txtBuild.AppendText(totalImprimir);
 
+                    
                     decimal totalTransformarDecimales = (decimal)(totalAPagar - Math.Truncate(totalAPagar));
+                    
                     string totalEnString = totalAPagar.ToString();
-                    string[] separarNumeros = totalEnString.Split('.');
-                    decimal numeroDecimal = decimal.Parse(separarNumeros[1]);
-                    string totalLetrasDecimales = "PUNTO " + Conversiones.NumeroALetras(numeroDecimal);
-                    TextFragment totalImprimirDecimal = new TextFragment(totalLetrasDecimales);
-                    totalImprimirDecimal.Position = new Position(400, 675);
-                    totalImprimirDecimal.TextState.FontSize = 10;
-                    totalImprimirDecimal.TextState.Font = FontRepository.FindFont("Arial");
-                    totalImprimirDecimal.TextState.ForegroundColor = Aspose.Pdf.Color.FromRgb(System.Drawing.Color.Black);
-                    TextBuilder txtBuildDecimal = new TextBuilder(page1);
-                    txtBuildDecimal.AppendText(totalImprimirDecimal);
+                    if ((totalEnString.IndexOf('.') != -1))
+                    {
+                        string[] separarNumeros = totalEnString.Split('.');
+                        decimal numeroDecimal = decimal.Parse(separarNumeros[1]);
+                        string totalLetrasDecimales = "PUNTO " + Conversiones.NumeroALetras(numeroDecimal);
+                        TextFragment totalImprimirDecimal = new TextFragment(totalLetrasDecimales);
+                        totalImprimirDecimal.Position = new Position(400, 675);
+                        totalImprimirDecimal.TextState.FontSize = 10;
+                        totalImprimirDecimal.TextState.Font = FontRepository.FindFont("Arial");
+                        totalImprimirDecimal.TextState.ForegroundColor = Aspose.Pdf.Color.FromRgb(System.Drawing.Color.Black);
+                        TextBuilder txtBuildDecimal = new TextBuilder(page1);
+                        txtBuildDecimal.AppendText(totalImprimirDecimal);
+                    }
 
 
 
@@ -624,7 +682,7 @@ namespace AAVD.Forms
                     string totalKw = (recibo.kw_basico + recibo.kw_intermedio + recibo.kw_excedente).ToString();
                     agregarTexto(382, 305, totalKw, page1);
                     agregarTexto(382, 290, recibo.kw_basico.ToString(), page1);
-                    agregarTexto(382, 275, recibo.kw_intermedio.ToString(),page1);
+                    agregarTexto(382, 275, recibo.kw_intermedio.ToString(), page1);
                     agregarTexto(382, 263, recibo.kw_excedente.ToString(), page1);
                     agregarTexto(382, 250, totalKw.ToString(), page1);
                     //Imprimir tarifas
@@ -636,9 +694,9 @@ namespace AAVD.Forms
                     agregarTexto(450, 263, tarifaExcedente.ToString(), page1);
 
                     //Imprimimos los precios
-                    agregarTexto(520, 290, (Math.Round(recibo.pagar_basico,3)).ToString(), page1);
-                    agregarTexto(520, 275, (Math.Round(recibo.pagar_intermedio,3)).ToString(), page1);
-                    agregarTexto(520, 263, (Math.Round(recibo.pagar_excedente,3)).ToString(), page1);
+                    agregarTexto(520, 290, (Math.Round(recibo.pagar_basico, 3)).ToString(), page1);
+                    agregarTexto(520, 275, (Math.Round(recibo.pagar_intermedio, 3)).ToString(), page1);
+                    agregarTexto(520, 263, (Math.Round(recibo.pagar_excedente, 3)).ToString(), page1);
                     double total = Math.Round(recibo.pagar_basico + recibo.pagar_intermedio + recibo.pagar_excedente, 3);
                     agregarTexto(520, 250, total.ToString(), page1);
 
@@ -650,183 +708,358 @@ namespace AAVD.Forms
                     //Fac del periodo 
                     double totalConIva = Math.Round(recibo.pagar_total_iva, 3);
                     agregarTexto(520, 87, totalConIva.ToString(), page1);
+                    
+                    
+
                     //Adeudo anterior
-                    agregarTexto(520, 73, "N/A", page1);
+                    double adeudo = 0;
+                    double adeudoSinSigno = 0;
+                    List<Recibos> anteriores = new List<Recibos>();
+                    anteriores = DatabaseManagement.getInstance().getRecibos();
+                    foreach (var reciboAnterior in anteriores)
+                    {
+                        if (reciboAnterior.num_medidor.ToString().Equals(recibo.num_medidor.ToString()))
+                        {
+                            DateTime reciboAnteriorFecha = new DateTime(int.Parse(reciboAnterior.year), int.Parse(reciboAnterior.month), 3);
+                            DateTime reciboActualFecha = new DateTime(int.Parse(recibo.year), int.Parse(recibo.month), 3);
+                            int comparacion = DateTime.Compare(reciboAnteriorFecha, reciboActualFecha);
+                            if (comparacion < 0)
+                            {
+                                if (reciboAnterior.pagado.Equals("SIN PAGAR")){
+                                    adeudo = reciboAnterior.pagar_total_iva;
+                                    adeudoSinSigno = reciboAnterior.pagar_total_iva;
+                                }
+                                else if (reciboAnterior.pagado.Equals("PAGADO")){
+                                    adeudo = -1.0f * (reciboAnterior.pagar_total_iva);
+                                    adeudoSinSigno = reciboAnterior.pagar_total_iva;
+                                }
+                            }
+                        }
+                    }
+                    double adeudoSinSignoDecimales = Math.Round(adeudoSinSigno, 3);
+                    agregarTexto(520, 73, adeudoSinSignoDecimales.ToString(), page1);
+                    double adeudoDecimales = Math.Round(adeudo, 3);
                     //Su pago
-                    agregarTexto(520, 57, "N/A", page1);
+                    
+                    agregarTexto(520, 57, adeudoDecimales.ToString(), page1);
+
+
                     //Total
-                    agregarTexto(520, 43, totalConIva.ToString(), page1);
+                    if (adeudo > 0) {
+                        double totalConDeuda = totalConIva + adeudo;
+                        totalConDeuda = Math.Round(totalConDeuda, 3);
+                        agregarTexto(520, 43, totalConDeuda.ToString(), page1);
+                    }
+                    else {
+                        agregarTexto(520, 43, totalConIva.ToString(), page1);
+                    }
+
+                    //Lectura anterior
+                    agregarTexto(250, 305, cuentaTotal.ToString(), page1);
+                    //Lectura actual
+                    cuentaTotal += double.Parse(totalKw);
+                    agregarTexto(150, 305, cuentaTotal.ToString(), page1);
                 }
 
+                    string folderPath = "";
+                    FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+                    if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        folderPath = folderBrowserDialog1.SelectedPath;
+                    }
 
-
-                String pdfName = "LmadEstadoDeCuenta_.pdf";
-                pdfDocument.Save(pdfName);
+                    String pdfName = folderPath + "\\LmadEstadoDeCuenta_.pdf";
+                    if (folderPath.Equals("")) {
+                        return;
+                    }
+                    pdfDocument.Save(pdfName);
+                    MessageBox.Show("Recibo creado");
+                }
             }
-        }
 
 
-        public void agregarTexto(int x, int y, string texto, Page pagina) {
-            TextFragment txtName = new TextFragment(texto);
-            txtName.Position = new Position(x, y);
-            txtName.TextState.FontSize = 12;
-            txtName.TextState.Font = FontRepository.FindFont("Arial");
-            txtName.TextState.ForegroundColor = Aspose.Pdf.Color.FromRgb(System.Drawing.Color.Black);
-            TextBuilder txtBuild = new TextBuilder(pagina);
-            txtBuild.AppendText(txtName);
-        }
+            public void agregarTexto(int x, int y, string texto, Page pagina) {
+                TextFragment txtName = new TextFragment(texto);
+                txtName.Position = new Position(x, y);
+                txtName.TextState.FontSize = 12;
+                txtName.TextState.Font = FontRepository.FindFont("Arial");
+                txtName.TextState.ForegroundColor = Aspose.Pdf.Color.FromRgb(System.Drawing.Color.Black);
+                TextBuilder txtBuild = new TextBuilder(pagina);
+                txtBuild.AppendText(txtName);
+            }
 
-        //Cargar un consumo
-        private void btn_consumo_Click(object sender, EventArgs e)
-        {
-            DatabaseManagement.getInstance().insertConsumo(consumo_medidor.Text, consumo_kw.Text, consumo_year.Text, consumo_month.Text);
-            MessageBox.Show("Consumo registrado");
-            updateDataGridConsumos();
-        }
-
-        //Poner los consumos en el data grid
-        public void updateDataGridConsumos()
-        {
-
-            List<Consumos> consumos = new List<Consumos>();
-            consumos = DatabaseManagement.getInstance().getConsumos();
-
-            List<Consumos> csmDTG = new List<Consumos>();
-            foreach (var consumo in consumos)
+            //Cargar un consumo
+            private void btn_consumo_Click(object sender, EventArgs e)
             {
-                Consumos consumoDTG = new Consumos();
-                consumoDTG.num_medidor = consumo.num_medidor;
-                consumoDTG.consumo = consumo.consumo;
-                consumoDTG.month = consumo.month;
-                consumoDTG.year = consumo.year;
-                csmDTG.Add(consumo);
+                //Checamos si ya existe un consumo para esos datos
+                List<Consumos> consumos = new List<Consumos>();
+                consumos = DatabaseManagement.getInstance().getConsumos();
+                foreach (var consumo in consumos) {
+                    if ((consumo.num_medidor.ToString() == consumo_medidor.Text) && (consumo.year == consumo_year.Text) && (consumo.month == consumo_month.Text)) {
+                        DialogResult dialogResult = MessageBox.Show("Este periodo ya tiene valores asignados. ¿Deseas sobreescribirlos?", "Existente", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            //do something
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            //Se regresa
+                            return;
+                        }
+                    }
 
-            }
-            ConsumosDTG_WN.DataSource = csmDTG;
-        }
+                }
 
-        public void updateDataGridReportesConsumos()
-        {
-
-            List<Consumos> consumos = new List<Consumos>();
-            consumos = DatabaseManagement.getInstance().getConsumos();
-
-            List<Consumos> csmDTG = new List<Consumos>();
-            foreach (var consumo in consumos)
-            {
-                Consumos consumoDTG = new Consumos();
-                consumoDTG.num_medidor = consumo.num_medidor;
-                consumoDTG.consumo = consumo.consumo;
-                consumoDTG.month = consumo.month;
-                consumoDTG.year = consumo.year;
-                csmDTG.Add(consumo);
-
-            }
-            dataGridView1.DataSource = csmDTG;
-        }
-
-        //Carga masiva de consumos
-        private void carga_consumos_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            string csvPath = "";
-            openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "Archivos de informacion excel (*.csv)|*.csv";
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                csvPath = openFileDialog1.FileName;
-            }
-            var result = csvPath.Substring(csvPath.Length - 3);
-            if (result != "csv")
-            {
-                MessageBox.Show("Escoge un direccion valida");
-                return;
-            }
-
-            var reader = File.OpenText(csvPath);
-            var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
-            var consumosCSV = csvReader.GetRecords<ConsumosCSV>();
-            foreach (var consumo in consumosCSV)
-            {
-                DatabaseManagement.getInstance().insertConsumo(consumo.numMedidor.ToString(), consumo.consumo.ToString(), consumo.year, consumo.month);
-            }
-            MessageBox.Show("Listo, consumos cargados...");
-            updateDataGridConsumos();
-        }
-
-        //Mostrar un recibo en la pantalla
-        private void button7_Click_1(object sender, EventArgs e)
-        {
-            List<Recibos> recibo = new List<Recibos>();
-            recibo = DatabaseManagement.getInstance().getReciboEspecifico(tb_medidor.Text, recibo_year.Text, recibo_mes.Text);
-            foreach (var reciboNode in recibo) {
-                recibo_kwBasicos.Text = reciboNode.kw_basico.ToString();
-                recibo_kwIntermedios.Text = reciboNode.kw_intermedio.ToString();
-                recibo_kwExcedentes.Text = reciboNode.kw_excedente.ToString();
-                recibos_kwTotales.Text = (reciboNode.kw_basico + reciboNode.kw_intermedio + reciboNode.kw_excedente).ToString();
-                tx_totalBasico.Text = reciboNode.pagar_basico.ToString();
-                tx_totalIntermedio.Text = reciboNode.pagar_intermedio.ToString();
-                tx_totalExcedente.Text = reciboNode.pagar_excedente.ToString();
-                tx_totalFinal.Text = reciboNode.pagar_total_iva.ToString();
-            }
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
-        //Asignar un contrato
-        private void button9_Click(object sender, EventArgs e)
-        {
-            List<Contratos> contratos = new List<Contratos>();
-            contratos = DatabaseManagement.getInstance().GetContratos();
-            foreach (var contrato in contratos) {
-                if ((contrato.num_medidor.ToString()).Equals(contrato_numMedidor.Text)) {
-                    MessageBox.Show("Ese numero de medidor ya esta en uso");
+                //Checamos si el medidor existe
+                bool existe = false;
+                List<Contratos> medidores = new List<Contratos>();
+                medidores = DatabaseManagement.getInstance().numerosMedidores();
+                foreach (var medidor in medidores) {
+                    if (medidor.num_medidor.ToString().Equals(consumo_medidor.Text)) {
+                        existe = true;
+                    }
+                }
+                if (!existe) {
+                    MessageBox.Show("Medidor invalido");
                     return;
                 }
-                if ((contrato.num_servicio.ToString()).Equals(contrato_numServicio.Text))
+
+                //Encontramos si la fecha es valida
+
+
+                //Encontramos el tipo de contrato al que esta asignado el medidor
+                string tipo_contrato = "";
+                List<Contratos> contratos = new List<Contratos>();
+                contratos = DatabaseManagement.getInstance().GetContratosMedidorTipo();
+                foreach (var contrato in contratos) {
+                    if (contrato.num_medidor.ToString().Equals(consumo_medidor.Text)) {
+                        tipo_contrato = contrato.tipo;
+                    }
+                    if ((int.Parse(contrato.creation_year) > int.Parse(consumo_year.Text)) && (int.Parse(contrato.creation_month) > int.Parse(consumo_month.Text))) {
+                        MessageBox.Show("El contrato no cubre esa fecha.");
+                        return;
+                    }
+
+                    if ((int.Parse(contrato.creation_year) == int.Parse(consumo_year.Text)) && (int.Parse(contrato.creation_month) > int.Parse(consumo_month.Text)))
+                    {
+                        MessageBox.Show("El contrato no cubre esa fecha.");
+                        return;
+                    }
+
+                }
+
+                if (tipo_contrato == "Domestico")
                 {
-                    MessageBox.Show("Ese numero de servicio ya esta en uso");
+                    List<Consumos> consumos2 = new List<Consumos>();
+                    consumos2 = DatabaseManagement.getInstance().getConsumoMeses(consumo_medidor.Text);
+                    foreach (var consumo in consumos2)
+                    {
+                        if (int.Parse(consumo.month) + 1 == int.Parse(consumo_month.Text))
+                        {
+                            MessageBox.Show("Este mes ya esta tomado en cuenta.");
+                            return;
+                        }
+                    }
+                }
+
+                DatabaseManagement.getInstance().insertConsumo(consumo_medidor.Text, consumo_kw.Text, consumo_year.Text, consumo_month.Text);
+                MessageBox.Show("Consumo registrado");
+                updateDataGridConsumos();
+            }
+
+            //Poner los consumos en el data grid
+            public void updateDataGridConsumos()
+            {
+
+                List<Consumos> consumos = new List<Consumos>();
+                consumos = DatabaseManagement.getInstance().getConsumos();
+
+                List<Consumos> csmDTG = new List<Consumos>();
+                foreach (var consumo in consumos)
+                {
+                    Consumos consumoDTG = new Consumos();
+                    consumoDTG.num_medidor = consumo.num_medidor;
+                    consumoDTG.consumo = consumo.consumo;
+                    consumoDTG.month = consumo.month;
+                    consumoDTG.year = consumo.year;
+                    csmDTG.Add(consumo);
+
+                }
+                ConsumosDTG_WN.DataSource = csmDTG;
+            }
+
+            public void updateDataGridReportesConsumos()
+            {
+
+                List<Consumos> consumos = new List<Consumos>();
+                consumos = DatabaseManagement.getInstance().getConsumos();
+
+                List<Consumos> csmDTG = new List<Consumos>();
+                foreach (var consumo in consumos)
+                {
+                    Consumos consumoDTG = new Consumos();
+                    consumoDTG.num_medidor = consumo.num_medidor;
+                    consumoDTG.consumo = consumo.consumo;
+                    consumoDTG.month = consumo.month;
+                    consumoDTG.year = consumo.year;
+                    csmDTG.Add(consumo);
+
+                }
+                dataGridView1.DataSource = csmDTG;
+            }
+
+            //Carga masiva de consumos
+            private void carga_consumos_Click(object sender, EventArgs e)
+            {
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+                string csvPath = "";
+                openFileDialog1.InitialDirectory = "c:\\";
+                openFileDialog1.Filter = "Archivos de informacion excel (*.csv)|*.csv";
+                openFileDialog1.FilterIndex = 2;
+                openFileDialog1.RestoreDirectory = true;
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    csvPath = openFileDialog1.FileName;
+                }
+                var result = csvPath.Substring(csvPath.Length - 3);
+                if (result != "csv")
+                {
+                    MessageBox.Show("Escoge un direccion valida");
                     return;
                 }
+
+                if (csvPath.Equals("")) {
+                    return;
+                }
+
+                var reader = File.OpenText(csvPath);
+                var csvReader = new CsvReader(reader, CultureInfo.CurrentCulture);
+                var consumosCSV = csvReader.GetRecords<ConsumosCSV>();
+                foreach (var consumo in consumosCSV)
+                {
+                    DatabaseManagement.getInstance().insertConsumo(consumo.numMedidor.ToString(), consumo.consumo.ToString(), consumo.year, consumo.month);
+                }
+                MessageBox.Show("Listo, consumos cargados...");
+                updateDataGridConsumos();
             }
-            DatabaseManagement.getInstance().updateContratos(contrato_numCLiente.Text, contrato_Tipo.Text, contrato_numMedidor.Text, contrato_numServicio.Text);
-            MessageBox.Show("Nuevo contrato asociado a el cliente.");
-        }
 
-        private void tabPage11_Click(object sender, EventArgs e)
-        {
+            //Mostrar un recibo en la pantalla
+            private void button7_Click_1(object sender, EventArgs e)
+            {
+                string id_cliente = "";
+                string tipo = "";
+                string no_servicio = "";
+                List<Contratos> contratos = new List<Contratos>();
+                contratos = DatabaseManagement.getInstance().GetContratosMedidorTipo();
+                foreach (var contrato in contratos)
+                {
+                    if ((contrato.num_medidor.ToString()).Equals(tb_medidor.Text))
+                    {
+                        id_cliente = contrato.id_cliente.ToString();
+                        tipo = contrato.tipo;
+                        no_servicio = contrato.num_servicio.ToString();
+                    }
+                }
 
-        }
+                if (no_servicio.Equals(""))
+                {
+                    MessageBox.Show("Ese medidor no existe en la base de datos");
+                    return;
+                }
 
-        private void TarifasFTG_WN_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
+                //Checa si el medidor tiene consumos
+                bool hayConsumos = false;
+                List<Consumos> consumosMedidor = new List<Consumos>();
+                consumosMedidor = DatabaseManagement.getInstance().getConsumos();
+                foreach (var consumos in consumosMedidor)
+                {
+                    if (consumos.num_medidor.ToString().Equals(no_servicio))
+                    {
+                        hayConsumos = true;
+                    }
+                }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //AQUI
-           
+                if (!hayConsumos)
+                {
+                    MessageBox.Show("Ese medidor no tiene consumos");
+                    return;
+                }
 
-            updateDataGridReporteTarifa();
-        }
 
-        private void ConsumosDTG_WN_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+                List<Recibos> recibo = new List<Recibos>();
+                recibo = DatabaseManagement.getInstance().getReciboEspecifico(tb_medidor.Text, recibo_year.Text, recibo_mes.Text);
+                foreach (var reciboNode in recibo) {
+                    recibo_kwBasicos.Text = reciboNode.kw_basico.ToString();
+                    recibo_kwIntermedios.Text = reciboNode.kw_intermedio.ToString();
+                    recibo_kwExcedentes.Text = reciboNode.kw_excedente.ToString();
+                    recibos_kwTotales.Text = (reciboNode.kw_basico + reciboNode.kw_intermedio + reciboNode.kw_excedente).ToString();
+                    double tBasico = Math.Round(reciboNode.pagar_basico, 4);
+                    tx_totalBasico.Text = tBasico.ToString();
+                    double tIntermedio = Math.Round(reciboNode.pagar_intermedio, 4);
+                    tx_totalIntermedio.Text = tIntermedio.ToString();
+                    double tExedente = Math.Round(reciboNode.pagar_excedente, 4);
+                    tx_totalExcedente.Text = tExedente.ToString();
+                    double total = Math.Round(reciboNode.pagar_total_iva, 4);
+                    tx_totalFinal.Text = total.ToString();
+                }
+            }
 
-        }
+            private void groupBox1_Enter(object sender, EventArgs e)
+            {
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            updateDataGridReportesConsumos();
-        }
+            }
+
+
+            //Asignar un contrato
+            private void button9_Click(object sender, EventArgs e)
+            {
+                List<Contratos> contratos = new List<Contratos>();
+                contratos = DatabaseManagement.getInstance().GetContratos();
+                foreach (var contrato in contratos) {
+                    if ((contrato.num_medidor.ToString()).Equals(contrato_numMedidor.Text)) {
+                        MessageBox.Show("Ese numero de medidor ya esta en uso");
+                        return;
+                    }
+                    if ((contrato.num_servicio.ToString()).Equals(contrato_numServicio.Text))
+                    {
+                        MessageBox.Show("Ese numero de servicio ya esta en uso");
+                        return;
+                    }
+                }
+                DatabaseManagement.getInstance().updateContratos(contrato_numCLiente.Text, contrato_Tipo.Text, contrato_numMedidor.Text, contrato_numServicio.Text);
+                MessageBox.Show("Nuevo contrato asociado a el cliente.");
+            }
+
+            private void tabPage11_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void TarifasFTG_WN_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            {
+
+            }
+
+            private void button3_Click(object sender, EventArgs e)
+            {
+                //AQUI
+
+
+                updateDataGridReporteTarifa();
+            }
+
+            private void ConsumosDTG_WN_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            {
+
+            }
+
+            private void button1_Click(object sender, EventArgs e)
+            {
+                updateDataGridReportesConsumos();
+            }
+        
     }
 }

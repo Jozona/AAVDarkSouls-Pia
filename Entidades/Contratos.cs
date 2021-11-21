@@ -17,5 +17,9 @@ namespace AAVD.Entidades
         public string ciudad { get; set; }
         public string estado { get; set; }
         public double num_cliente { get; set; }
+        public string creation_day { get; set; }
+        public string creation_month { get; set; }
+        public string creation_year { get; set; }
+
     }
 }
