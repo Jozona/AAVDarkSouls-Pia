@@ -50,6 +50,7 @@ namespace AAVD.Forms
             this.eb_tipoTarifa.DropDownStyle = ComboBoxStyle.DropDownList;
             this.edc_contrato.DropDownStyle = ComboBoxStyle.DropDownList;
             this.c_contratoTipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.c_genero.DropDownStyle = ComboBoxStyle.DropDownList;
             this.CenterToScreen();
             updateDataGrid();
             updateDataGridTarifa();
@@ -252,7 +253,31 @@ namespace AAVD.Forms
                 estabien = true;
             }
 
+            //Validacion de que no se repiten medidores
+            List<Contratos> contratos = new List<Contratos>();
+            contratos = DatabaseManagement.getInstance().GetContratos();
+            foreach (var contrato in contratos)
+            {
+                if ((contrato.num_medidor.ToString()).Equals(c_noMedidor.Text))
+                {
+                    MessageBox.Show("Ese numero de medidor ya esta en uso");
+                    return;
+                }
+                if ((contrato.num_servicio.ToString()).Equals(c_noServicio.Text))
+                {
+                    MessageBox.Show("Ese numero de servicio ya esta en uso");
+                    return;
+                }
+            }
 
+            List<Clientes> listaNumClientes = new List<Clientes>();
+            listaNumClientes = DatabaseManagement.getInstance().GetClients();
+            foreach (var cliente in listaNumClientes) {
+                if (cliente.num_cliente.ToString().Equals(c_numCliente.Text)) {
+                    MessageBox.Show("Ese numero de cliente ya esta en uso");
+                    return;
+                }
+            }
 
             if (estabien == true) {
                 //Quehacer
@@ -1060,6 +1085,10 @@ namespace AAVD.Forms
             {
                 updateDataGridReportesConsumos();
             }
-        
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

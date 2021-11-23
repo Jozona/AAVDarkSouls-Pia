@@ -150,6 +150,7 @@
     <Compile Include="Entidades\EmployeesDTG.cs" />
     <Compile Include="Entidades\Existentes.cs" />
     <Compile Include="Entidades\Recibos.cs" />
+    <Compile Include="Entidades\RecibosDTG.cs" />
     <Compile Include="Entidades\Students.cs" />
     <Compile Include="Entidades\Tarifas.cs" />
     <Compile Include="Entidades\TarifasCSV.cs" />

@@ -267,6 +267,7 @@ namespace AAVD.Base_de_datos
         //Actualizar un cliente
         public void updateClient(string nombre, string apellidoP, string apellidoM, string email, string CURP, string genero, string nacimiento, string ciudad, string calle, string colonia, string estado, string tipoContrato, string usuario, string password, string id_cliente, string num_cliente)
         {
+
             string query2 = "UPDATE CLIENTS SET USER = '" + usuario + "', PASSWORD = '" + password + "', NAME= '" + nombre + "' ,LAST_NAME = '" + apellidoP + "', MOTHER_LAST_NAME= '" + apellidoM + "', EMAIL = '" + email + "', CURP = '" + CURP + "', GENDER = '" + genero + "', DATE_OF_BIRTH = '" + nacimiento + "', CITY= '" + ciudad + "', STREET = '" + calle + "', COLONY ='" + colonia + "', STATE= '" + estado + "', CONTRACT_TYPE= '" + tipoContrato + "' WHERE CLIENT_ID= " + id_cliente + " "
                             + " IF EXISTS;";
             session.Execute(query2);
@@ -291,21 +292,25 @@ namespace AAVD.Base_de_datos
         //Funcion para borrar un cliente
         public void eraseClient(string client_id, string user, string password)
         {
-            string query = "DELETE FROM CLIENTS WHERE CLIENT_ID = " + client_id + ";";
-            session.Execute(query);
 
-            query = "DELETE FROM USERS_LOGIN WHERE USER_NAME = '" + user + "' AND PASSWORD = '" + password + "';";
-            session.Execute(query);
-
-            query = "SELECT * FROM CLIENTS_BUSCAR WHERE CLIENT_ID = " + client_id + "";
+            string query = "SELECT * FROM CLIENTS WHERE CLIENT_ID = " + client_id + "";
             session = cluster.Connect(keyspace);
             IMapper mapper = new Mapper(session);
             IEnumerable<Clientes> clientes = mapper.Fetch<Clientes>(query);
             foreach (var cliente in clientes)
             {
-                query = "DELETE FROM CLIENTS_BUSCAR WHERE USER_ID = '" + cliente.user_id + "';";
+                query = "DELETE FROM CLIENTS_BUSCAR WHERE USER_ID = " + cliente.user_id + ";";
+                session.Execute(query);
+                query = "DELETE FROM CLIENTS_BUSCAR_CURP WHERE NUM_CLIENTE = " + cliente.num_cliente + ";";
+                session.Execute(query);
             }
+            query = "DELETE FROM CLIENTS WHERE CLIENT_ID = " + client_id + ";";
             session.Execute(query);
+
+            query = "DELETE FROM USERS_LOGIN WHERE USER_NAME = '" + user + "' AND PASSWORD = '" + password + "';";
+            session.Execute(query);
+
+            
         }
 
 
@@ -499,7 +504,7 @@ namespace AAVD.Base_de_datos
         //Obtiene los recibos
         public List<Recibos> getRecibos()
         {
-            string query = "SELECT NUM_MEDIDOR, YEAR, MONTH, PAGAR_TOTAL_IVA, PAGADO FROM RECIBOS;";
+            string query = "SELECT NUM_MEDIDOR, YEAR, MONTH, PAGAR_TOTAL_IVA, PAGADO, KW_BASICO, KW_INTERMEDIO, KW_EXCEDENTE, PAGAR_BASICO, PAGAR_INTERMEDIO, PAGAR_EXCEDENTE, TIPO_DE_PAGO FROM RECIBOS;";
             session = cluster.Connect(keyspace);
             IMapper mapper = new Mapper(session);
             IEnumerable<Recibos> recibo = mapper.Fetch<Recibos>(query);

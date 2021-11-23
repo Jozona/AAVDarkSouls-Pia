@@ -23,7 +23,7 @@ namespace AAVD.Entidades
         public string curp { get; set; }
         public string email { get; set; }
         public string gender { get; set; }
-        public int measurer { get; set; }
+        public IEnumerable<double> measurers { get; set; }
         public int service_number { get; set; }
         public IEnumerable<double> contracts { get; set; }
         public string street { get; set; }

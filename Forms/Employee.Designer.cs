@@ -180,9 +180,9 @@ namespace AAVD.Forms
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.label59 = new System.Windows.Forms.Label();
             this.carga_consumos = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label51 = new System.Windows.Forms.Label();
             this.csv_tarifas = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.eb_user_recibo = new System.Windows.Forms.TextBox();
@@ -720,6 +720,9 @@ namespace AAVD.Forms
             // c_genero
             // 
             this.c_genero.FormattingEnabled = true;
+            this.c_genero.Items.AddRange(new object[] {
+            "Femenino",
+            "Masculino"});
             this.c_genero.Location = new System.Drawing.Point(555, 53);
             this.c_genero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.c_genero.Name = "c_genero";
@@ -1665,6 +1668,7 @@ namespace AAVD.Forms
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(745, 358);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // tabPage9
             // 
@@ -1852,9 +1856,9 @@ namespace AAVD.Forms
             // 
             this.tabPage10.Controls.Add(this.label59);
             this.tabPage10.Controls.Add(this.carga_consumos);
-            this.tabPage10.Controls.Add(this.pictureBox5);
             this.tabPage10.Controls.Add(this.label51);
             this.tabPage10.Controls.Add(this.csv_tarifas);
+            this.tabPage10.Controls.Add(this.pictureBox5);
             this.tabPage10.Location = new System.Drawing.Point(4, 25);
             this.tabPage10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage10.Name = "tabPage10";
@@ -1884,17 +1888,6 @@ namespace AAVD.Forms
             this.carga_consumos.UseVisualStyleBackColor = true;
             this.carga_consumos.Click += new System.EventHandler(this.carga_consumos_Click);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::AAVD.Properties.Resources.índice__3_;
-            this.pictureBox5.Location = new System.Drawing.Point(336, 410);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(265, 122);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
-            // 
             // label51
             // 
             this.label51.AutoSize = true;
@@ -1914,6 +1907,17 @@ namespace AAVD.Forms
             this.csv_tarifas.Text = "Cargar CSV";
             this.csv_tarifas.UseVisualStyleBackColor = true;
             this.csv_tarifas.Click += new System.EventHandler(this.csv_tarifas_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::AAVD.Properties.Resources.índice__3_;
+            this.pictureBox5.Location = new System.Drawing.Point(336, 410);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(265, 122);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 3;
+            this.pictureBox5.TabStop = false;
             // 
             // tabPage11
             // 

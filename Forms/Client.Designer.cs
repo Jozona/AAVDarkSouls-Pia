@@ -44,25 +44,70 @@ namespace AAVD.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Consultar_consumo = new System.Windows.Forms.TabPage();
+            this.no_servicioH = new System.Windows.Forms.ComboBox();
+            this.consumoH_fecha = new System.Windows.Forms.DateTimePicker();
+            this.num_medidorH = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.ConsumoHistoriaDtg_WN = new System.Windows.Forms.DataGridView();
+            this.NUM_SERVICIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YEAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KW_BASICA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KW_INTERMEDIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KW_EXCEDENTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGAR_TOTAL_IVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PENDIENTE_PAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.Generar_pdf_consumo = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
             this.Generar_pdf_estatus = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.Buscar_mes = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.Buscar_contrato = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.RecibosDTG_WN = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.month_reciboPDF = new System.Windows.Forms.DateTimePicker();
+            this.generar_recibo = new System.Windows.Forms.Button();
+            this.year_reciboPDF = new System.Windows.Forms.DateTimePicker();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.recibo_year = new System.Windows.Forms.DateTimePicker();
+            this.label62 = new System.Windows.Forms.Label();
+            this.recibo_mes = new System.Windows.Forms.DateTimePicker();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.tx_totalExcedente = new System.Windows.Forms.TextBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.tx_totalBasico = new System.Windows.Forms.TextBox();
+            this.label75 = new System.Windows.Forms.Label();
+            this.tx_totalIntermedio = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.tx_totalFinal = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.recibos_kwTotales = new System.Windows.Forms.TextBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.recibo_kwExcedentes = new System.Windows.Forms.TextBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.recibo_kwIntermedios = new System.Windows.Forms.TextBox();
+            this.label72 = new System.Windows.Forms.Label();
+            this.recibo_kwBasicos = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.tarjeta_ccv = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -77,21 +122,38 @@ namespace AAVD.Forms
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.pagar_medidor = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.medidores = new System.Windows.Forms.ComboBox();
+            this.RecibosDTGWN = new System.Windows.Forms.DataGridView();
+            this.NUM_MEDIDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YEAR_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTH_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KW_BASICO_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KW_INTERMEDIO_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KW_EXCEDENTE_RCB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGO_BASICO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGO_INTERMEDIO_KW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGO_EXCEDENTE_KW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medidor_pdf = new System.Windows.Forms.ComboBox();
+            this.medidor_wn = new System.Windows.Forms.ComboBox();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Consultar_consumo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ConsumoHistoriaDtg_WN)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecibosDTG_WN)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecibosDTGWN)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage5
@@ -102,7 +164,7 @@ namespace AAVD.Forms
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Size = new System.Drawing.Size(937, 499);
+            this.tabPage5.Size = new System.Drawing.Size(922, 568);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Informacion";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -114,6 +176,7 @@ namespace AAVD.Forms
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(225, 97);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -243,27 +306,191 @@ namespace AAVD.Forms
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(945, 528);
+            this.tabControl1.Size = new System.Drawing.Size(930, 597);
             this.tabControl1.TabIndex = 0;
             // 
             // Consultar_consumo
             // 
+            this.Consultar_consumo.Controls.Add(this.no_servicioH);
+            this.Consultar_consumo.Controls.Add(this.consumoH_fecha);
+            this.Consultar_consumo.Controls.Add(this.num_medidorH);
+            this.Consultar_consumo.Controls.Add(this.label20);
+            this.Consultar_consumo.Controls.Add(this.label19);
+            this.Consultar_consumo.Controls.Add(this.label18);
+            this.Consultar_consumo.Controls.Add(this.ConsumoHistoriaDtg_WN);
             this.Consultar_consumo.Controls.Add(this.label6);
             this.Consultar_consumo.Controls.Add(this.Generar_pdf_consumo);
-            this.Consultar_consumo.Controls.Add(this.tableLayoutPanel1);
             this.Consultar_consumo.Location = new System.Drawing.Point(4, 25);
             this.Consultar_consumo.Margin = new System.Windows.Forms.Padding(4);
             this.Consultar_consumo.Name = "Consultar_consumo";
             this.Consultar_consumo.Padding = new System.Windows.Forms.Padding(4);
-            this.Consultar_consumo.Size = new System.Drawing.Size(937, 499);
+            this.Consultar_consumo.Size = new System.Drawing.Size(922, 568);
             this.Consultar_consumo.TabIndex = 5;
             this.Consultar_consumo.Text = "Consultar consumo";
             this.Consultar_consumo.UseVisualStyleBackColor = true;
+            this.Consultar_consumo.Click += new System.EventHandler(this.Consultar_consumo_Click);
+            // 
+            // no_servicioH
+            // 
+            this.no_servicioH.FormattingEnabled = true;
+            this.no_servicioH.Location = new System.Drawing.Point(748, 51);
+            this.no_servicioH.Name = "no_servicioH";
+            this.no_servicioH.Size = new System.Drawing.Size(88, 24);
+            this.no_servicioH.TabIndex = 9;
+            this.no_servicioH.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            // 
+            // consumoH_fecha
+            // 
+            this.consumoH_fecha.Location = new System.Drawing.Point(180, 51);
+            this.consumoH_fecha.Name = "consumoH_fecha";
+            this.consumoH_fecha.Size = new System.Drawing.Size(88, 22);
+            this.consumoH_fecha.TabIndex = 8;
+            this.consumoH_fecha.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // num_medidorH
+            // 
+            this.num_medidorH.FormattingEnabled = true;
+            this.num_medidorH.Location = new System.Drawing.Point(466, 51);
+            this.num_medidorH.Name = "num_medidorH";
+            this.num_medidorH.Size = new System.Drawing.Size(88, 24);
+            this.num_medidorH.TabIndex = 7;
+            this.num_medidorH.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(599, 51);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(130, 17);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "Numero de servicio";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(318, 51);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(133, 17);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Numero de medidor";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(105, 51);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(33, 17);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Año";
+            // 
+            // ConsumoHistoriaDtg_WN
+            // 
+            this.ConsumoHistoriaDtg_WN.AllowUserToAddRows = false;
+            this.ConsumoHistoriaDtg_WN.AllowUserToDeleteRows = false;
+            this.ConsumoHistoriaDtg_WN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ConsumoHistoriaDtg_WN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NUM_SERVICIO,
+            this.YEAR,
+            this.MONTH,
+            this.KW_BASICA,
+            this.KW_INTERMEDIO,
+            this.KW_EXCEDENTE,
+            this.IMPORTE,
+            this.PAGAR_TOTAL_IVA,
+            this.PENDIENTE_PAGO});
+            this.ConsumoHistoriaDtg_WN.Location = new System.Drawing.Point(22, 99);
+            this.ConsumoHistoriaDtg_WN.Name = "ConsumoHistoriaDtg_WN";
+            this.ConsumoHistoriaDtg_WN.ReadOnly = true;
+            this.ConsumoHistoriaDtg_WN.RowHeadersWidth = 51;
+            this.ConsumoHistoriaDtg_WN.RowTemplate.Height = 24;
+            this.ConsumoHistoriaDtg_WN.Size = new System.Drawing.Size(888, 313);
+            this.ConsumoHistoriaDtg_WN.TabIndex = 3;
+            // 
+            // NUM_SERVICIO
+            // 
+            this.NUM_SERVICIO.DataPropertyName = "NUM_SERVICIO";
+            this.NUM_SERVICIO.HeaderText = "Numero de servicio";
+            this.NUM_SERVICIO.MinimumWidth = 6;
+            this.NUM_SERVICIO.Name = "NUM_SERVICIO";
+            this.NUM_SERVICIO.ReadOnly = true;
+            this.NUM_SERVICIO.Width = 125;
+            // 
+            // YEAR
+            // 
+            this.YEAR.DataPropertyName = "YEAR";
+            this.YEAR.HeaderText = "Año";
+            this.YEAR.MinimumWidth = 6;
+            this.YEAR.Name = "YEAR";
+            this.YEAR.ReadOnly = true;
+            this.YEAR.Width = 125;
+            // 
+            // MONTH
+            // 
+            this.MONTH.DataPropertyName = "MONTH";
+            this.MONTH.HeaderText = "Mes";
+            this.MONTH.MinimumWidth = 6;
+            this.MONTH.Name = "MONTH";
+            this.MONTH.ReadOnly = true;
+            this.MONTH.Width = 125;
+            // 
+            // KW_BASICA
+            // 
+            this.KW_BASICA.DataPropertyName = "KW_BASICO";
+            this.KW_BASICA.HeaderText = "Consumo basico";
+            this.KW_BASICA.MinimumWidth = 6;
+            this.KW_BASICA.Name = "KW_BASICA";
+            this.KW_BASICA.ReadOnly = true;
+            this.KW_BASICA.Width = 125;
+            // 
+            // KW_INTERMEDIO
+            // 
+            this.KW_INTERMEDIO.DataPropertyName = "KW_INTERMEDIO";
+            this.KW_INTERMEDIO.HeaderText = "Consumo intermedio";
+            this.KW_INTERMEDIO.MinimumWidth = 6;
+            this.KW_INTERMEDIO.Name = "KW_INTERMEDIO";
+            this.KW_INTERMEDIO.ReadOnly = true;
+            this.KW_INTERMEDIO.Width = 125;
+            // 
+            // KW_EXCEDENTE
+            // 
+            this.KW_EXCEDENTE.DataPropertyName = "KW_EXCEDENTE";
+            this.KW_EXCEDENTE.HeaderText = "Consumo excedente";
+            this.KW_EXCEDENTE.MinimumWidth = 6;
+            this.KW_EXCEDENTE.Name = "KW_EXCEDENTE";
+            this.KW_EXCEDENTE.ReadOnly = true;
+            this.KW_EXCEDENTE.Width = 125;
+            // 
+            // IMPORTE
+            // 
+            this.IMPORTE.DataPropertyName = "IMPORTE";
+            this.IMPORTE.HeaderText = "Importe";
+            this.IMPORTE.MinimumWidth = 6;
+            this.IMPORTE.Name = "IMPORTE";
+            this.IMPORTE.ReadOnly = true;
+            this.IMPORTE.Width = 125;
+            // 
+            // PAGAR_TOTAL_IVA
+            // 
+            this.PAGAR_TOTAL_IVA.DataPropertyName = "PAGAR_TOTAL_IVA";
+            this.PAGAR_TOTAL_IVA.HeaderText = "Pago";
+            this.PAGAR_TOTAL_IVA.MinimumWidth = 6;
+            this.PAGAR_TOTAL_IVA.Name = "PAGAR_TOTAL_IVA";
+            this.PAGAR_TOTAL_IVA.ReadOnly = true;
+            this.PAGAR_TOTAL_IVA.Width = 125;
+            // 
+            // PENDIENTE_PAGO
+            // 
+            this.PENDIENTE_PAGO.DataPropertyName = "PENDIENTE_PAGO";
+            this.PENDIENTE_PAGO.HeaderText = "Pendiente de pago";
+            this.PENDIENTE_PAGO.MinimumWidth = 6;
+            this.PENDIENTE_PAGO.Name = "PENDIENTE_PAGO";
+            this.PENDIENTE_PAGO.ReadOnly = true;
+            this.PENDIENTE_PAGO.Width = 125;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(76, 36);
+            this.label6.Location = new System.Drawing.Point(396, 20);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(186, 17);
@@ -280,54 +507,6 @@ namespace AAVD.Forms
             this.Generar_pdf_consumo.Text = "Generar PDF";
             this.Generar_pdf_consumo.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 26;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(80, 89);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 12;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(724, 306);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.label7);
@@ -337,7 +516,7 @@ namespace AAVD.Forms
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(937, 499);
+            this.tabPage1.Size = new System.Drawing.Size(922, 568);
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "Estatus de los recibos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -412,69 +591,27 @@ namespace AAVD.Forms
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.Buscar_mes);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Controls.Add(this.RecibosDTGWN);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(937, 499);
+            this.tabPage2.Size = new System.Drawing.Size(922, 568);
             this.tabPage2.TabIndex = 7;
             this.tabPage2.Text = "Consultar recibo";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // Buscar_mes
-            // 
-            this.Buscar_mes.Location = new System.Drawing.Point(633, 31);
-            this.Buscar_mes.Margin = new System.Windows.Forms.Padding(4);
-            this.Buscar_mes.Name = "Buscar_mes";
-            this.Buscar_mes.Size = new System.Drawing.Size(147, 23);
-            this.Buscar_mes.TabIndex = 3;
-            this.Buscar_mes.Text = "Buscar";
-            this.Buscar_mes.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(319, 30);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(189, 24);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(113, 30);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(170, 17);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Consultar recibo por mes:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(109, 89);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(700, 352);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.Buscar_contrato);
             this.tabPage3.Controls.Add(this.comboBox2);
             this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.RecibosDTG_WN);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(937, 499);
+            this.tabPage3.Size = new System.Drawing.Size(922, 568);
             this.tabPage3.TabIndex = 8;
             this.tabPage3.Text = "Ver contratos";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -508,28 +645,366 @@ namespace AAVD.Forms
             this.label9.TabIndex = 1;
             this.label9.Text = "Tipo de contrato:";
             // 
-            // dataGridView1
+            // RecibosDTG_WN
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 58);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(797, 345);
-            this.dataGridView1.TabIndex = 0;
+            this.RecibosDTG_WN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecibosDTG_WN.Location = new System.Drawing.Point(31, 58);
+            this.RecibosDTG_WN.Margin = new System.Windows.Forms.Padding(4);
+            this.RecibosDTG_WN.Name = "RecibosDTG_WN";
+            this.RecibosDTG_WN.RowHeadersWidth = 51;
+            this.RecibosDTG_WN.Size = new System.Drawing.Size(863, 466);
+            this.RecibosDTG_WN.TabIndex = 0;
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox14);
+            this.tabPage4.Controls.Add(this.groupBox13);
+            this.tabPage4.Controls.Add(this.groupBox12);
+            this.tabPage4.Controls.Add(this.button7);
+            this.tabPage4.Controls.Add(this.label63);
+            this.tabPage4.Controls.Add(this.label52);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(937, 499);
+            this.tabPage4.Size = new System.Drawing.Size(922, 568);
             this.tabPage4.TabIndex = 9;
             this.tabPage4.Text = "Generar recibos";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.medidor_pdf);
+            this.groupBox14.Controls.Add(this.month_reciboPDF);
+            this.groupBox14.Controls.Add(this.generar_recibo);
+            this.groupBox14.Controls.Add(this.year_reciboPDF);
+            this.groupBox14.Controls.Add(this.label53);
+            this.groupBox14.Controls.Add(this.label78);
+            this.groupBox14.Controls.Add(this.label77);
+            this.groupBox14.Location = new System.Drawing.Point(133, 423);
+            this.groupBox14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox14.Size = new System.Drawing.Size(692, 124);
+            this.groupBox14.TabIndex = 41;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Generar recibo en PDF";
+            // 
+            // month_reciboPDF
+            // 
+            this.month_reciboPDF.Location = new System.Drawing.Point(557, 34);
+            this.month_reciboPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.month_reciboPDF.Name = "month_reciboPDF";
+            this.month_reciboPDF.Size = new System.Drawing.Size(80, 22);
+            this.month_reciboPDF.TabIndex = 34;
+            // 
+            // generar_recibo
+            // 
+            this.generar_recibo.Location = new System.Drawing.Point(315, 85);
+            this.generar_recibo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.generar_recibo.Name = "generar_recibo";
+            this.generar_recibo.Size = new System.Drawing.Size(75, 23);
+            this.generar_recibo.TabIndex = 0;
+            this.generar_recibo.Text = "Generar";
+            this.generar_recibo.UseVisualStyleBackColor = true;
+            this.generar_recibo.Click += new System.EventHandler(this.generar_recibo_Click);
+            // 
+            // year_reciboPDF
+            // 
+            this.year_reciboPDF.Location = new System.Drawing.Point(372, 34);
+            this.year_reciboPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.year_reciboPDF.Name = "year_reciboPDF";
+            this.year_reciboPDF.Size = new System.Drawing.Size(81, 22);
+            this.year_reciboPDF.TabIndex = 33;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(35, 34);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(134, 17);
+            this.label53.TabIndex = 3;
+            this.label53.Text = "Numero de servicio:";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(499, 34);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(38, 17);
+            this.label78.TabIndex = 32;
+            this.label78.Text = "Mes:";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(317, 34);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(37, 17);
+            this.label77.TabIndex = 31;
+            this.label77.Text = "Año:";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.medidor_wn);
+            this.groupBox13.Controls.Add(this.label60);
+            this.groupBox13.Controls.Add(this.label61);
+            this.groupBox13.Controls.Add(this.recibo_year);
+            this.groupBox13.Controls.Add(this.label62);
+            this.groupBox13.Controls.Add(this.recibo_mes);
+            this.groupBox13.Location = new System.Drawing.Point(124, 49);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox13.Size = new System.Drawing.Size(701, 82);
+            this.groupBox13.TabIndex = 40;
+            this.groupBox13.TabStop = false;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(5, 26);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(134, 17);
+            this.label60.TabIndex = 5;
+            this.label60.Text = "Numero de servicio:";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(304, 30);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(37, 17);
+            this.label61.TabIndex = 7;
+            this.label61.Text = "Año:";
+            // 
+            // recibo_year
+            // 
+            this.recibo_year.Location = new System.Drawing.Point(347, 25);
+            this.recibo_year.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.recibo_year.Name = "recibo_year";
+            this.recibo_year.Size = new System.Drawing.Size(107, 22);
+            this.recibo_year.TabIndex = 8;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(501, 26);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(38, 17);
+            this.label62.TabIndex = 10;
+            this.label62.Text = "Mes:";
+            // 
+            // recibo_mes
+            // 
+            this.recibo_mes.Location = new System.Drawing.Point(559, 25);
+            this.recibo_mes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.recibo_mes.Name = "recibo_mes";
+            this.recibo_mes.Size = new System.Drawing.Size(107, 22);
+            this.recibo_mes.TabIndex = 9;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.tx_totalExcedente);
+            this.groupBox12.Controls.Add(this.label76);
+            this.groupBox12.Controls.Add(this.tx_totalBasico);
+            this.groupBox12.Controls.Add(this.label75);
+            this.groupBox12.Controls.Add(this.tx_totalIntermedio);
+            this.groupBox12.Controls.Add(this.label74);
+            this.groupBox12.Controls.Add(this.tx_totalFinal);
+            this.groupBox12.Controls.Add(this.label73);
+            this.groupBox12.Controls.Add(this.label69);
+            this.groupBox12.Controls.Add(this.recibos_kwTotales);
+            this.groupBox12.Controls.Add(this.label70);
+            this.groupBox12.Controls.Add(this.recibo_kwExcedentes);
+            this.groupBox12.Controls.Add(this.label71);
+            this.groupBox12.Controls.Add(this.recibo_kwIntermedios);
+            this.groupBox12.Controls.Add(this.label72);
+            this.groupBox12.Controls.Add(this.recibo_kwBasicos);
+            this.groupBox12.Location = new System.Drawing.Point(124, 188);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox12.Size = new System.Drawing.Size(701, 214);
+            this.groupBox12.TabIndex = 39;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Recibo";
+            // 
+            // tx_totalExcedente
+            // 
+            this.tx_totalExcedente.Location = new System.Drawing.Point(389, 150);
+            this.tx_totalExcedente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tx_totalExcedente.Name = "tx_totalExcedente";
+            this.tx_totalExcedente.ReadOnly = true;
+            this.tx_totalExcedente.Size = new System.Drawing.Size(100, 22);
+            this.tx_totalExcedente.TabIndex = 15;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(535, 49);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(77, 17);
+            this.label76.TabIndex = 28;
+            this.label76.Text = "Kw Totales";
+            // 
+            // tx_totalBasico
+            // 
+            this.tx_totalBasico.Location = new System.Drawing.Point(81, 150);
+            this.tx_totalBasico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tx_totalBasico.Name = "tx_totalBasico";
+            this.tx_totalBasico.ReadOnly = true;
+            this.tx_totalBasico.Size = new System.Drawing.Size(100, 22);
+            this.tx_totalBasico.TabIndex = 13;
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(387, 49);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(103, 17);
+            this.label75.TabIndex = 27;
+            this.label75.Text = "Kw Excedentes";
+            // 
+            // tx_totalIntermedio
+            // 
+            this.tx_totalIntermedio.Location = new System.Drawing.Point(241, 150);
+            this.tx_totalIntermedio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tx_totalIntermedio.Name = "tx_totalIntermedio";
+            this.tx_totalIntermedio.ReadOnly = true;
+            this.tx_totalIntermedio.Size = new System.Drawing.Size(100, 22);
+            this.tx_totalIntermedio.TabIndex = 14;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(237, 49);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(103, 17);
+            this.label74.TabIndex = 26;
+            this.label74.Text = "Kw Intermedios";
+            // 
+            // tx_totalFinal
+            // 
+            this.tx_totalFinal.Location = new System.Drawing.Point(525, 150);
+            this.tx_totalFinal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tx_totalFinal.Name = "tx_totalFinal";
+            this.tx_totalFinal.ReadOnly = true;
+            this.tx_totalFinal.Size = new System.Drawing.Size(100, 22);
+            this.tx_totalFinal.TabIndex = 16;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(93, 49);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(79, 17);
+            this.label73.TabIndex = 25;
+            this.label73.Text = "Kw Basicos";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(108, 114);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(50, 17);
+            this.label69.TabIndex = 17;
+            this.label69.Text = "Basico";
+            // 
+            // recibos_kwTotales
+            // 
+            this.recibos_kwTotales.Location = new System.Drawing.Point(525, 80);
+            this.recibos_kwTotales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.recibos_kwTotales.Name = "recibos_kwTotales";
+            this.recibos_kwTotales.ReadOnly = true;
+            this.recibos_kwTotales.Size = new System.Drawing.Size(100, 22);
+            this.recibos_kwTotales.TabIndex = 24;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(253, 114);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(74, 17);
+            this.label70.TabIndex = 18;
+            this.label70.Text = "Intermedio";
+            // 
+            // recibo_kwExcedentes
+            // 
+            this.recibo_kwExcedentes.Location = new System.Drawing.Point(389, 80);
+            this.recibo_kwExcedentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.recibo_kwExcedentes.Name = "recibo_kwExcedentes";
+            this.recibo_kwExcedentes.ReadOnly = true;
+            this.recibo_kwExcedentes.Size = new System.Drawing.Size(100, 22);
+            this.recibo_kwExcedentes.TabIndex = 23;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(403, 114);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(74, 17);
+            this.label71.TabIndex = 19;
+            this.label71.Text = "Excedente";
+            // 
+            // recibo_kwIntermedios
+            // 
+            this.recibo_kwIntermedios.Location = new System.Drawing.Point(241, 80);
+            this.recibo_kwIntermedios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.recibo_kwIntermedios.Name = "recibo_kwIntermedios";
+            this.recibo_kwIntermedios.ReadOnly = true;
+            this.recibo_kwIntermedios.Size = new System.Drawing.Size(100, 22);
+            this.recibo_kwIntermedios.TabIndex = 22;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(556, 114);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(40, 17);
+            this.label72.TabIndex = 20;
+            this.label72.Text = "Total";
+            // 
+            // recibo_kwBasicos
+            // 
+            this.recibo_kwBasicos.Location = new System.Drawing.Point(81, 80);
+            this.recibo_kwBasicos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.recibo_kwBasicos.Name = "recibo_kwBasicos";
+            this.recibo_kwBasicos.ReadOnly = true;
+            this.recibo_kwBasicos.Size = new System.Drawing.Size(100, 22);
+            this.recibo_kwBasicos.TabIndex = 21;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(446, 146);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 27);
+            this.button7.TabIndex = 38;
+            this.button7.Text = "Mostrar";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(448, 12);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(73, 17);
+            this.label63.TabIndex = 37;
+            this.label63.Text = "Ver recibo";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(404, 447);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(155, 17);
+            this.label52.TabIndex = 36;
+            this.label52.Text = "Generar recibo en PDF";
+            // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.medidores);
             this.tabPage6.Controls.Add(this.label17);
             this.tabPage6.Controls.Add(this.label16);
             this.tabPage6.Controls.Add(this.tarjeta_ccv);
@@ -545,15 +1020,24 @@ namespace AAVD.Forms
             this.tabPage6.Controls.Add(this.label13);
             this.tabPage6.Controls.Add(this.label12);
             this.tabPage6.Controls.Add(this.label11);
-            this.tabPage6.Controls.Add(this.pagar_medidor);
             this.tabPage6.Controls.Add(this.label10);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(937, 499);
+            this.tabPage6.Size = new System.Drawing.Size(922, 568);
             this.tabPage6.TabIndex = 10;
             this.tabPage6.Text = "Pagar recibo";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(453, 252);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(103, 17);
+            this.label17.TabIndex = 19;
+            this.label17.Text = "Sesion iniciada";
+            this.label17.Visible = false;
             // 
             // label16
             // 
@@ -686,37 +1170,158 @@ namespace AAVD.Forms
             this.label11.TabIndex = 2;
             this.label11.Text = "Año";
             // 
-            // pagar_medidor
-            // 
-            this.pagar_medidor.Location = new System.Drawing.Point(250, 93);
-            this.pagar_medidor.Name = "pagar_medidor";
-            this.pagar_medidor.Size = new System.Drawing.Size(100, 22);
-            this.pagar_medidor.TabIndex = 1;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(236, 61);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(133, 17);
+            this.label10.Size = new System.Drawing.Size(130, 17);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Numero de medidor";
+            this.label10.Text = "Numero de servicio";
             // 
-            // label17
+            // medidores
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(453, 252);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(103, 17);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "Sesion iniciada";
-            this.label17.Visible = false;
+            this.medidores.FormattingEnabled = true;
+            this.medidores.Location = new System.Drawing.Point(258, 95);
+            this.medidores.Name = "medidores";
+            this.medidores.Size = new System.Drawing.Size(100, 24);
+            this.medidores.TabIndex = 20;
+            // 
+            // RecibosDTGWN
+            // 
+            this.RecibosDTGWN.AllowUserToAddRows = false;
+            this.RecibosDTGWN.AllowUserToDeleteRows = false;
+            this.RecibosDTGWN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecibosDTGWN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NUM_MEDIDOR,
+            this.YEAR_RCB,
+            this.MONTH_RCB,
+            this.KW_BASICO_RCB,
+            this.KW_INTERMEDIO_RCB,
+            this.KW_EXCEDENTE_RCB,
+            this.PAGO_BASICO,
+            this.PAGO_INTERMEDIO_KW,
+            this.PAGO_EXCEDENTE_KW,
+            this.PAGADO});
+            this.RecibosDTGWN.Location = new System.Drawing.Point(9, 23);
+            this.RecibosDTGWN.Margin = new System.Windows.Forms.Padding(4);
+            this.RecibosDTGWN.Name = "RecibosDTGWN";
+            this.RecibosDTGWN.ReadOnly = true;
+            this.RecibosDTGWN.RowHeadersWidth = 51;
+            this.RecibosDTGWN.Size = new System.Drawing.Size(905, 537);
+            this.RecibosDTGWN.TabIndex = 4;
+            // 
+            // NUM_MEDIDOR
+            // 
+            this.NUM_MEDIDOR.DataPropertyName = "NUM_MEDIDOR";
+            this.NUM_MEDIDOR.HeaderText = "Numero de medidor";
+            this.NUM_MEDIDOR.MinimumWidth = 6;
+            this.NUM_MEDIDOR.Name = "NUM_MEDIDOR";
+            this.NUM_MEDIDOR.ReadOnly = true;
+            this.NUM_MEDIDOR.Width = 125;
+            // 
+            // YEAR_RCB
+            // 
+            this.YEAR_RCB.DataPropertyName = "YEAR";
+            this.YEAR_RCB.HeaderText = "Año";
+            this.YEAR_RCB.MinimumWidth = 6;
+            this.YEAR_RCB.Name = "YEAR_RCB";
+            this.YEAR_RCB.ReadOnly = true;
+            this.YEAR_RCB.Width = 125;
+            // 
+            // MONTH_RCB
+            // 
+            this.MONTH_RCB.DataPropertyName = "MONTH";
+            this.MONTH_RCB.HeaderText = "Mes";
+            this.MONTH_RCB.MinimumWidth = 6;
+            this.MONTH_RCB.Name = "MONTH_RCB";
+            this.MONTH_RCB.ReadOnly = true;
+            this.MONTH_RCB.Width = 125;
+            // 
+            // KW_BASICO_RCB
+            // 
+            this.KW_BASICO_RCB.DataPropertyName = "KW_BASICO";
+            this.KW_BASICO_RCB.HeaderText = "Consumo basico";
+            this.KW_BASICO_RCB.MinimumWidth = 6;
+            this.KW_BASICO_RCB.Name = "KW_BASICO_RCB";
+            this.KW_BASICO_RCB.ReadOnly = true;
+            this.KW_BASICO_RCB.Width = 125;
+            // 
+            // KW_INTERMEDIO_RCB
+            // 
+            this.KW_INTERMEDIO_RCB.DataPropertyName = "KW_INTERMEDIO";
+            this.KW_INTERMEDIO_RCB.HeaderText = "Consumo intermedio";
+            this.KW_INTERMEDIO_RCB.MinimumWidth = 6;
+            this.KW_INTERMEDIO_RCB.Name = "KW_INTERMEDIO_RCB";
+            this.KW_INTERMEDIO_RCB.ReadOnly = true;
+            this.KW_INTERMEDIO_RCB.Width = 125;
+            // 
+            // KW_EXCEDENTE_RCB
+            // 
+            this.KW_EXCEDENTE_RCB.DataPropertyName = "KW_EXCEDENTE";
+            this.KW_EXCEDENTE_RCB.HeaderText = "Consumo excedente";
+            this.KW_EXCEDENTE_RCB.MinimumWidth = 6;
+            this.KW_EXCEDENTE_RCB.Name = "KW_EXCEDENTE_RCB";
+            this.KW_EXCEDENTE_RCB.ReadOnly = true;
+            this.KW_EXCEDENTE_RCB.Width = 125;
+            // 
+            // PAGO_BASICO
+            // 
+            this.PAGO_BASICO.DataPropertyName = "PAGAR_BASICO";
+            this.PAGO_BASICO.HeaderText = "Pago basico";
+            this.PAGO_BASICO.MinimumWidth = 6;
+            this.PAGO_BASICO.Name = "PAGO_BASICO";
+            this.PAGO_BASICO.ReadOnly = true;
+            this.PAGO_BASICO.Width = 125;
+            // 
+            // PAGO_INTERMEDIO_KW
+            // 
+            this.PAGO_INTERMEDIO_KW.DataPropertyName = "PAGAR_INTERMEDIO";
+            this.PAGO_INTERMEDIO_KW.HeaderText = "Pago intermedio";
+            this.PAGO_INTERMEDIO_KW.MinimumWidth = 6;
+            this.PAGO_INTERMEDIO_KW.Name = "PAGO_INTERMEDIO_KW";
+            this.PAGO_INTERMEDIO_KW.ReadOnly = true;
+            this.PAGO_INTERMEDIO_KW.Width = 125;
+            // 
+            // PAGO_EXCEDENTE_KW
+            // 
+            this.PAGO_EXCEDENTE_KW.DataPropertyName = "PAGAR_EXCEDENTE";
+            this.PAGO_EXCEDENTE_KW.HeaderText = "Pago excedente";
+            this.PAGO_EXCEDENTE_KW.MinimumWidth = 6;
+            this.PAGO_EXCEDENTE_KW.Name = "PAGO_EXCEDENTE_KW";
+            this.PAGO_EXCEDENTE_KW.ReadOnly = true;
+            this.PAGO_EXCEDENTE_KW.Width = 125;
+            // 
+            // PAGADO
+            // 
+            this.PAGADO.DataPropertyName = "PAGADO";
+            this.PAGADO.HeaderText = "Estatus de pago";
+            this.PAGADO.MinimumWidth = 6;
+            this.PAGADO.Name = "PAGADO";
+            this.PAGADO.ReadOnly = true;
+            this.PAGADO.Width = 125;
+            // 
+            // medidor_pdf
+            // 
+            this.medidor_pdf.FormattingEnabled = true;
+            this.medidor_pdf.Location = new System.Drawing.Point(184, 34);
+            this.medidor_pdf.Name = "medidor_pdf";
+            this.medidor_pdf.Size = new System.Drawing.Size(103, 24);
+            this.medidor_pdf.TabIndex = 35;
+            // 
+            // medidor_wn
+            // 
+            this.medidor_wn.FormattingEnabled = true;
+            this.medidor_wn.Location = new System.Drawing.Point(161, 26);
+            this.medidor_wn.Name = "medidor_wn";
+            this.medidor_wn.Size = new System.Drawing.Size(100, 24);
+            this.medidor_wn.TabIndex = 11;
             // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 530);
+            this.ClientSize = new System.Drawing.Size(943, 610);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Client";
@@ -729,17 +1334,25 @@ namespace AAVD.Forms
             this.tabControl1.ResumeLayout(false);
             this.Consultar_consumo.ResumeLayout(false);
             this.Consultar_consumo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ConsumoHistoriaDtg_WN)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecibosDTG_WN)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecibosDTGWN)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -762,22 +1375,17 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button Generar_pdf_consumo;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button Generar_pdf_estatus;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button Buscar_mes;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button Buscar_contrato;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView RecibosDTG_WN;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -788,7 +1396,6 @@ namespace AAVD.Forms
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox pagar_medidor;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox tarjeta_ccv;
@@ -797,5 +1404,68 @@ namespace AAVD.Forms
         private System.Windows.Forms.DateTimePicker pagar_mes;
         private System.Windows.Forms.DateTimePicker pagar_year;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox no_servicioH;
+        private System.Windows.Forms.DateTimePicker consumoH_fecha;
+        private System.Windows.Forms.ComboBox num_medidorH;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridView ConsumoHistoriaDtg_WN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NUM_SERVICIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YEAR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MONTH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KW_BASICA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KW_INTERMEDIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KW_EXCEDENTE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PAGAR_TOTAL_IVA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PENDIENTE_PAGO;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.DateTimePicker month_reciboPDF;
+        private System.Windows.Forms.Button generar_recibo;
+        private System.Windows.Forms.DateTimePicker year_reciboPDF;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.DateTimePicker recibo_year;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.DateTimePicker recibo_mes;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.TextBox tx_totalExcedente;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.TextBox tx_totalBasico;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.TextBox tx_totalIntermedio;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.TextBox tx_totalFinal;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.TextBox recibos_kwTotales;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.TextBox recibo_kwExcedentes;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.TextBox recibo_kwIntermedios;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.TextBox recibo_kwBasicos;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ComboBox medidores;
+        private System.Windows.Forms.DataGridView RecibosDTGWN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NUM_MEDIDOR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YEAR_RCB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MONTH_RCB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KW_BASICO_RCB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KW_INTERMEDIO_RCB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KW_EXCEDENTE_RCB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PAGO_BASICO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PAGO_INTERMEDIO_KW;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PAGO_EXCEDENTE_KW;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PAGADO;
+        private System.Windows.Forms.ComboBox medidor_pdf;
+        private System.Windows.Forms.ComboBox medidor_wn;
     }
 }
